@@ -129,6 +129,17 @@ input.num.sm{width:64px}
 input.nospin{-moz-appearance:textfield;appearance:textfield}
 input.nospin::-webkit-inner-spin-button,input.nospin::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 input.txt{width:100%}
+.medal{width:26px;height:26px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 35%,#f3d98b,var(--brass) 70%);box-shadow:inset 0 0 0 2px rgba(0,0,0,.15)}
+.achbar{display:flex;gap:12px;align-items:center;border:2px solid var(--brass);background:var(--warn-bg);border-radius:8px;padding:10px 14px;margin:0 0 12px}.achbar>div{flex:1}
+.achlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;max-height:60vh;overflow:auto}
+.ach{display:flex;gap:10px;padding:8px;border:1px solid var(--line);border-radius:6px;opacity:.55}.ach .medal{filter:grayscale(1)}.ach.got,.ach.life{opacity:1}.ach.got .medal{filter:none}.ach.got{border-color:var(--brass)}
+.line.gov{background:repeating-linear-gradient(45deg,var(--brass),var(--brass) 4px,var(--surface2) 4px,var(--surface2) 8px)!important}.govsw{background:repeating-linear-gradient(45deg,var(--brass),var(--brass) 3px,var(--surface2) 3px,var(--surface2) 6px)}.govbox{margin-top:12px;padding:10px 12px;border:1px dashed var(--brass);border-radius:6px}.govbox h3{margin:0 0 4px}
+.tochoice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0}.tochoice>div{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--surface2)}@media (max-width:640px){.tochoice{grid-template-columns:1fr}}
+.checklist{list-style:none;padding:0;margin:6px 0 10px;font-size:13px;line-height:1.7}
+.regexp-in .grid2{grid-template-columns:minmax(0,1fr)}.regexp-in .grid2>*{min-width:0}.regexp-in .row{flex-wrap:wrap}
+@media (min-width:861px){.regexp-in .grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.officebox{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.dstep{gap:6px;margin-bottom:6px}.dstep .btn{min-width:40px;min-height:36px;font-size:18px}
 .warn-t{color:var(--warn)}
 .lastrace{border:2px solid var(--accent);border-radius:8px;padding:10px 14px;margin:6px 0 12px;background:var(--accent-soft)}.lastrace h3{margin:0}.lr-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:6px 0;border-top:1px solid var(--line)}
 .shiptbl th,.shiptbl td{padding-left:6px;padding-right:6px}.shiptbl td.tl .small{white-space:nowrap}
@@ -217,6 +228,33 @@ select.sel{width:100%;max-width:100%}
   .topbar{padding-block:8px 4px}
   .topstats{gap:12px}
   .stat{min-width:72px}
+  .dbar{position:fixed;left:0;right:0;bottom:calc(67px + env(safe-area-inset-bottom,0px));z-index:19;background:var(--surface);border-top:2px solid var(--accent);padding:6px 10px 5px;box-shadow:0 -4px 12px rgba(0,0,0,.08);cursor:pointer}
+  .dbar.flash{animation:dbflash .6s}
+  @keyframes dbflash{from{background:var(--accent-soft)}to{background:var(--surface)}}
+  .dbar-row{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+  .dbar-row.sm{grid-template-columns:repeat(6,1fr);margin-top:3px;padding-top:3px;border-top:1px solid var(--line)}
+  .dbar-row>div{display:flex;flex-direction:column;align-items:center;line-height:1.1;min-width:0}
+  .dbar-row span{font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .dbar-row b{font-family:var(--mono);font-size:15px;font-weight:600}
+  .dbar-row.sm b{font-size:13px}
+  .dbar-row i{font-style:normal;font-family:var(--mono);font-size:10.5px;font-weight:600}
+  .has-dbar .wrap{padding-bottom:190px}
+  .xtbl thead{display:none}.xtbl,.xtbl tbody{display:block}
+  .xtbl tr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .xtbl td{display:flex;flex-direction:column;align-items:flex-start;text-align:left!important;padding:0!important;border:0!important}
+  .xtbl td[data-l]::before{content:attr(data-l);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:var(--sans)}
+  .xtbl td.x-name{grid-column:1/-1;font-size:15px}.xtbl td.x-act{grid-column:1/-1;margin-top:4px}.xtbl td.x-act .btn{min-height:34px}
+  .grid-design .field:has(.namerow),.grid-design .field:has(#d-rep){grid-column:1/-1}
+  .prodtbl thead{display:none}
+  .prodtbl,.prodtbl tbody{display:block}
+  .prodtbl tr{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 10px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .prodtbl td{display:flex;flex-direction:column;align-items:flex-start;text-align:left!important;padding:0!important;border:0!important;background:none!important}
+  .prodtbl td[data-l]::before{content:attr(data-l);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);margin-bottom:2px}
+  .prodtbl td.pt-name{grid-column:1/3;flex-direction:row;align-items:center;font-weight:600;font-size:16px}
+  .prodtbl td.pt-x{grid-column:3;grid-row:1;align-items:flex-end}
+  .prodtbl td.pt-target{grid-column:1/-1}
+  .prodtbl td .row{justify-content:flex-start!important}
+  .prodtbl td .btn.small{min-width:38px;min-height:36px}
   .brand{font-size:21px}
   .date{font-size:19px}
   .endbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--line)}
@@ -266,7 +304,7 @@ const dateLabel=m=>MONTHS[m%12]+' '+(1900+Math.floor(m/12));
 const dateShort=m=>MON3[m%12]+' '+(1900+Math.floor(m/12));
 const yearOf=m=>1900+m/12;
 const unlockM=y=>(y-1900)*12;
-const END_M=372;
+const END_M=852;
 
 /* ================= world data ================= */
 const REGIONS=[
@@ -289,27 +327,39 @@ const regPop=(r,Y)=>r.pop*Math.pow(1+r.g,Y-1900);
 function regWeights(Y){const w={};let t=0;REGIONS.forEach(r=>{w[r.id]=regPop(r,Y)*Math.pow(r.inc,1.5)*r.roads;t+=w[r.id];});Object.keys(w).forEach(k=>w[k]/=t);return w;}
 
 const SEG={
- surrey:{id:'surrey',name:'Surrey',from:1900,w:{perf:.10,dep:.30,com:.20,lux:.10,eco:.15,util:.15},util:50,bodyW:220,bodyCost:25,pm:.95,desc:'Light four-seater with a fringed top. A step up from a runabout for a family.'},
- brougham:{id:'brougham',name:'Brougham',from:1900,w:{perf:.05,dep:.25,com:.30,lux:.35,eco:0,util:.05},util:25,bodyW:300,bodyCost:120,pm:1.8,desc:'Closed town carriage for wealthy city buyers. Needs a closed body.'},
+ surrey:{id:'surrey',name:'Surrey',from:1900,to:1932,w:{perf:.10,dep:.30,com:.20,lux:.10,eco:.15,util:.15},util:50,bodyW:220,bodyCost:25,pm:.95,desc:'Light four-seater with a fringed top. A step up from a runabout for a family.'},
+ brougham:{id:'brougham',name:'Brougham',from:1900,to:1936,w:{perf:.05,dep:.25,com:.30,lux:.35,eco:0,util:.05},util:25,bodyW:300,bodyCost:120,pm:1.8,desc:'Closed town carriage for wealthy city buyers. Needs a closed body.'},
  delivery:{id:'delivery',name:'Delivery Wagon',from:1900,w:{perf:.10,dep:.35,com:0,lux:0,eco:.25,util:.30},util:80,bodyW:260,bodyCost:35,pm:.9,desc:'Light van for shops and city deliveries.'},
- runabout:{id:'runabout',name:'Runabout',from:1900,w:{perf:.15,dep:.30,com:.10,lux:.05,eco:.30,util:.10},util:30,bodyW:150,bodyCost:0,pm:.85,desc:'Small two-seater. Cheap, simple, economical.'},
- touring:{id:'touring',name:'Touring',from:1900,w:{perf:.15,dep:.25,com:.20,lux:.10,eco:.15,util:.15},util:60,bodyW:250,bodyCost:40,pm:1.0,desc:'Open family car with room for five.'},
+ runabout:{id:'runabout',name:'Runabout',from:1900,to:1940,w:{perf:.15,dep:.30,com:.10,lux:.05,eco:.30,util:.10},util:30,bodyW:150,bodyCost:0,pm:.85,desc:'Small two-seater. Cheap, simple, economical.'},
+ touring:{id:'touring',name:'Touring',from:1900,to:1942,w:{perf:.15,dep:.25,com:.20,lux:.10,eco:.15,util:.15},util:60,bodyW:250,bodyCost:40,pm:1.0,desc:'Open family car with room for five.'},
  roadster:{id:'roadster',name:'Roadster',from:1903,w:{perf:.45,dep:.15,com:.10,lux:.15,eco:.05,util:.10},util:20,bodyW:120,bodyCost:30,pm:1.05,desc:'Light, fast, open two-seater.'},
  truck:{id:'truck',name:'Light Truck',from:1905,w:{perf:.15,dep:.35,com:.05,lux:0,eco:.15,util:.30},util:85,bodyW:300,bodyCost:50,pm:1.1,desc:'Work vehicle for farms and tradesmen.'},
- sedan:{id:'sedan',name:'Sedan',from:1910,w:{perf:.10,dep:.25,com:.25,lux:.20,eco:.10,util:.10},util:55,bodyW:380,bodyCost:110,pm:1.25,desc:'Closed car. Needs a steel-paneled body.'}
+ sedan:{id:'sedan',name:'Sedan',from:1910,w:{perf:.10,dep:.25,com:.25,lux:.20,eco:.10,util:.10},util:55,bodyW:380,bodyCost:110,pm:1.25,desc:'Closed car. Needs a steel-paneled body.'},
+ coupe:{id:'coupe',name:'Coupe',from:1930,w:{perf:.20,dep:.20,com:.20,lux:.25,eco:.10,util:.05},util:30,bodyW:320,bodyCost:90,pm:1.15,desc:'Closed two-door for one or two. Stylish and personal. Needs a closed body.'},
+ wagon:{id:'wagon',name:'Station Wagon',from:1935,w:{perf:.05,dep:.25,com:.20,lux:.10,eco:.10,util:.30},util:80,bodyW:430,bodyCost:120,pm:1.2,desc:'Long-roofed family hauler with room for the kids and the luggage. Needs a closed body.'},
+ compact:{id:'compact',name:'Compact',from:1959,w:{perf:.10,dep:.25,com:.15,lux:.05,eco:.35,util:.10},util:45,bodyW:300,bodyCost:70,pm:.8,desc:'Smaller, thriftier car for budget buyers and second-car families. Needs a closed body.'},
+ pony:{id:'pony',name:'Pony Car',from:1964,w:{perf:.40,dep:.15,com:.10,lux:.20,eco:.05,util:.10},util:30,bodyW:320,bodyCost:80,pm:1.0,desc:'Sporty, affordable two-door with a long hood, aimed at young buyers.'}
 };
 const SEG_IDS=Object.keys(SEG);
 const SEG_SHARE=[
- [1900,{runabout:.40,touring:.25,surrey:.15,roadster:.03,brougham:.10,delivery:.07,truck:0,sedan:0}],
- [1905,{runabout:.34,touring:.30,surrey:.10,roadster:.06,brougham:.07,delivery:.06,truck:.07,sedan:0}],
- [1910,{runabout:.24,touring:.38,surrey:.06,roadster:.08,brougham:.05,delivery:.04,truck:.09,sedan:.06}],
- [1915,{runabout:.20,touring:.38,surrey:.03,roadster:.08,brougham:.03,delivery:.03,truck:.13,sedan:.12}],
- [1920,{runabout:.14,touring:.33,surrey:.01,roadster:.07,brougham:.02,delivery:.02,truck:.15,sedan:.26}],
- [1925,{runabout:.10,touring:.20,surrey:.005,roadster:.07,brougham:.01,delivery:.01,truck:.17,sedan:.44}],
- [1930,{runabout:.07,touring:.10,surrey:0,roadster:.06,brougham:.005,delivery:.005,truck:.18,sedan:.58}]
+ [1900,{runabout:.40,touring:.25,surrey:.15,roadster:.03,brougham:.10,delivery:.07,truck:0,sedan:0,coupe:0,wagon:0,compact:0,pony:0}],
+ [1905,{runabout:.34,touring:.30,surrey:.10,roadster:.06,brougham:.07,delivery:.06,truck:.07,sedan:0,coupe:0,wagon:0,compact:0,pony:0}],
+ [1910,{runabout:.24,touring:.38,surrey:.06,roadster:.08,brougham:.05,delivery:.04,truck:.09,sedan:.06,coupe:0,wagon:0,compact:0,pony:0}],
+ [1915,{runabout:.20,touring:.38,surrey:.03,roadster:.08,brougham:.03,delivery:.03,truck:.13,sedan:.12,coupe:0,wagon:0,compact:0,pony:0}],
+ [1920,{runabout:.14,touring:.33,surrey:.01,roadster:.07,brougham:.02,delivery:.02,truck:.15,sedan:.26,coupe:0,wagon:0,compact:0,pony:0}],
+ [1925,{runabout:.10,touring:.20,surrey:.005,roadster:.07,brougham:.01,delivery:.01,truck:.17,sedan:.44,coupe:0,wagon:0,compact:0,pony:0}],
+ [1930,{runabout:.07,touring:.10,surrey:0,roadster:.06,brougham:.005,delivery:.005,truck:.18,sedan:.58,coupe:.08,wagon:0,compact:0,pony:0}],
+ [1935,{runabout:.01,touring:.03,surrey:0,roadster:.04,brougham:0,delivery:.01,truck:.17,sedan:.58,coupe:.13,wagon:.02,compact:0,pony:0}],
+ [1940,{runabout:0,touring:.005,surrey:0,roadster:.03,brougham:0,delivery:.01,truck:.16,sedan:.61,coupe:.14,wagon:.035,compact:0,pony:0}],
+ [1950,{runabout:0,touring:0,surrey:0,roadster:.03,brougham:0,delivery:.02,truck:.15,sedan:.58,coupe:.14,wagon:.08,compact:0,pony:0}],
+ [1955,{runabout:0,touring:0,surrey:0,roadster:.04,brougham:0,delivery:.01,truck:.13,sedan:.55,coupe:.15,wagon:.12,compact:0,pony:0}],
+ [1960,{runabout:0,touring:0,surrey:0,roadster:.03,brougham:0,delivery:.01,truck:.13,sedan:.45,coupe:.12,wagon:.12,compact:.14,pony:0}],
+ [1965,{runabout:0,touring:0,surrey:0,roadster:.03,brougham:0,delivery:.01,truck:.15,sedan:.42,coupe:.10,wagon:.11,compact:.10,pony:.08}],
+ [1970,{runabout:0,touring:0,surrey:0,roadster:.02,brougham:0,delivery:.01,truck:.20,sedan:.40,coupe:.09,wagon:.09,compact:.12,pony:.07}]
 ];
-function segShares(Y){const o=interpObj(SEG_SHARE,Y);SEG_IDS.forEach(s=>{if(Y<SEG[s].from)o[s]=0;});const t=SEG_IDS.reduce((a,s)=>a+o[s],0);SEG_IDS.forEach(s=>o[s]/=t);return o;}
-const segOpen=(s,Y)=>Y>=SEG[s].from;
+function segShares(Y){const o=interpObj(SEG_SHARE,Y);SEG_IDS.forEach(s=>{if(Y<SEG[s].from||(SEG[s].to&&Y>=SEG[s].to+3))o[s]=0;});const t=SEG_IDS.reduce((a,s)=>a+o[s],0);SEG_IDS.forEach(s=>o[s]/=t);return o;}
+const segOpen=(s,Y)=>Y>=SEG[s].from&&!(SEG[s].to&&Y>=SEG[s].to);
+const CLOSED_SEGS=['sedan','brougham','coupe','wagon','compact'];
 
 const CLASSES={
  low:{name:'Working',e:3.2,tilt:{eco:.08,dep:.04,lux:-.08,com:-.04}},
@@ -317,43 +367,56 @@ const CLASSES={
  up:{name:'Wealthy',e:1.4,tilt:{lux:.10,com:.05,perf:.03,eco:-.10,util:-.08}}
 };
 const CLS_IDS=['low','mid','up'];
-const CLASS_SHARE=[[1900,{up:.70,mid:.27,low:.03}],[1910,{up:.40,mid:.42,low:.18}],[1920,{up:.18,mid:.42,low:.40}],[1930,{up:.12,mid:.40,low:.48}]];
+const CLASS_SHARE=[[1900,{up:.70,mid:.27,low:.03}],[1910,{up:.40,mid:.42,low:.18}],[1920,{up:.18,mid:.42,low:.40}],[1930,{up:.12,mid:.40,low:.48}],[1935,{up:.10,mid:.38,low:.52}],[1950,{up:.10,mid:.50,low:.40}],[1960,{up:.12,mid:.55,low:.33}],[1970,{up:.15,mid:.55,low:.30}]];
 const REF_PRICE={
- low:[[1900,650],[1910,600],[1915,480],[1918,560],[1920,600],[1925,420],[1930,450]],
- mid:[[1900,1300],[1910,1150],[1915,950],[1918,1150],[1920,1250],[1925,950],[1930,950]],
- up:[[1900,3000],[1910,2800],[1915,2400],[1918,2800],[1920,3200],[1925,2700],[1930,2700]]
+ low:[[1900,650],[1910,600],[1915,480],[1918,560],[1920,600],[1925,420],[1930,450],[1933,420],[1940,650],[1946,1050],[1950,1350],[1955,1600],[1960,1900],[1965,2100],[1970,2500]],
+ mid:[[1900,1300],[1910,1150],[1915,950],[1918,1150],[1920,1250],[1925,950],[1930,950],[1933,850],[1940,1000],[1946,1500],[1950,1950],[1955,2350],[1960,2750],[1965,3000],[1970,3500]],
+ up:[[1900,3000],[1910,2800],[1915,2400],[1918,2800],[1920,3200],[1925,2700],[1930,2700],[1933,2300],[1940,2500],[1946,3200],[1950,4000],[1955,4800],[1960,5400],[1965,5900],[1970,6800]]
 };
 const refPrice=(c,s,Y)=>interp(REF_PRICE[c],Y)*SEG[s].pm;
 function classShares(rid,Y){const b=interpObj(CLASS_SHARE,Y),inc=REG[rid].inc;const o={up:b.up*Math.pow(inc,1.5),mid:b.mid,low:b.low/Math.pow(inc,1.5)};const t=o.up+o.mid+o.low;CLS_IDS.forEach(c=>o[c]/=t);return o;}
 
-const POTENTIAL=[[1900,400],[1903,900],[1905,2200],[1908,5500],[1910,14000],[1913,32000],[1916,80000],[1920,170000],[1923,300000],[1926,320000],[1929,370000],[1931,380000]];
+const POTENTIAL=[[1900,400],[1903,900],[1905,2200],[1908,5500],[1910,14000],[1913,32000],[1916,80000],[1920,170000],[1923,300000],[1926,320000],[1929,370000],[1931,380000],[1936,390000],[1941,420000],[1946,450000],[1950,560000],[1955,640000],[1960,640000],[1965,780000],[1970,800000]];
 const potential=Y=>interpLog(POTENTIAL,Y);
 const SEASON=[.8,.85,1.05,1.15,1.15,1.1,1.0,.95,.95,.95,.9,.95];
 const EVENTS=[
  {from:unlockM(1907)+9,to:unlockM(1908)+5,mult:.75,name:'Panic of 1907',text:'Bank failures in New York spread across the country. Expect car demand about 25% below normal into mid-1908.'},
  {from:unlockM(1917)+3,to:unlockM(1918)+10,mult:.8,name:'America enters the Great War',text:'Civilian demand falls about 20% and material costs climb until the war ends.'},
  {from:unlockM(1920)+6,to:unlockM(1921)+11,mult:.65,name:'Post-war depression',text:'Prices and demand collapse. Expect demand about 35% below normal through 1921.'},
- {from:unlockM(1929)+9,to:unlockM(1930)+11,mult:.6,name:'The Crash',text:'The stock market collapses. Expect demand about 40% below normal through 1930.'}
+ {from:unlockM(1929)+9,to:unlockM(1930)+11,mult:.6,name:'The Crash',text:'The stock market collapses. Expect demand about 40% below normal through 1930.'},
+ {from:unlockM(1931),to:unlockM(1933)+2,mult:.4,name:'The Great Depression',text:'Banks fail and a quarter of workers lose their jobs. Car sales fall to about 40% of normal. Weak companies will not survive.'},
+ {from:unlockM(1933)+3,to:unlockM(1935)+11,mult:.72,name:'A slow recovery',text:'The New Deal steadies the banks. Sales creep back but stay well below normal.'},
+ {from:unlockM(1937)+8,to:unlockM(1938)+11,mult:.6,name:'The Recession of 1937',text:'The economy slips back. Car sales fall about 40% into 1938.'},
+ {from:unlockM(1942)+1,to:unlockM(1945)+8,mult:.03,civHalt:true,name:'War: civilian car production halted',text:'The War Production Board stops all civilian car building. Dealers can only sell cars already in stock, to buyers with ration certificates. Factories turn to war work.'},
+ {from:unlockM(1945)+9,to:unlockM(1949)+5,mult:1.3,name:'Postwar boom',text:'Four years of pent-up demand. Buyers will take nearly anything with wheels, though steel and parts are scarce and costly.'},
+ {from:unlockM(1951),to:unlockM(1953)+6,mult:.88,name:'Korean War limits',text:'The government caps civilian car output to save steel for the war in Korea.'},
+ {from:unlockM(1957)+8,to:unlockM(1958)+11,mult:.72,name:'The Recession of 1958',text:'The worst slump since the war. Sales fall about 30%, and small economical cars suddenly look appealing.'},
+ {from:unlockM(1960)+5,to:unlockM(1961)+2,mult:.9,name:'The 1960 recession',text:'A short, mild downturn.'},
+ {from:unlockM(1970),to:unlockM(1970)+11,mult:.88,name:'Recession and strikes',text:'A slowing economy and a long autoworkers\' strike cut sales about 12%.'}
 ];
+const civHalt=m=>EVENTS.some(e=>e.civHalt&&m>=e.from&&m<=e.to);
 const eventMult=m=>EVENTS.reduce((a,e)=>(m>=e.from&&m<=e.to)?a*e.mult:a,1);
 
-const MAT_IDX=[[1900,1],[1908,.92],[1913,.8],[1916,.8],[1918,1.15],[1920,1.2],[1922,.85],[1925,.62],[1930,.6]];
-const WAGE=[[1900,.16],[1910,.22],[1914,.30],[1920,.55],[1925,.58],[1930,.60]];
-const HOURS=[[1900,1],[1908,.6],[1913,.3],[1916,.12],[1920,.08],[1925,.05],[1930,.045]];
-const CAP=[[1900,6],[1905,20],[1910,80],[1913,250],[1916,500],[1920,800],[1925,1400],[1930,1800]];
+const MAT_IDX=[[1900,1],[1908,.92],[1913,.8],[1916,.8],[1918,1.15],[1920,1.2],[1922,.85],[1925,.62],[1930,.6],[1933,.47],[1937,.55],[1941,.6],[1946,.8],[1948,.95],[1950,.95],[1955,1.0],[1960,1.05],[1965,1.08],[1970,1.25]];
+const WAGE=[[1900,.16],[1910,.22],[1914,.30],[1920,.55],[1925,.58],[1930,.60],[1933,.52],[1937,.72],[1941,.85],[1945,1.1],[1950,1.4],[1955,1.75],[1960,2.15],[1965,2.55],[1970,3.35]];
+const HOURS=[[1900,1],[1908,.6],[1913,.3],[1916,.12],[1920,.08],[1925,.05],[1930,.045],[1940,.038],[1950,.032],[1960,.026],[1970,.022]];
+const CAP=[[1900,6],[1905,20],[1910,80],[1913,250],[1916,500],[1920,800],[1925,1400],[1930,1800],[1940,2200],[1950,2800],[1960,3500],[1970,4200]];
 const matIdx=Y=>interp(MAT_IDX,Y);
-const costIdx=Y=>Math.pow(1.035,Y-1900);
+const CPI30=[[1930,1],[1933,.8],[1940,.83],[1945,1.07],[1948,1.42],[1950,1.43],[1955,1.6],[1960,1.77],[1965,1.88],[1970,2.33]];
+const costIdx=Y=>Y<=1930?Math.pow(1.035,Y-1900):Math.pow(1.035,30)*interp(CPI30,Y);
 const capPerLine=Y=>Math.round(interp(CAP,Y));
 const gF=Y=>Math.sqrt(potential(Y)/400);
 const hourlyWage=(rid,Y)=>interp(WAGE,Y)*REG[rid].wage;
-function taxRate(Y){const y=Math.floor(Y);if(y<1909)return 0;if(y<1916)return .01;if(y<1917)return .02;if(y<1918)return .06;if(y<1919)return .12;if(y<1922)return .10;if(y<1926)return .125;if(y<1928)return .135;if(y<1929)return .12;if(y<1930)return .11;return .12;}
+function taxRate(Y){const y=Math.floor(Y);if(y<1909)return 0;if(y<1916)return .01;if(y<1917)return .02;if(y<1918)return .06;if(y<1919)return .12;if(y<1922)return .10;if(y<1926)return .125;if(y<1928)return .135;if(y<1929)return .12;if(y<1930)return .11;if(y<1932)return .12;if(y<1936)return .1375;if(y<1938)return .15;if(y<1940)return .19;if(y<1941)return .24;if(y<1942)return .31;if(y<1950)return .38;if(y<1951)return .42;if(y<1952)return .50;if(y<1964)return .52;if(y<1965)return .50;if(y<1968)return .48;if(y<1970)return .528;return .492;}
 const factoryFixed=(lines,Y,fm)=>300*costIdx(Y)+lines*120*costIdx(Y)*Math.pow(capPerLine(Y)/6,.6)*((fm&&fm.fixed)||1);
 const METHODS=[
  {id:'hand',name:'Hand-built at benches',year:1900,cap:1,lab:1,cost:0,fixed:1,desc:'Skilled craftsmen build each car by hand, fitting parts as they go.'},
  {id:'machine',name:'Machine shop',year:1902,cap:1.2,lab:.9,cost:.5,fixed:1.08,desc:'Powered lathes and drills turn out parts faster and more alike.'},
  {id:'jigs',name:'Jigs and interchangeable parts',year:1906,cap:1.45,lab:.8,cost:.9,fixed:1.15,desc:'Parts are made to gauge so they fit without hand filing.'},
  {id:'line',name:'Moving assembly line',year:1913,cap:1.9,lab:.65,cost:1.5,fixed:1.28,desc:'The car moves past each worker, who repeats one job. A huge jump in output.'},
- {id:'conveyor',name:'Powered conveyors and machine tools',year:1920,cap:2.2,lab:.58,cost:1.9,fixed:1.36,desc:'Overhead conveyors and single-purpose machines speed every step.'}
+ {id:'conveyor',name:'Powered conveyors and machine tools',year:1920,cap:2.2,lab:.58,cost:1.9,fixed:1.36,desc:'Overhead conveyors and single-purpose machines speed every step.'},
+ {id:'transfer',name:'Automated transfer lines',year:1950,cap:2.6,lab:.46,cost:2.6,fixed:1.5,desc:'Parts move automatically from machine to machine with little handling.'},
+ {id:'automation',name:'Automation and computer control',year:1965,cap:3.0,lab:.38,cost:3.3,fixed:1.62,desc:'Automatic welders and computer-run machines take on the repetitive work.'}
 ];
 const meth=f=>byId(METHODS,(f&&f.method)||'hand')||METHODS[0];
 const LEARN_M=8;
@@ -398,13 +461,19 @@ const CHASSIS=[
  {id:'tube',name:'Tubular steel frame',year:1902,w:190,str:45,com:34,cost:95,lab:1.1,note:'Bicycle-style steel tubes. Light and fairly strong.'},
  {id:'steel',name:'Steel ladder frame',year:1904,w:230,str:55,com:38,cost:85,lab:1.0,note:'Stronger, heavier.'},
  {id:'heavy',name:'Heavy steel ladder',year:1909,w:320,str:75,com:45,cost:125,lab:1.1,note:'Very strong. Best for trucks and big cars.'},
- {id:'pressed',name:'Pressed-steel frame',year:1917,w:260,str:72,com:55,cost:105,lab:.85,note:'Strong, lighter, faster to build.'}
+ {id:'pressed',name:'Pressed-steel frame',year:1917,w:260,str:72,com:55,cost:105,lab:.85,note:'Strong, lighter, faster to build.'},
+ {id:'xbrace',name:'X-braced frame',year:1933,w:280,str:82,com:60,cost:112,lab:.85,note:'Cross-braced for a stiffer, quieter ride.'},
+ {id:'unibody',name:'Unit body (no separate frame)',year:1941,w:170,str:76,com:62,cost:118,lab:.8,note:'Body and frame are one welded shell. Light and stiff, but costly tooling.'},
+ {id:'perimeter',name:'Perimeter frame',year:1958,w:250,str:86,com:70,cost:120,lab:.8,note:'Frame rails run around the passengers so the car can sit lower.'}
 ];
 const SUSP=[
  {id:'leaf',name:'Leaf springs',year:1900,com:0,dep:0,cost:0},
  {id:'full',name:'Full-elliptic springs',year:1903,com:6,dep:1,cost:12},
  {id:'semi',name:'Semi-elliptic springs',year:1908,com:10,dep:2,cost:18},
- {id:'shock',name:'Springs + shock absorbers',year:1921,com:20,dep:3,cost:38}
+ {id:'shock',name:'Springs + shock absorbers',year:1921,com:20,dep:3,cost:38},
+ {id:'ifs',name:'Independent front suspension',year:1934,com:32,dep:3,cost:55},
+ {id:'coil',name:'Coil springs all round',year:1949,com:40,dep:4,cost:62},
+ {id:'balljoint',name:'Ball-joint front suspension',year:1953,com:46,dep:6,cost:70}
 ];
 const POWER={
  gas:{name:'Gasoline',note:'Hard to start by hand crank until the electric starter arrives in 1912. Goes anywhere there is fuel.'},
@@ -422,7 +491,15 @@ const ENGINES=[
  {id:'s4t',type:'gas',name:'T-head Straight-4',year:1907,hp:26,rel:58,smooth:58,fuel:48,cost:170,w:180,lab:1.25},
  {id:'elec2',type:'electric',name:'Electric motor, nickel-iron batteries',year:1910,hp:6,rel:78,smooth:95,fuel:65,cost:300,w:330,lab:1.0},
  {id:'s6',type:'gas',name:'Straight-6',year:1911,hp:34,rel:54,smooth:75,fuel:40,cost:225,w:230,lab:1.4},
- {id:'v8',type:'gas',name:'V8',year:1915,hp:52,rel:46,smooth:72,fuel:30,cost:320,w:260,lab:1.6}
+ {id:'v8',type:'gas',name:'V8',year:1915,hp:52,rel:46,smooth:72,fuel:30,cost:320,w:260,lab:1.6},
+ {id:'v12',type:'gas',name:'V12',year:1931,hp:95,rel:50,smooth:96,fuel:18,cost:520,w:380,lab:2.0},
+ {id:'v8f',type:'gas',name:'Flathead V8',year:1932,hp:65,rel:56,smooth:74,fuel:32,cost:180,w:260,lab:1.2},
+ {id:'flat4',type:'gas',name:'Air-cooled flat-4',year:1946,hp:30,rel:70,smooth:50,fuel:82,cost:90,w:110,lab:.9},
+ {id:'ohv8',type:'gas',name:'Overhead-valve V8',year:1949,hp:135,rel:62,smooth:80,fuel:30,cost:230,w:280,lab:1.25},
+ {id:'i6ohv',type:'gas',name:'Overhead-valve straight-6',year:1950,hp:90,rel:66,smooth:75,fuel:45,cost:160,w:210,lab:1.1},
+ {id:'bigv8',type:'gas',name:'Big-block V8',year:1958,hp:250,rel:58,smooth:82,fuel:18,cost:320,w:330,lab:1.4},
+ {id:'i4c',type:'gas',name:'Compact straight-4',year:1959,hp:70,rel:64,smooth:55,fuel:66,cost:110,w:140,lab:1.0},
+ {id:'v6',type:'gas',name:'V6',year:1962,hp:115,rel:62,smooth:70,fuel:48,cost:150,w:190,lab:1.1}
 ];
 const engType=id=>(byId(ENGINES,id)||{}).type||'gas';
 const SIZES={
@@ -436,19 +513,28 @@ const GEARS=[
  {id:'fric',name:'Friction drive',year:1903,eff:.85,rel:48,com:8,cost:30,w:35},
  {id:'man3',name:'3-speed manual',year:1906,eff:1.0,rel:55,com:0,cost:50,w:55},
  {id:'man4',name:'4-speed manual',year:1912,eff:1.06,rel:52,com:2,cost:70,w:65},
- {id:'syn3',name:'3-speed synchromesh',year:1928,eff:1.04,rel:60,com:12,cost:78,w:55}
+ {id:'syn3',name:'3-speed synchromesh',year:1928,eff:1.04,rel:60,com:12,cost:78,w:55},
+ {id:'col3',name:'3-speed column shift',year:1938,eff:1.04,rel:62,com:16,cost:80,w:55},
+ {id:'auto4',name:'4-speed fluid automatic',year:1940,eff:.9,rel:50,com:34,cost:150,w:90},
+ {id:'auto3',name:'Torque-converter automatic',year:1950,eff:.92,rel:62,com:40,cost:120,w:95},
+ {id:'man4s',name:'4-speed floor shift',year:1957,eff:1.1,rel:62,com:10,cost:90,w:65}
 ];
 const BODIES=[
  {id:'wood',name:'Wood and fabric',year:1900,w:0,q:40,cost:0,closed:false},
  {id:'coach',name:'Coach-built closed body',year:1900,w:120,q:65,cost:90,closed:true},
  {id:'alum',name:'Cast-aluminum panels',year:1904,w:20,q:62,cost:70,closed:false},
  {id:'comp',name:'Wood frame, steel panels',year:1908,w:40,q:55,cost:30,closed:true},
- {id:'allsteel',name:'All-steel body',year:1914,w:80,q:70,cost:55,closed:true}
+ {id:'allsteel',name:'All-steel body',year:1914,w:80,q:70,cost:55,closed:true},
+ {id:'stream',name:'Streamlined steel body',year:1934,w:70,q:74,cost:60,closed:true},
+ {id:'hardtop',name:'Pillarless hardtop',year:1949,w:75,q:78,cost:70,closed:true},
+ {id:'glassfiber',name:'Fiberglass body',year:1953,w:-40,q:62,cost:90,closed:false},
+ {id:'modern',name:'Rust-proofed modern steel body',year:1960,w:70,q:82,cost:70,closed:true}
 ];
 const INTERIORS=[
  {id:'basic',name:'Basic bench',year:1900,lux:15,com:15,cost:15},
  {id:'std',name:'Upholstered',year:1900,lux:40,com:40,cost:55},
- {id:'lux',name:'Luxury',year:1900,lux:80,com:65,cost:170}
+ {id:'lux',name:'Luxury',year:1900,lux:80,com:65,cost:170},
+ {id:'vinyl',name:'Vinyl and chrome',year:1950,lux:52,com:48,cost:50}
 ];
 const FEATURES=[
  {id:'top',name:'Folding top',year:1900,cost:12,com:6,lux:2,dep:0},
@@ -458,7 +544,16 @@ const FEATURES=[
  {id:'lamps',name:'Electric lamps',year:1908,cost:18,com:4,lux:4,dep:0},
  {id:'starter',name:'Electric starter',year:1912,cost:32,com:10,lux:6,dep:3},
  {id:'fwb',name:'Four-wheel brakes',year:1922,cost:38,com:2,lux:2,dep:8},
- {id:'glass',name:'Safety glass',year:1927,cost:22,com:2,lux:3,dep:4}
+ {id:'glass',name:'Safety glass',year:1927,cost:22,com:2,lux:3,dep:4},
+ {id:'radio',name:'Radio',year:1930,cost:30,com:4,lux:6,dep:0},
+ {id:'heater',name:'Heater',year:1933,cost:20,com:8,lux:2,dep:0},
+ {id:'sealed',name:'Sealed-beam headlights',year:1940,cost:10,com:1,lux:0,dep:3},
+ {id:'psteer',name:'Power steering',year:1951,cost:45,com:10,lux:6,dep:0},
+ {id:'pbrakes',name:'Power brakes',year:1953,cost:35,com:4,lux:3,dep:3},
+ {id:'ac',name:'Air conditioning',year:1953,cost:90,com:14,lux:12,dep:0},
+ {id:'belts',name:'Seat belts',year:1956,cost:12,com:0,lux:0,dep:3},
+ {id:'disc',name:'Front disc brakes',year:1965,cost:40,com:1,lux:1,dep:7},
+ {id:'emis',name:'Emission controls',year:1968,cost:35,com:0,lux:0,dep:1}
 ];
 function powerBonus(type,c,rid,Y){
   if(type==='electric') return interp([[1900,.35],[1908,.2],[1912,-.1],[1916,-.7],[1925,-1.6]],Y)+(c==='up'?.35:c==='low'?-.4:0)+(REG[rid].urb-.5)*1.4;
@@ -475,17 +570,17 @@ function computeCar(spec,dy){
   const q=spec.quality;
   const fsum=k=>feats.reduce((a,f)=>a+(f[k]||0),0);
   const maturity=Math.min(1.8,1+.03*Math.max(0,dy-en.year));
-  const rd=spec.rd||{};
+  const rd0=spec.rd||{};const rd={};Object.keys(rd0).forEach(k=>rd[k]=Math.min(rd0[k],5)+.5*Math.max(0,rd0[k]-5));
   const hp=en.hp*sz.hp*maturity*(1+.05*(rd.engine||0));
-  const weight=(ch.w+en.w*sz.w+gb.w+seg.bodyW+bo.w+(it.id==='lux'?60:it.id==='std'?25:0))*(1-.04*(rd.light||0));
+  const weight=(ch.w+en.w*sz.w+gb.w+seg.bodyW+bo.w+(it.id==='lux'?60:it.id==='std'||it.id==='vinyl'?25:0))*(1-.04*(rd.light||0));
   const qm=.8+.5*q/100;
   const materials=(ch.cost+su.cost+en.cost*sz.cost+gb.cost+60+seg.bodyCost+bo.cost+it.cost+fsum('cost'))*qm;
   const laborHours=900*ch.lab*(.7+.3*en.lab)*(it.id==='lux'?1.25:1)*(.9+.2*q/100);
   const raw={
     pw:hp*gb.eff/(weight/1000),
     dep:.45*(en.rel+sz.rel)+.2*gb.rel+.25*ch.str+.1*bo.q+su.dep+fsum('dep')+(q-50)*.35,
-    com:.4*(ch.com+su.com)+.4*it.com+.2*en.smooth+gb.com+fsum('com')+(bo.closed&&(spec.segment==='sedan'||spec.segment==='brougham')?12:0)+(spec.segment==='roadster'?-5:0),
-    lux:.55*it.lux+.2*bo.q+.15*en.smooth+fsum('lux')+(q-50)*.2+(spec.segment==='sedan'||spec.segment==='brougham'?8:0),
+    com:.4*(ch.com+su.com)+.4*it.com+.2*en.smooth+gb.com+fsum('com')+(bo.closed&&CLOSED_SEGS.includes(spec.segment)?12:0)+(spec.segment==='roadster'?-5:0),
+    lux:.55*it.lux+.2*bo.q+.15*en.smooth+fsum('lux')+(q-50)*.2+(['sedan','brougham','coupe'].includes(spec.segment)?8:0),
     eco:(en.fuel+sz.fuel)*Math.pow(900/weight,.35),
     util:seg.util+.15*(ch.str-50)
   };
@@ -520,22 +615,54 @@ const scoreFor=(r,s,c)=>RATING_KEYS.reduce((a,k)=>a+WEIGHTS[s][c][k]*r[k],0);
 const designCost=(car,Y)=>(1500+car.materials*8)*costIdx(Y)*Math.sqrt(gF(Y));
 function specValid(spec,m){
   if(!segOpen(spec.segment,yearOf(m))) return SEG[spec.segment].name+' is not available yet.';
-  if((spec.segment==='sedan'||spec.segment==='brougham')&&!byId(BODIES,spec.body).closed) return 'A '+SEG[spec.segment].name.toLowerCase()+' needs a closed body (coach-built, steel-paneled or all-steel).';
+  if(CLOSED_SEGS.includes(spec.segment)&&!byId(BODIES,spec.body).closed) return 'A '+SEG[spec.segment].name.toLowerCase()+' needs a closed body.';
   return null;
 }
 
 /* ================= rivals ================= */
 const RIVAL_DEFS=[
- {id:'harlow',name:'Harlow Motor Co.',style:'volume',home:'gl',start:0,segs:['runabout','touring','delivery','truck','sedan'],rep:40,markup:1.18,words:['Standard','Worker','Utility','Fleet','Model']},
- {id:'vanderlin',name:'Vanderlin Coachworks',style:'lux',home:'ny',start:0,segs:['touring','sedan','roadster','brougham'],rep:55,markup:1.85,words:['Imperial','Sovereign','Regent','Ambassador','Monarch']},
- {id:'westfield',name:'Westfield Auto',style:'mid',home:'ch',start:0,segs:['runabout','surrey','touring','roadster','sedan'],rep:45,markup:1.45,words:['Rover','Scout','Ranger','Voyager','Pathway']},
- {id:'columbine',name:'Columbine Electric Vehicle Co.',style:'electric',home:'ny',start:0,segs:['runabout','brougham','delivery'],rep:50,markup:1.5,words:['Victoria','Stanhope','Coupe','Carriage','Town']},
- {id:'kessler',name:'Kessler Steam Carriage Co.',style:'steam',home:'ne',start:0,segs:['runabout','surrey','touring','roadster'],rep:45,markup:1.4,words:['Locomobile','Flyer','Condenser','Express','Boiler']},
- {id:'crescent',name:'Crescent Motor Works',style:'volume',home:'gc',start:96,segs:['runabout','truck','touring'],rep:35,markup:1.2,words:['Bayou','Delta','Levee','Magnolia','Pelican']}
+ {id:'harlow',name:'Harlow Motor Co.',style:'volume',home:'gl',start:0,eff:[[1900,1],[1915,.88],[1925,.85]],segs:['runabout','touring','delivery','truck','sedan'],rep:40,markup:1.22,words:['Standard','Worker','Utility','Fleet','Model'],cap:.25,pub:true},
+ {id:'vanderlin',name:'Vanderlin Coachworks',style:'lux',home:'ny',start:0,segs:['touring','sedan','roadster','brougham'],rep:55,markup:1.85,words:['Imperial','Sovereign','Regent','Ambassador','Monarch'],cap:.2,pub:true},
+ {id:'westfield',name:'Westfield Auto',style:'mid',home:'ch',start:0,buys:[{m:666,id:'vanderlin'}],segs:['runabout','surrey','touring','roadster','sedan'],rep:45,markup:1.45,words:['Rover','Scout','Ranger','Voyager','Pathway'],cap:.12},
+ {id:'columbine',name:'Columbine Electric Vehicle Co.',style:'electric',home:'ny',start:0,segs:['runabout','brougham','delivery'],rep:50,markup:1.5,words:['Victoria','Stanhope','Coupe','Carriage','Town'],cap:.2,pub:true},
+ {id:'kessler',name:'Kessler Steam Carriage Co.',style:'steam',home:'ne',start:0,segs:['runabout','surrey','touring','roadster'],rep:45,markup:1.4,words:['Steamer','Flyer','Condenser','Express','Boiler'],cap:.1},
+ {id:'pembroke',name:'Pembroke Motor Car Co.',style:'volume',home:'gl',start:14,segs:['runabout','delivery','touring'],rep:28,markup:1.22,words:['Dasher','Light','Tonneau','Palace','Limited'],cap:.06},
+ {id:'buckeye',name:'Buckeye Motor Wagon Co.',style:'mid',home:'ma',start:26,segs:['runabout','surrey'],rep:20,markup:1.35,words:['Buggy','Tourer','Surrey','Special','Chief'],cap:.025,weak:true},
+ {id:'lenox',name:'Lenox Automobile Co.',style:'lux',home:'gl',start:30,segs:['touring','roadster','sedan','brougham'],rep:32,markup:1.7,words:['Thirty','Forty','Coupe','Eight','Salon'],cap:.06},
+ {id:'albion',name:'Albion Motor Carriage Co.',style:'mid',home:'ne',start:38,segs:['touring','roadster'],rep:20,markup:1.4,words:['Tourer','Runabout','Clipper','Harbor','Beacon'],cap:.02,weak:true},
+ {id:'brandt',name:'Brandt Motor Company',style:'volume',home:'gl',start:41,segs:['runabout','touring','truck','delivery','sedan'],rep:26,markup:1.25,mk:[[1903,1.25],[1930,1.25]],eff:[[1903,1],[1909,.9],[1914,.72],[1925,.68]],grow:.011,words:['Plainsman','Commuter','Everyday','Homestead','Farmhand'],cap:.05},
+ {id:'tremont',name:'Tremont Motor Works',style:'mid',home:'ma',start:52,segs:['touring','sedan','roadster'],rep:28,markup:1.45,words:['Liberty','Colonial','Keystone','Patriot','Quaker'],cap:.03},
+ {id:'prairie',name:'Prairie Motor Works',style:'volume',home:'pl',start:62,segs:['truck','delivery','runabout'],rep:25,markup:1.3,words:['Plowman','Hauler','Wheat','Rancher','Grange'],cap:.025,focus:['pl','mt','ch']},
+ {id:'sutherland',name:'Sutherland Auto Co.',style:'mid',home:'ca',start:76,segs:['runabout','touring'],rep:20,markup:1.35,words:['Golden','Mission','Sierra','Presidio','Poppy'],cap:.012,weak:true,focus:['ca','pn']},
+ {id:'crescent',name:'Crescent Motor Works',style:'volume',home:'gc',start:96,segs:['runabout','truck','touring'],rep:35,markup:1.2,words:['Bayou','Delta','Levee','Magnolia','Pelican'],cap:.02,focus:['gc','se','tx']},
+ {id:'consolidated',name:'Consolidated Motors',style:'mid',home:'gl',start:104,eff:[[1908,.95],[1930,.85]],segs:['sedan'],rep:40,markup:1.45,words:['Series','Union','Federal','Continental','Standard Six'],cap:.05,pub:true,merge:['pembroke','lenox','buckeye'],buys:[{m:220,id:'ridgeway'}]},
+ {id:'hollis',name:'Hollis Motor Car Co.',style:'mid',home:'gl',start:109,segs:['touring','roadster','sedan'],rep:30,markup:1.4,words:['Twenty','Big Six','Tourist','Pacer','Lakeshore'],cap:.012},
+ {id:'ridgeway',name:'Ridgeway Motor Co.',style:'volume',home:'gl',start:142,segs:['runabout','touring','sedan'],rep:28,markup:1.2,words:['Junior','Sterling','Ace','Paragon','Traveler'],cap:.015,eff:[[1911,.9],[1930,.8]]},
+ {id:'rainier',name:'Rainier Truck Co.',style:'volume',home:'pn',start:150,segs:['truck','delivery'],rep:28,markup:1.3,words:['Logger','Timber','Cascade','Sound','Olympic'],cap:.006,focus:['pn','ca','mt']},
+ {id:'draper',name:'Draper Brothers Motor Co.',style:'mid',home:'gl',start:178,segs:['touring','sedan','roadster','delivery'],rep:48,markup:1.35,eff:[[1914,.85],[1930,.8]],words:['Brothers','Sturdy','Dependable','Standard','Guardian'],cap:.035},
+ {id:'summit',name:'Summit Six Motor Co.',style:'mid',home:'ma',start:196,segs:['touring','sedan'],rep:20,markup:1.5,words:['Six','Peak','Crest','Alpine','Ridge'],cap:.004,weak:true},
+ {id:'coastline',name:'Coastline Motors',style:'mid',home:'ca',start:228,segs:['roadster','touring','sedan'],rep:25,markup:1.45,words:['Pacific','Surf','Harbor','Breaker','Pier'],cap:.004,focus:['ca','pn']},
+ {id:'durand',name:'Durand Motors',style:'volume',home:'ny',start:264,segs:['runabout','touring','sedan'],rep:30,markup:1.18,words:['Crown','Lark','Rex','Liberty','Four'],cap:.008,weak:true,pub:true},
+ {id:'carrow',name:'Carrow Corporation',style:'mid',home:'gl',start:305,segs:['sedan','touring','roadster'],rep:45,markup:1.4,eff:[[1925,.85],[1930,.8]],words:['Six','Crown','Streamline','Metropolitan','Empire'],cap:.02,pub:true,buys:[{m:342,id:'draper'}]},
+ {id:'ashford',name:'Ashford Motors',country:'Britain',foreign:true,style:'import',home:'ny',start:567,segs:['roadster','sedan'],rep:22,markup:1.35,wage:.55,words:['Tourer','Clubman','Sportsman','Downs','Heath'],cap:.0015,focus:['ca','ny','ne'],ib:[[1947,-.4],[1960,-.2],[1970,-.5]]},
+ {id:'brennan',name:'Brennan-Hale Motors',style:'mid',home:'gl',start:548,segs:['sedan'],rep:28,markup:1.35,words:['Frontier','Westerner','Skyway','Horizon','Deluxe'],cap:.006,weak:true,pub:true},
+ {id:'talbot',name:'Talbot Motor Car Co.',style:'mid',home:'ch',start:565,segs:['sedan'],rep:18,markup:1.5,words:['Sixty','Arrow','Comet','Airline','Rocket'],cap:.0012,weak:true,pub:true},
+ {id:'bremer',name:'Bremer Motorwerke',country:'Germany',foreign:true,style:'import',home:'ny',start:594,segs:['sedan','delivery','compact'],rep:14,markup:1.28,wage:.4,eff:[[1949,1],[1955,.8],[1965,.72]],words:['Volks','Kleine','Reise','Stadt','Bummler'],cap:.003,focus:['ny','ne','ca','ma'],grow:.009,ib:[[1949,-1.1],[1955,-.3],[1958,.3],[1962,.45],[1970,.5]]},
+ {id:'allied',name:'Allied Motors Corp.',style:'mid',home:'gl',start:652,segs:['sedan','wagon','compact'],rep:40,markup:1.35,words:['Sentinel','Compass','Mariner','Harbor','Traveller'],cap:.004,pub:true,merge:['hollis','tremont']},
+ {id:'duclair',name:'Maison Duclair',country:'France',foreign:true,style:'import',home:'ny',start:678,segs:['sedan','compact'],rep:15,markup:1.3,wage:.5,words:['Parisienne','Gala','Printemps','Riviera','Vingt'],cap:.002,weak:true,focus:['ny','ne','ca'],ib:[[1956,-.3],[1959,-.1],[1962,-.9],[1970,-1.2]]},
+ {id:'takara',name:'Takara Motor Co.',country:'Japan',foreign:true,style:'import',home:'ca',start:693,reenter:780,segs:['sedan','compact','truck'],rep:8,markup:1.3,wage:.3,eff:[[1958,1.15],[1965,.8],[1970,.68]],words:['Sakura','Hikari','Kaze','Yama','Asahi'],cap:.0015,focus:['ca','pn','tx'],grow:.01,ib:[[1958,-1.6],[1964,-.6],[1967,.1],[1970,.45]]},
+ {id:'nakamura',name:'Nakamura Motors',country:'Japan',foreign:true,style:'import',home:'ca',start:723,reenter:792,segs:['compact','truck','roadster'],rep:8,markup:1.3,wage:.3,eff:[[1960,1.1],[1966,.8],[1970,.7]],words:['Tsubame','Kiri','Hana','Sora','Umi'],cap:.003,focus:['ca','pn','tx'],grow:.01,ib:[[1960,-1.2],[1964,-.5],[1967,.1],[1970,.45]]}
 ];
+function rivalSegs(def,Y){
+  let segs=def.segs.slice();
+  if(Y>=1930&&def.style!=='import'){const extra={volume:['sedan','coupe','wagon','truck','compact','pony'],mid:['sedan','coupe','wagon','compact','pony'],lux:['sedan','coupe','roadster']}[def.style]||[];extra.forEach(x=>{if(!segs.includes(x)) segs.push(x);});}
+  const sh=segShares(Y);return segs.filter(x=>segOpen(x,Y)&&sh[x]>=.01);
+}
+const importBonus=(def,Y)=>def&&def.ib?interp(def.ib,Y):0;
 function latest(list,m,filter){const a=avail(list,m).filter(filter||(()=>true));return a[a.length-1];}
 function rivalSpec(style,seg,m){
-  const Y=yearOf(m);const has=id=>unlockM(byId(ENGINES,id).year)<=m;
+  const Y=yearOf(m);
+  if(Y>=1930) return rivalSpec2(style,seg,m);const has=id=>unlockM(byId(ENGINES,id).year)<=m;
   let engine,size='med';
   if(style==='electric'){engine=latest(ENGINES,m,e=>e.type==='electric').id;size=seg==='delivery'?'large':'med';}
   else if(style==='steam'){engine=latest(ENGINES,m,e=>e.type==='steam').id;size=seg==='runabout'?'small':'med';}
@@ -558,12 +685,54 @@ function rivalSpec(style,seg,m){
   const features=avail(FEATURES,m).filter(f=>(f.id==='starter'&&style!=='lux'&&style!=='mid'&&style!=='volume')?false:style==='lux'||((style==='mid'||style==='electric'||style==='steam')&&m-unlockM(f.year)>=12)||(style==='volume'&&((f.id==='starter'&&Y>=1915)||(f.id==='fwb'&&Y>=1926)||(f.id==='lamps'&&Y>=1912)))).map(f=>f.id);
   const quality=style==='lux'?85:style==='electric'?70:style==='mid'||style==='steam'?60:40;
   const gearbox=style==='electric'?'chain':latest(GEARS,m,g=>g.id!=='fric').id;
-  const rt=Math.min(5,Math.floor((Y-1900)/5));
+  const rt=Y<1925?Math.min(5,Math.floor((Y-1900)/5)):Math.min(RD_MAX,5+Math.floor((Y-1925)/9));
   const spec={segment:seg,chassis,susp,engine,size,gearbox,body,interior,features,quality,rd:{engine:rt,light:rt,rel:rt,coach:rt}};
   if(closedNeeded&&!byId(BODIES,spec.body).closed) return null;
   return spec;
 }
-function rivalUnitCost(rm,rv,Y){return (rm.car.materials*matIdx(Y)+rm.car.laborHours*interp(HOURS,Y)*hourlyWage(rv.home,Y))*1.15+20*costIdx(Y);}
+function rivalSpec2(style,seg,m){
+  const Y=yearOf(m);const has=id=>{const x=byId(ENGINES,id);return x&&unlockM(x.year)<=m;};
+  const pick=list=>{for(const [id,yr] of list){if(has(id)&&Y>=yr) return id;}return latest(ENGINES,m,e=>e.type==='gas').id;};
+  let engine,size='med';
+  if(style==='import'){engine=seg==='compact'||seg==='delivery'?pick([['i4c',1964],['flat4',0],['s4',0]]):pick([['i4c',1959],['s4',0]]);size=seg==='roadster'?'med':'small';}
+  else if(style==='lux'){engine=pick([['bigv8',1958],['ohv8',1949],['v12',1931],['v8',0]]);size='large';}
+  else if(style==='electric'){engine=latest(ENGINES,m,e=>e.type==='electric').id;}
+  else if(style==='steam'){engine=latest(ENGINES,m,e=>e.type==='steam').id;}
+  else if(seg==='compact') engine=pick([['v6',1963],['i4c',0],['i6ohv',0]]);
+  else if(seg==='pony') {engine=pick([['bigv8',1967],['ohv8',0]]);}
+  else if(seg==='truck'){engine=pick([['ohv8',1960],['i6ohv',1950],['v8f',1935],['s6',0],['s4',0]]);size='large';}
+  else if(seg==='roadster'){engine=pick([['bigv8',1962],['ohv8',1952],['v8f',1933],['s6',0]]);}
+  else if(style==='volume') engine=pick([['ohv8',1955],['i6ohv',1950],['v8f',1932],['s4',0]]);
+  else engine=pick([['ohv8',1951],['i6ohv',1950],['v8f',1935],['s6',0]]);
+  if(seg==='runabout') size='small';
+  const closedNeeded=CLOSED_SEGS.includes(seg);
+  const chassis=seg==='truck'?latest(CHASSIS,m,c=>c.id==='heavy'||c.id==='perimeter').id:(seg==='compact'||seg==='pony'||style==='import')&&has('v6')?'unibody':latest(CHASSIS,m,c=>c.id!=='unibody'&&c.id!=='heavy'&&c.id!=='wood'&&c.id!=='armored'&&c.id!=='tube').id;
+  const susp=latest(SUSP,m).id;
+  const autos=avail(GEARS,m).filter(g=>g.id.startsWith('auto'));const manual=latest(GEARS,m,g=>!g.id.startsWith('auto')&&g.id!=='fric'&&g.id!=='man4s'&&g.id!=='chain').id;
+  let gearbox=manual;
+  if(style==='lux'&&autos.length) gearbox=autos[autos.length-1].id;
+  else if(style==='mid'&&Y>=1953&&autos.length&&seg!=='truck') gearbox=autos[autos.length-1].id;
+  else if(style==='volume'&&Y>=1962&&autos.length&&seg!=='truck'&&seg!=='compact') gearbox=autos[autos.length-1].id;
+  if((seg==='pony'||seg==='roadster')&&has&&avail(GEARS,m).some(g=>g.id==='man4s')) gearbox='man4s';
+  const body=closedNeeded?latest(BODIES,m,b=>b.closed&&(b.id!=='hardtop'||seg==='coupe')).id:seg==='roadster'&&Y>=1953?'glassfiber':latest(BODIES,m,b=>!b.closed).id;
+  const interior=style==='lux'?'lux':style==='mid'?'std':Y>=1950?'vinyl':'basic';
+  const ageOK=(f,mo)=>m-unlockM(f.year)>=mo;
+  const basic=['starter','fwb','glass','lamps','top','wind','speedo','demount','sealed','heater'];
+  const features=avail(FEATURES,m).filter(f=>{
+    if(f.id==='top') return !closedNeeded;
+    if(style==='lux') return f.id!=='emis'||Y>=1968;
+    if(style==='mid') return ageOK(f,24)&&(f.id!=='ac'||Y>=1962);
+    if(style==='import') return basic.includes(f.id)||(f.id==='belts'&&Y>=1962)||(f.id==='disc'&&Y>=1967)||(f.id==='emis');
+    return basic.includes(f.id)||(f.id==='radio'&&Y>=1950)||(f.id==='belts'&&Y>=1964)||(f.id==='psteer'&&Y>=1962)||(f.id==='disc'&&Y>=1968)||(f.id==='emis');
+  }).map(f=>f.id);
+  const quality=style==='lux'?85:style==='import'?(Y>=1965?72:58):style==='mid'?62:48;
+  const rt=Y<1925?Math.min(5,Math.floor((Y-1900)/5)):Math.min(RD_MAX,5+Math.floor((Y-1925)/9));
+  return {segment:seg,chassis,susp,engine,size,gearbox,body,interior,features,quality,rd:{engine:rt,light:rt,rel:rt,coach:rt}};
+}
+function rivalEff(rv,Y){const d=byId(RIVAL_DEFS,rv.id);return d&&d.eff?interp(d.eff,Y):1;}
+function rivalWage(rv){const d=byId(RIVAL_DEFS,rv.id);return (d&&d.wage)||1;}
+function rivalShip(rv,Y){const d=byId(RIVAL_DEFS,rv.id);return d&&d.foreign?70*costIdx(Y):0;}
+function rivalUnitCost(rm,rv,Y){return (rm.car.materials*matIdx(Y)+rm.car.laborHours*interp(HOURS,Y)*hourlyWage(rv.home,Y)*rivalWage(rv))*rivalEff(rv,Y)*1.15+20*costIdx(Y)+rivalShip(rv,Y);}
 function rivalLaunch(rv,seg,m,announce){
   const spec=rivalSpec(rv.style,seg,m);if(!spec) return;
   const Y=yearOf(m);
@@ -581,36 +750,345 @@ function rivalLaunch(rv,seg,m,announce){
   }
 }
 function initRivals(){
-  return RIVAL_DEFS.map(d=>{const cov={};REGIONS.forEach(r=>{const est=d.start===0;cov[r.id]=r.id===d.home?(est?.85:.6):(d.style==='lux'&&r.inc<1.1?.05:d.style==='electric'&&r.urb<.6?.04:(est?.28:.12));});return {id:d.id,name:d.name,style:d.style,home:d.home,rep:d.rep,markup:d.markup,cov,models:[],nameIdx:0,active:false};});
+  return RIVAL_DEFS.map(d=>{const cov={};REGIONS.forEach(r=>{const est=d.start===0;cov[r.id]=r.id===d.home?(est?.85:.6):(d.style==='lux'&&r.inc<1.1?.05:d.style==='electric'&&r.urb<.6?.04:(est?.28:.12));});return {id:d.id,name:d.name,style:d.style,home:d.home,rep:d.rep,markup:d.markup,cov,models:[],nameIdx:0,active:false,owner:null,cash:0,shares:0,pub:false,price:0,fin:[],loss:0};});
+}
+const rvById=id=>state.rivals.find(r=>r.id===id);
+function rootOwner(rv){let o=rv.owner,g=0;while(o&&o!=='player'&&g++<9){const p=rvById(o);if(!p||!p.owner) break;o=p.owner;}return o;}
+const mktRevScale=Y=>potential(Y)*600*costIdx(Y);
+function rivalStart(rv,m,announce){
+  const def=byId(RIVAL_DEFS,rv.id);const Y=yearOf(m);
+  rv.active=true;rv.cash=Math.round(def.cap*mktRevScale(Y));
+  const fv=rv.cash*1.6;rv.shares=Math.max(2000,Math.round(fv/60/100)*100);rv.pub=!!def.pub;rv.price=+(fv/rv.shares).toFixed(2);rv.fv=fv;rv.fin=[];rv.phist=[];
+  if(announce&&m>0&&!rv.silent) addNews(def.foreign?def.name+' of '+def.country+' begins selling cars in America, starting with dealers around '+REG[rv.home].city+'.':def.name+' opens for business in '+REG[rv.home].city+'.','rival');
+  rv.quiet=!!rv.silent;rv.silent=false;
+}
+function rivalFixed(rv,Y){const n=Math.max(1,rv.models.length);const avg=rv.fin.length?rv.fin.slice(-12).reduce((a,f)=>a+f.rev,0)/Math.min(12,rv.fin.length):0;rv.peak=Math.max(rv.peak||0,avg);const age=rv.fin.length;const ramp=Math.min(1,.25+age/40)*(rv.style==='import'?.15:1);const pctF={lux:.15,mid:.07,electric:.09,steam:.09,import:.05}[rv.style]||.045;return .0012*mktRevScale(Y)*n*ramp+pctF*Math.max(avg,.85*rv.peak);}
+function rivalVarCost(rm,rv,Y){return (rm.car.materials*matIdx(Y)+rm.car.laborHours*interp(HOURS,Y)*hourlyWage(rv.home,Y)*rivalWage(rv))*rivalEff(rv,Y)+5*costIdx(Y)+rivalShip(rv,Y);}
+function takeoverPrice(rv){return Math.round((rv.pub?rv.price*rv.shares:(rv.fv||0))*1.35);}
+function payOutHoldings(rv,perShare,why){const h=state.me&&state.me.hold&&state.me.hold[rv.id];if(!h) return;const amt=h.n*perShare;state.me.cash+=amt;delete state.me.hold[rv.id];addNews('Your '+int(h.n)+' shares in '+rv.name+' were bought out at '+money(perShare)+' each ('+why+'). '+money(amt)+' paid to you.','good');}
+function acquireRival(rv,byId_,m,why){
+  const perShare=takeoverPrice(rv)/Math.max(1,rv.shares);
+  payOutHoldings(rv,perShare,why||'takeover');
+  rv.owner=byId_;
+  state.rivals.forEach(o=>{if(o.owner===rv.id) o.owner=byId_;});
+  if(byId_==='player'){state.company.cash+=rv.cash;}else{const par=rvById(byId_);if(par) par.cash+=rv.cash;}
+  rv.cash=0;rv.pub=false;rv.loss=0;
+}
+function rivalCloseDivision(rv,m,par){rv.active=false;rv.closed=true;rv.models=[];REGIONS.forEach(r=>rv.cov[r.id]=0);rv.goneM=m;addNews((par?par.name:'Its owner')+' shuts down its money-losing '+rv.name+' division.','rival');}
+function rivalBankrupt(rv,m){
+  rv.active=false;rv.bankrupt=true;rv.models=[];REGIONS.forEach(r=>rv.cov[r.id]=0);rv.goneM=m;
+  const h=state.me&&state.me.hold&&state.me.hold[rv.id];
+  {const d=byId(RIVAL_DEFS,rv.id);addNews(d&&d.foreign?rv.name+' gives up on the American market and pulls out.':rv.name+' has gone bankrupt and closed its doors.'+(h?' Your '+int(h.n)+' shares are now worthless.':''),'rival');}
+  if(h) delete state.me.hold[rv.id];
+  state.rivals.filter(o=>o.owner===rv.id&&o.active).forEach(o=>rivalBankrupt(o,m));
 }
 function updateRivals(m,announce){
   const Y=yearOf(m);
+  {const sil=state.rivals.filter(r=>r.silent&&!r.active);if(announce&&sil.length) addNews((()=>{const t=sil.map(r=>r.name).join(', ');return 'The stock exchange is open. Newer carmakers are already selling: '+t+(t.endsWith('.')?'':'.')+' See the Stocks tab.';})(),'rival');}
   state.rivals.forEach(rv=>{
     const def=byId(RIVAL_DEFS,rv.id);
-    if(m<def.start) return;
-    if(!rv.active){rv.active=true;if(announce&&m>0) addNews(def.name+' opens for business in '+REG[rv.home].city+'.','info');}
-    def.segs.forEach(seg=>{
-      if(!segOpen(seg,Y)) return;
+    if(def&&def.reenter===m&&(rv.bankrupt||rv.closed)&&!rv.owner){rv.bankrupt=false;rv.closed=false;rv.active=false;rv.models=[];REGIONS.forEach(r=>rv.cov[r.id]=r.id===rv.home?.3:.05);if(announce) addNews(def.name+' of '+def.country+' returns to America with new, better-built cars.','rival');}
+    if(!def||m<def.start||rv.bankrupt||rv.closed||rv.absorbed) return;
+    if(!rv.active){rivalStart(rv,m,announce);
+      if(def.merge){const got=[];def.merge.forEach(id=>{const t=rvById(id);if(t&&t.active&&!t.owner){acquireRival(t,rv.id,m,'merger');got.push(t.name);}});
+        if(announce&&got.length) addNews(def.name+' is formed as a holding company, combining '+got.join(', ')+'. Each keeps building cars under its own name.','rival');}}
+    if(def.buys) def.buys.forEach(b=>{if(b.m!==m||rv.owner||!rv.active) return;const t=rvById(b.id);if(!t||!t.active||t.owner) return;const cost=takeoverPrice(t);rv.cash-=Math.min(Math.max(0,rv.cash)*.5,cost*.3);acquireRival(t,rv.id,m,'takeover');if(announce) addNews(rv.name+' buys '+t.name+' in a deal worth about '+money(cost)+', paid mostly in its own shares.','rival');});
+    if(def.mk) rv.markup=interp(def.mk,Y);
+    const segList=rivalSegs(def,Y);rv.models=rv.models.filter(x=>segList.includes(x.seg));
+    segList.forEach(seg=>{
       const cur=rv.models.find(x=>x.seg===seg);
       const jitter=((rv.id.charCodeAt(0)+seg.length*7)%24);
-      if(!cur) rivalLaunch(rv,seg,m,announce);
+      if(!cur) rivalLaunch(rv,seg,m,announce&&!rv.quiet);
       else if(m-cur.launchM>=66+jitter) rivalLaunch(rv,seg,m,announce);
     });
+    rv.quiet=false;
+    const broke=rv.owner?false:rv.cash<0;const grow=broke?-.004:(def.grow||.006)*(def.weak?.6:1);
     REGIONS.forEach(r=>{
-      const cap=r.id===rv.home?.97:rv.style==='electric'?(r.urb>=.6?.8:r.urb>=.4?.4:.12):rv.style==='steam'?.7:rv.style==='lux'?(r.inc>=1.1?.75:.3):rv.style==='mid'?.8:(rv.id==='crescent'&&['gc','se','tx'].includes(r.id)?.9:.9);
-      rv.cov[r.id]=Math.min(cap,rv.cov[r.id]+.006);
+      const cap=r.id===rv.home?.97:(def.focus&&def.focus.includes(r.id))?.9:rv.style==='import'?.35:rv.style==='electric'?(r.urb>=.6?.8:r.urb>=.4?.4:.12):rv.style==='steam'?.7:rv.style==='lux'?(r.inc>=1.1?.75:.3):rv.style==='mid'?.8:.9;
+      rv.cov[r.id]=clamp(rv.cov[r.id]+grow,r.id===rv.home?.3:0,cap);
     });
-    if(m%12===0){rv.rep=Math.min(72,rv.rep+.4);rv.models.forEach(rm=>rm.price=Math.round(rivalUnitCost(rm,rv,Y)*rv.markup/5)*5);}
+    if(m%12===0){rv.rep=Math.min(def.weak?45:72,rv.rep+(def.weak?.15:.4));rv.models.forEach(rm=>rm.price=Math.round(rivalUnitCost(rm,rv,Y)*rv.markup/5)*5);}
   });
 }
-
+function rivalsFinance(P,m,Y){
+  state.rivals.forEach(rv=>{
+    if(!rv.active) return;
+    let rev=0,vc=0,units=0;rv.models.forEach(rm=>{const n=rm.sales||0;units+=n;rev+=n*rm.price;vc+=n*rivalVarCost(rm,rv,Y);});
+    const g=rivalGovMonth(rv,m,Y);const deal=rev*.18,fix=rivalFixed(rv,Y)*(civHalt(m)?.35:1);const pre=rev-deal-vc-fix+g.pre;rev+=g.rev;
+    const owned=!!rv.owner;const tax=owned?0:Math.max(0,pre)*taxRate(Y);const net=pre-tax;
+    rv.fin.push({m,rev,net,units});if(rv.fin.length>36) rv.fin.shift();
+    if(!owned){rv.cash+=net;if(net>0&&rv.cash>0){const div=net*.4;rv.cash-=div;const h=state.me&&state.me.hold&&state.me.hold[rv.id];if(h){const mine=div*h.n/rv.shares;state.me.cash+=mine;h.div=(h.div||0)+mine;}}}
+        else{const root=rootOwner(rv);if(root==='player'){P.subs=(P.subs||0)+pre;state.company.cash+=pre;}else{const par=rvById(root);if(par) par.cash+=pre;}}
+    rv.loss=net<0?(rv.loss||0)+1:0;
+  });
+}
+function rivalsCorporate(m,Y){
+  state.rivals.forEach(rv=>{
+    if(rv.active&&rv.owner&&rv.owner!=='player'&&rv.loss>=18){const par=rvById(rootOwner(rv));rivalCloseDivision(rv,m,par);return;}
+    if(!rv.active||rv.owner) return;
+    const avg=rv.fin.slice(-6).reduce((a,f)=>a+f.rev,0)/Math.max(1,Math.min(6,rv.fin.length));
+    const limit=Math.max(4000*costIdx(Y),avg*4);
+    if(civHalt(m)) return;
+    if(rv.cash<-limit){rv.deep=(rv.deep||0)+1;if(rv.deep>=3){rivalBankrupt(rv,m);return;}}else rv.deep=0;
+    {const d=byId(RIVAL_DEFS,rv.id);if(d&&d.foreign) return;}
+    const scripted=RIVAL_DEFS.some(d=>d.start>m&&d.merge&&d.merge.includes(rv.id))||RIVAL_DEFS.some(d=>d.buys&&d.buys.some(b=>b.id===rv.id&&b.m>m));
+    if(!scripted&&rv.loss>=12&&rv.cash<0&&rnd()<.03){
+      const cost=takeoverPrice(rv);const buyers=state.rivals.filter(o=>o!==rv&&o.active&&!o.owner&&!(byId(RIVAL_DEFS,o.id)||{}).foreign&&o.cash>cost*2.5&&(o.fin.slice(-12).reduce((a,f)=>a+f.net,0)>0));
+      if(buyers.length){const b=buyers[Math.floor(rnd()*buyers.length)];b.cash-=cost;acquireRival(rv,b.id,m,'takeover');addNews(b.name+' buys the struggling '+rv.name+' for about '+money(cost)+'.','rival');return;}
+    }
+    if(!rv.pub){const rev12=rv.fin.slice(-12).reduce((a,f)=>a+f.rev,0);if(rv.fin.length>=24&&rev12>.04*mktRevScale(Y)*12&&rv.fin.slice(-12).reduce((a,f)=>a+f.net,0)>0&&rnd()<.08){rv.pub=true;rv.price=(rv.fv||1)/rv.shares;addNews(rv.name+' goes public on the stock exchange at '+money(rv.price)+' a share.','rival');}}
+  });
+}
+/* ================= stock market ================= */
+const IPO_SHARES=10000;
+const SENT=[[1900,.9],[1905,1],[1909,1.05],[1915,1.1],[1919,1.05],[1922,1.1],[1925,1.3],[1929.6,1.7],[1930,.75],[1932,.35],[1933,.5],[1937,.8],[1938.5,.6],[1942,.55],[1946,.9],[1950,1.0],[1955,1.3],[1960,1.4],[1966,1.6],[1969,1.3],[1970,1.1]];
+function peRatio(Y){return interp([[1900,9],[1910,10],[1920,11],[1925,13],[1929,17],[1931,10],[1940,12],[1950,7],[1955,12],[1960,17],[1965,18],[1970,15]],Y);}
+function rivalFV(rv,Y){
+  const f=rv.fin.slice(-12);const n=f.length||1;const e12=f.reduce((a,x)=>a+x.net,0)*12/n;const r12=f.reduce((a,x)=>a+x.rev,0)*12/n;
+  const subs=state.rivals.filter(o=>o.owner===rv.id&&o.active).reduce((a,o)=>a+rivalFV(o,Y),0);
+  const book=Math.max(0,rv.cash)+.35*r12+subs;
+  let fv=e12>0?book*.5+e12*peRatio(Y):book*.8+e12*2;
+  return Math.max(book*.25,fv,1000*costIdx(Y));
+}
+function playerBook(){
+  const Y=yearOf(state.m);const C=state.company;
+  const fac=state.factories.reduce((a,f)=>a+(f.building?0:f.lines*lineCost(f.region,Y)*(1+meth(f).cost)*.6),0);
+  const inv=Object.values(state.stock).reduce((a,S)=>a+Object.values(S).reduce((b,x)=>b+(x.u||0)*(x.c||0),0),0);
+  const subs=state.rivals.filter(o=>o.owner==='player'&&o.active).reduce((a,o)=>a+rivalFV(o,Y),0);
+  return C.cash-debt()+fac+inv+subs;
+}
+function playerE12(){const H=state.fin.hist.slice(-12);if(!H.length) return 0;return H.reduce((a,h)=>a+h.net,0)*12/H.length;}
+function playerFV(){
+  const Y=yearOf(state.m);const book=playerBook();const e=playerE12();
+  const pay=(state.eq&&state.eq.payout)||0;
+  let fv=e>0?Math.max(0,book)*.5+e*peRatio(Y)*(1+pay*.15):Math.max(0,book)*.8+e*2;
+  return Math.max(Math.max(0,book)*.25,fv,1000);
+}
+function sharePrice(){const q=state.eq;return q.pub?q.price:playerFV()/q.shares;}
+function netWorth(){const me=state.me;const own=state.eq.own*sharePrice();const hold=Object.keys(me.hold).reduce((a,id)=>{const rv=rvById(id);return a+(rv&&rv.active?me.hold[id].n*rv.price:0);},0);return {cash:me.cash,own,hold,total:me.cash+own+hold};}
+function ipoReady(){
+  const Y=yearOf(state.m);const H=state.fin.hist.slice(-12);const rev=H.reduce((a,h)=>a+h.rev,0);const net=H.reduce((a,h)=>a+h.net,0);
+  const need=150000*costIdx(Y);
+  return [
+    {ok:state.m>=24,t:'At least two years in business'},
+    {ok:lv('books')>=2,t:'A bookkeeper on staff, so investors can trust your books'},
+    {ok:H.length>=12&&net>0,t:'Profitable over the last 12 months'},
+    {ok:rev>=need,t:'At least '+money(need)+' in sales over the last 12 months'}];
+}
+function stocksMonth(P,m,Y){
+  const mk=state.mkt;
+  let tgt=interp(SENT,Y)*(eventMult(m)<1?.9:1);
+  mk.sent+= (tgt-mk.sent)*.15+(rnd()-.5)*.03;
+  if(m===unlockM(1929)+9){mk.sent*=.6;addNews('Black Tuesday: stock prices collapse on Wall Street.','bad');}
+  let capNow=0,capPrev=0;
+  state.rivals.forEach(rv=>{
+    if(!rv.active) return;
+    const fv=rivalFV(rv,Y);rv.fv=fv;
+    if(!rv.pinit){rv.price=+(fv*mk.sent/rv.shares).toFixed(2);rv.pinit=true;}
+    if(!rv.owner&&rv.pub){const old=rv.price||fv/rv.shares;const target=fv*mk.sent/rv.shares;let np=old*Math.pow(target/old,.3)*(1+(rnd()-.5)*.08);np=Math.max(.05,np);capPrev+=old*rv.shares;capNow+=np*rv.shares;rv.price=+np.toFixed(2);}
+    else rv.price=+(fv/rv.shares).toFixed(2);
+    if(rv.price>250){const k=[2,3,4,5,10,20,50].find(k=>rv.price/k<150)||100;rv.shares*=k;rv.price=+(rv.price/k).toFixed(2);(rv.phist||[]).forEach((v,i,a)=>a[i]=+(v/k).toFixed(2));const h=state.me.hold[rv.id];if(h) h.n*=k;if(rv.pub&&!rv.owner&&(h||rnd()<.5)) addNews(rv.name+' splits its stock '+k+'-for-1. Its share price is now '+money(rv.price)+'.'+(h?' You now hold '+int(h.n)+' shares.':''),'rival');}
+    (rv.phist||(rv.phist=[])).push(rv.price);if(rv.phist.length>36) rv.phist.shift();
+  });
+  const q=state.eq;
+  if(q.pub){const old=q.price;const target=playerFV()*mk.sent/q.shares;let np=old*Math.pow(Math.max(1e-6,target)/old,.3)*(1+(rnd()-.5)*.08);q.price=+Math.max(.05,np).toFixed(2);capPrev+=old*q.shares;capNow+=q.price*q.shares;}
+  q.phist.push(+sharePrice().toFixed(2));if(q.phist.length>60) q.phist.shift();
+  if(capPrev>0) mk.idx=mk.idx*capNow/capPrev;
+  mk.hist.push(+mk.idx.toFixed(1));if(mk.hist.length>60) mk.hist.shift();
+  // dividends, quarterly
+  if(m%3===2&&q.payout>0){const qNet=state.fin.hist.slice(-2).reduce((a,h)=>a+h.net,0)+P.net;
+    if(qNet>0){const tot=qNet*q.payout;if(state.company.cash>tot){state.company.cash-=tot;P.div=tot;const mine=tot*q.own/q.shares;state.me.cash+=mine;q.lastDps=tot/q.shares;addNews('Quarterly dividend paid: '+money(tot)+' ($'+(tot/q.shares).toFixed(2)+' a share). Your share: '+money(mine)+'.','good');}
+      else addNews('The quarterly dividend was skipped: not enough cash.','warn');}}
+  const nw=netWorth();state.me.hist.push(Math.round(nw.total));if(state.me.hist.length>120) state.me.hist.shift();
+}
+/* ================= absorbing and antitrust ================= */
+function absorbRival(rv,m){
+  const Y=yearOf(m);const f6=rv.fin.slice(-6);const u=f6.reduce((a,x)=>a+x.units,0)/Math.max(1,f6.length);
+  let dealersAdded=0;
+  REGIONS.forEach(r=>{const cov=rv.cov[r.id]||0;if(cov<.02) return;const slots=dealerSlots(r.id,Y);const d=dealerRec(r.id);const add=Math.min(slots-d.n,Math.round(cov*slots*.8));if(add>0){d.n+=add;d.target=Math.max(d.target,d.n);dealersAdded+=add;if(!d.last) d.graceUntil=m+2;d.sat=Math.max(d.sat,50);}
+    state.regRep[r.id]=clamp(regRep(r.id)+rv.rep*.15*cov,0,95);});
+  const mt=avail(METHODS,m).slice(-1)[0];const lines=clamp(Math.ceil(u/Math.max(1,capPerLine(Y)*mt.cap)),1,30);
+  const short=rv.name.split(' ')[0];
+  state.factories.push({id:'f'+(state.nextId++),name:REG[rv.home].city+' Works (ex-'+short+')',region:rv.home,lines,method:mt.id,building:false,monthsLeft:0,costLeft:0,pending:[],ship:{mode:'auto',shares:{}},prod:{},last:{}});
+  rv.active=false;rv.absorbed=true;rv.owner='player';rv.models=[];REGIONS.forEach(r=>rv.cov[r.id]=0);rv.goneM=m;
+  return {dealersAdded,lines,city:REG[rv.home].city};
+}
+function antiLimit(Y){return interp([[1900,.65],[1904,.5],[1908,.42],[1911,.35],[1914,.33],[1920,.4],[1923,.5],[1929,.55],[1933,.55],[1938,.42],[1946,.45],[1960,.45],[1962,.42],[1970,.42]],Y);}
+function antiMood(Y){return Y<1904?'Relaxed':Y<1914?'Trust-busting':Y<1921?'Strict (Clayton Act)':Y<1933?'Relaxed (pro-business years)':Y<1938?'Relaxed (New Deal industry codes)':Y<1946?'Strict (renewed trust-busting)':Y<1961?'Watchful':'Strict';}
+function unitsShare12(extraRv){
+  const m0=state.m-12;let mine=0,tot=0;
+  state.models.forEach(x=>x.hist.forEach(h=>{if(h.m>=m0){mine+=h.sold;tot+=h.sold;}}));
+  state.rivals.forEach(rv=>{rv.fin.forEach(f=>{if(f.m>=m0){tot+=f.units;if(rv.owner==='player'||rootOwner(rv)==='player'||(extraRv&&(rv===extraRv||rootOwner(rv)===extraRv.id))) mine+=f.units;}});});
+  return tot?mine/tot:0;
+}
+function antitrustMonth(P,m,Y){
+  const a=state.anti||(state.anti={stage:0,since:0});const sh=unitsShare12();const lim=antiLimit(Y);a.share=sh;
+  if(sh>lim){
+    if(a.stage===0){a.stage=1;a.since=m;addNews('The Justice Department opens an investigation into '+state.company.name+'. You sell about '+pct(sh)+' of all new cars in America. If that does not come down within a year, expect a lawsuit.','bad');}
+    else if(m-a.since>=12){
+      const subs=state.rivals.filter(rv=>rv.active&&rv.owner==='player').sort((x,y)=>y.fin.slice(-12).reduce((a,f)=>a+f.units,0)-x.fin.slice(-12).reduce((a,f)=>a+f.units,0));
+      if(subs.length){const rv=subs[0];const got=(rv.fv||0)*.8;state.company.cash+=got;rv.owner=null;rv.cash=got*.2;rv.pub=true;rv.loss=0;
+        addNews('Court ruling: '+state.company.name+' must sell '+rv.name+'. It becomes an independent company again, and you receive '+money(got)+'.','bad');}
+      else{const rev=state.fin.hist.slice(-12).reduce((a,h)=>a+h.rev,0);const fine=rev*.05;state.company.cash-=fine;P.fines=(P.fines||0)+fine;
+        addNews('Court ruling: '+state.company.name+' is fined '+money(fine)+' for monopolizing the car trade. More fines will follow each year while your share stays this high.','bad');}
+      a.since=m;a.stage=2;}
+  } else if(a.stage>0&&sh<lim*.92){a.stage=0;addNews('The Justice Department closes its case against '+state.company.name+'.','good');}
+}
+/* ================= government work ================= */
+const WAR_WORK=[
+ {from:unlockM(1917)+3,to:unlockM(1918)+10,share:.4,margin:.07,name:'the Great War'},
+ {from:unlockM(1940)+5,to:unlockM(1942),share:.35,margin:.06,name:'rearmament',ranked:true},
+ {from:unlockM(1942)+1,to:unlockM(1945)+7,share:1,margin:.05,name:'World War II'},
+ {from:unlockM(1950)+6,to:unlockM(1953)+6,share:.25,margin:.05,name:'the Korean War'},
+ {from:unlockM(1965)+7,to:unlockM(1970)+11,share:.15,margin:.05,name:'the Vietnam War'}];
+const warWindow=m=>WAR_WORK.find(w=>m>=w.from&&m<=w.to);
+const _wuc={};
+function warUnitCost(Y){const k=Math.floor(Y);if(_wuc[k]) return _wuc[k];const m=unlockM(k);const spec=rivalSpec('volume',k>=1930?'sedan':'touring',m);const car=computeCar(spec,k);return _wuc[k]=car.materials*matIdx(k)+car.laborHours*interp(HOURS,k)*interp(WAGE,k);}
+function warLineRev(f,Y){return capPerLine(Y)*meth(f).cap*warUnitCost(Y)*.9;}
+function warMaxLines(f,m){const w=warWindow(m);if(!w) return 0;let sh=w.share;if(w.ranked){const reps=state.rivals.filter(r=>r.active).map(r=>r.rep).sort((a,b)=>a-b);const med=reps.length?reps[Math.floor(reps.length/2)]:30;if(state.company.rep<med) sh/=2;}return Math.floor(f.lines*sh+1e-9);}
+const govLines=f=>(f.war||0)+(f.gc?f.gc.lines:0);
+const CW_TRUCK={dep:.40,util:.30,perf:.15,eco:.10,com:.05},CW_CAR={dep:.35,com:.20,perf:.15,eco:.15,util:.15},CW_FLEET={eco:.35,dep:.35,com:.15,util:.15};
+function govContracts(){
+  if(govContracts._c) return govContracts._c;
+  const L=[
+   {id:'wwi_trucks',m:unlockM(1917)+4,seg:'truck',name:'Army standard trucks',buyer:'The Army',months:18,rate:.04,w:CW_TRUCK},
+   {id:'wwi_staff',m:unlockM(1917)+6,seg:'touring',name:'Army staff cars',buyer:'The Army',months:16,rate:.012,w:CW_CAR},
+   {id:'rearm_trucks',m:unlockM(1940)+8,seg:'truck',name:'1½-ton Army trucks',buyer:'The Army',months:18,rate:.05,w:CW_TRUCK},
+   {id:'recon',m:unlockM(1941)+2,seg:'truck',name:'light reconnaissance cars',buyer:'The Army',months:52,rate:.035,w:{perf:.3,dep:.4,util:.3}},
+   {id:'ww2_trucks',m:unlockM(1942)+2,seg:'truck',name:'2½-ton cargo trucks',buyer:'The Army',months:40,rate:.09,w:CW_TRUCK},
+   {id:'ww2_staff',m:unlockM(1942)+4,seg:'sedan',name:'staff cars',buyer:'The War Department',months:36,rate:.01,w:CW_CAR},
+   {id:'ww2_amb',m:unlockM(1942)+6,seg:'delivery',name:'field ambulances',buyer:'The Army',months:30,rate:.015,w:{dep:.4,util:.3,com:.2,perf:.1}},
+   {id:'korea_trucks',m:unlockM(1950)+8,seg:'truck',name:'Army trucks for Korea',buyer:'The Army',months:30,rate:.02,w:CW_TRUCK},
+   {id:'po55',m:unlockM(1955),seg:'delivery',name:'mail trucks',buyer:'The Post Office',months:24,rate:.003,w:{dep:.45,util:.3,eco:.25}},
+   {id:'po63',m:unlockM(1963),seg:'delivery',name:'mail trucks',buyer:'The Post Office',months:24,rate:.003,w:{dep:.45,util:.3,eco:.25}},
+   {id:'viet_trucks',m:unlockM(1965)+8,seg:'truck',name:'Army trucks for Vietnam',buyer:'The Army',months:30,rate:.015,w:CW_TRUCK}];
+  for(let y=1947;y<=1970;y++) L.push({id:'gsa'+y,m:unlockM(y)+1,seg:'sedan',name:y+' government fleet sedans',buyer:'The federal government',months:12,rate:.004,w:CW_FLEET});
+  return govContracts._c=L;
+}
+const govScore=(r,w)=>Object.keys(w).reduce((a,k)=>a+w[k]*(r[k]||0),0);
+function govCandidates(c,m){
+  const Y=yearOf(m);const out=[];
+  state.models.forEach(x=>{if(x.status==='active'&&x.seg===c.seg&&x.price>0&&(x.saleFrom==null||x.saleFrom<=m)&&state.factories.some(f=>!f.building)) out.push({player:true,id:x.id,name:x.name,maker:state.company.name,score:govScore(ratingsAt(x.car,x.dy,Y),c.w)});});
+  state.rivals.forEach(rv=>{const d=byId(RIVAL_DEFS,rv.id);if(!rv.active||(d&&d.foreign)) return;rv.models.forEach(rm=>{if(rm.seg===c.seg) out.push({player:false,rv:rv.id,rm:rm.id,name:rm.name,maker:rv.name,score:govScore(ratingsAt(rm.car,rm.dy,Y),c.w)});});});
+  return out.sort((a,b)=>b.score-a.score);
+}
+function awardRival(c,cand,units,m){
+  const rv=rvById(cand.rv);const rm=rv&&rv.models.find(x=>x.id===cand.rm);if(!rv||!rm) return false;const Y=yearOf(m);
+  const cost=rivalVarCost(rm,rv,Y);const price=rivalUnitCost(rm,rv,Y)*1.08;
+  (rv.gc||(rv.gc=[])).push({cid:c.id,until:m+c.months,units,price,cost});
+  rm.fame=Math.min(100,(rm.fame||0)+3);
+  addNews(c.buyer+' awards its '+c.name+' contract to '+rv.name+' ('+rm.name+'): about '+int(units)+' a month for '+c.months+' months.','rival');
+  return true;
+}
+function govOfferNext(c,m,unitsLeft){
+  while(c.queue.length){
+    const cand=c.queue.shift();
+    if(cand.player){const x=byId(state.models,cand.id);if(!x||x.status!=='active') continue;state.gov.offer={cid:c.id,mid:cand.id,units:unitsLeft,m};addNews(c.buyer+' wants your '+x.name+' for its '+c.name+': about '+int(unitsLeft)+' a month for '+c.months+' months. It was judged the best design on offer. Decide on the Factories tab.','good');return;}
+    if(awardRival(c,cand,unitsLeft,m)) return;
+  }
+}
+function govMonthStart(m){
+  const g=state.gov||(state.gov={offer:null,done:{},q:{}});
+  if(g.offer){const c=govContracts().find(x=>x.id===g.offer.cid);const left=g.offer.units;g.offer=null;if(c){c.queue=g.q[c.id]||[];govOfferNext(c,m,left);g.q[c.id]=c.queue;}}
+  govContracts().forEach(c=>{
+    if(c.m!==m||g.done[c.id]) return;g.done[c.id]=true;
+    const units=Math.round(c.rate*potential(yearOf(m)));c.queue=govCandidates(c,m).slice(0,6);g.q[c.id]=c.queue;
+    govOfferNext(c,m,units);
+  });
+  // end contracts and war work
+  state.factories.forEach(f=>{if(f.gc&&m>=f.gc.until){addNews('The '+f.gc.name+' contract at '+f.name+' is complete. Its lines are free again.','info');f.gc=null;}
+    const mx=warMaxLines(f,m);if((f.war||0)>mx){if(!warWindow(m)) addNews('War work at '+f.name+' has ended. Those lines are idle until you give them cars to build.','info');f.war=mx;}});
+  state.rivals.forEach(rv=>{if(rv.gc) rv.gc=rv.gc.filter(x=>x.until>m);});
+}
+function govFactoryMonth(f,m,Y,P){
+  let prof=0;const w=warWindow(m);
+  if(w&&f.war>0){const rev=f.war*warLineRev(f,Y);prof+=rev*w.margin;}
+  if(f.gc){prof+=(f.gc.price-f.gc.cost)*f.gc.units;}
+  if(prof){state.company.cash+=prof;P.gov=(P.gov||0)+prof;}
+}
+function rivalGovMonth(rv,m,Y){
+  let rev=0,pre=0;
+  (rv.gc||[]).forEach(x=>{rev+=x.units*x.price;pre+=x.units*(x.price-x.cost);});
+  const w=warWindow(m);const d=byId(RIVAL_DEFS,rv.id);
+  if(w&&!(d&&d.foreign)){if(rv.warBase==null||rv.warFrom!==w.from){const f=rv.fin.slice(-12);rv.warBase=f.reduce((a,x)=>a+x.rev,0)/Math.max(1,f.length);rv.warFrom=w.from;}const wr=rv.warBase*w.share;rev+=wr;pre+=wr*w.margin;}
+  return {rev,pre};
+}
+/* ================= achievements ================= */
+const ACH_KEY='marque-achievements';
+function soldAll(){return state.models.reduce((a,x)=>a+(x.life.sold||0),0);}
+function soldSeg(seg){return state.models.filter(x=>x.seg===seg).reduce((a,x)=>a+(x.life.sold||0),0);}
+function raceWins(){return (state.races.mine||[]).filter(r=>r.place===1).length;}
+function marketLeader(){
+  const m0=state.m-12;let mine=0;state.models.forEach(x=>x.hist.forEach(h=>{if(h.m>=m0) mine+=h.sold;}));
+  const grp={};state.rivals.forEach(rv=>{const root=rv.owner?rootOwner(rv):rv.id;const u=rv.fin.filter(f=>f.m>=m0).reduce((a,f)=>a+f.units,0);if(root==='player') mine+=u;else grp[root]=(grp[root]||0)+u;});
+  return mine>0&&Object.values(grp).every(u=>u<mine);
+}
+const ACH=[
+ {id:'first_design',pts:10,name:'Drawing Board',d:'Finish your first car design.',t:()=>state.models.length>0},
+ {id:'first_factory',pts:10,name:'Doors Open',d:'Open your first factory.',t:()=>state.factories.some(f=>!f.building)},
+ {id:'first_dealer',pts:10,name:'Shop Window',d:'Sign your first dealer.',t:()=>Object.values(state.dealers).some(d=>d.n>0)},
+ {id:'first_sale',pts:10,name:'First Customer',d:'Sell your first car.',t:()=>soldAll()>=1},
+ {id:'in_black',pts:10,name:'In the Black',d:'Make a profit for a month.',t:()=>state.fin.hist.some(h=>h.net>0)},
+ {id:'sold_1k',pts:15,name:'A Thousand Drivers',d:'Sell 1,000 cars.',t:()=>soldAll()>=1000},
+ {id:'sold_100k',pts:25,name:'On Every Street',d:'Sell 100,000 cars.',t:()=>soldAll()>=1e5},
+ {id:'sold_1m',pts:40,name:'A Million Motorists',d:'Sell 1,000,000 cars.',t:()=>soldAll()>=1e6},
+ {id:'sold_10m',pts:50,name:'Putting America on Wheels',d:'Sell 10,000,000 cars.',t:()=>soldAll()>=1e7},
+ {id:'million_month',pts:25,name:'Million-Dollar Month',d:'Earn $1,000,000 net profit in a single month.',t:()=>state.fin.hist.some(h=>h.net>=1e6)},
+ {id:'bootstrapped',pts:25,name:'Bootstrapped',d:'Reach 1910 without ever borrowing, starting loan included.',t:()=>yearOf(state.m)>=1910&&!(state.flags||{}).borrowed&&!state.over},
+ {id:'debt_free',pts:15,name:'Debt Free',d:'Pay off every loan after borrowing.',t:()=>(state.flags||{}).borrowed&&debt()<=0&&state.m>=12},
+ {id:'five_regions',pts:15,name:'Regional Player',d:'Have dealers in 5 regions.',t:()=>Object.values(state.dealers).filter(d=>d.n>0).length>=5},
+ {id:'coast_coast',pts:30,name:'Coast to Coast',d:'Have dealers in all 12 regions.',t:()=>REGIONS.every(r=>hasDealers(r.id))},
+ {id:'offices',pts:20,name:'Branching Out',d:'Run branch offices in 5 regions.',t:()=>Object.values(state.dealers).filter(d=>d.office==='open').length>=5},
+ {id:'three_factories',pts:20,name:'Industrialist',d:'Run 3 factories at once.',t:()=>state.factories.filter(f=>!f.building).length>=3},
+ {id:'moving_line',pts:20,name:'The Line Moves',d:'Run a factory on a moving assembly line.',t:()=>state.factories.some(f=>!f.building&&['line','conveyor','transfer','automation'].includes(f.method))},
+ {id:'automation',pts:30,name:'Push-Button Plant',d:'Run a factory with automation and computer control.',t:()=>state.factories.some(f=>!f.building&&f.method==='automation')},
+ {id:'veteran_crew',pts:15,name:'Old Hands',d:'Keep a crew on the same model for 3 years.',t:()=>state.factories.some(f=>Object.values(f.prod).some(p=>(p.exp||0)>=36))},
+ {id:'full_lineup',pts:20,name:'Full Lineup',d:'Sell 6 models at the same time.',t:()=>state.models.filter(x=>x.status==='active').length>=6},
+ {id:'critics',pts:25,name:"Critics' Choice",d:'Have a model rated 80 or higher.',t:()=>state.models.some(x=>(x.rating||0)>=80)},
+ {id:'household',pts:30,name:'Household Name',d:'Build a nameplate reputation of 75.',t:()=>state.models.some(x=>(x.fame||0)>=75)},
+ {id:'dynasty',pts:25,name:'Dynasty',d:'Reach a third generation of one nameplate.',t:()=>state.models.some(x=>{const p=x.parent&&byId(state.models,x.parent);return p&&p.parent;})},
+ {id:'pony',pts:20,name:'Pony Express',d:'Sell 10,000 pony cars.',t:()=>soldSeg('pony')>=1e4},
+ {id:'compact',pts:20,name:'Small Wonder',d:'Sell 50,000 compacts.',t:()=>soldSeg('compact')>=5e4},
+ {id:'race_win',pts:15,name:'Checkered Flag',d:'Win a race or trial.',t:()=>raceWins()>=1},
+ {id:'race_legend',pts:30,name:'Racing Legend',d:'Win 25 races or trials.',t:()=>raceWins()>=25},
+ {id:'research',pts:20,name:'The Laboratory',d:'Reach research level 5 in any area.',t:()=>RD_IDS.some(k=>rdTier(k)>=5)},
+ {id:'full_staff',pts:20,name:'Management Team',d:'Have every department at its top level.',t:()=>STAFF_IDS.every(k=>lv(k)>=3)},
+ {id:'ipo',pts:25,name:'Going Public',d:'List your company on the stock exchange.',t:()=>state.eq&&state.eq.pub},
+ {id:'split',pts:15,name:'Split Decision',d:'Split your stock.',t:()=>(state.flags||{}).split},
+ {id:'dividend',pts:15,name:'Shareholder Value',d:'Pay a dividend.',t:()=>state.eq&&state.eq.lastDps>0},
+ {id:'investor',pts:15,name:'Investor',d:'Own shares in another carmaker.',t:()=>state.me&&Object.keys(state.me.hold).length>0},
+ {id:'millionaire',pts:20,name:'Millionaire',d:'Reach a personal net worth of $1,000,000.',t:()=>state.me&&netWorth().total>=1e6},
+ {id:'tycoon',pts:40,name:'Tycoon',d:'Reach a personal net worth of $100,000,000.',t:()=>state.me&&netWorth().total>=1e8},
+ {id:'takeover',pts:25,name:'Hostile Intentions',d:'Buy another carmaker.',t:()=>state.rivals.some(r=>r.owner==='player')},
+ {id:'absorb',pts:20,name:'One Big Family',d:'Absorb a rival into your own brand.',t:()=>state.rivals.some(r=>r.absorbed)},
+ {id:'holding',pts:30,name:'Holding Company',d:'Own 3 carmakers at the same time.',t:()=>state.rivals.filter(r=>r.owner==='player'&&r.active).length>=3},
+ {id:'trustbuster',pts:20,name:"Trust-Buster's Target",d:'Draw a federal antitrust investigation.',t:()=>state.anti&&state.anti.stage>0},
+ {id:'number_one',pts:40,name:'Number One',d:'Outsell every other car company over 12 months.',t:()=>state.m%3===0&&marketLeader()},
+ {id:'gov_contract',pts:20,name:'Government Issue',d:'Accept a government vehicle contract.',t:()=>(state.flags||{}).gov},
+ {id:'war_work',pts:15,name:'Arsenal of Democracy',d:'Put lines on war work.',t:()=>state.factories.some(f=>(f.war||0)>0)},
+ {id:'survive_crash',pts:30,name:'Weathered the Storm',d:'Still be in business in 1934.',t:()=>yearOf(state.m)>=1934&&!state.over&&soldAll()>0},
+ {id:'end_era',pts:50,name:'The End of an Era',d:'Reach December 1970 still in business.',t:()=>state.m>=END_M&&!state.over}
+];
+function achLife(){try{return JSON.parse(localStorage.getItem(ACH_KEY)||'{}');}catch(e){return {};}}
+function nativeReport(id){try{
+  // Filled in when the game is wrapped as an app (Game Center on iPhone, Play Games on Android).
+  if(window.MarqueNative&&window.MarqueNative.unlock) window.MarqueNative.unlock('marque.'+id);
+  else{const P=window.Capacitor&&window.Capacitor.Plugins;const g=P&&(P.GameServices||P.CapacitorGameConnect);if(g&&g.unlockAchievement) g.unlockAchievement({achievementID:'marque.'+id,achievementId:'marque.'+id});}
+}catch(e){}}
+function checkAch(){
+  if(!state) return;const got=state.ach||(state.ach={});const life=achLife();let changed=false;
+  ACH.forEach(a=>{if(got[a.id]!=null) return;let ok=false;try{ok=!!a.t();}catch(e){}
+    if(ok){got[a.id]=state.m;(ui.achNew||(ui.achNew=[])).push(a.name);addNews('Achievement unlocked: '+a.name+'. '+a.d,'good');if(!life[a.id]){life[a.id]=Date.now();changed=true;}nativeReport(a.id);}});
+  if(changed) try{localStorage.setItem(ACH_KEY,JSON.stringify(life));}catch(e){}
+  Object.keys(life).forEach(id=>nativeReport(id));
+}
 /* ================= state ================= */
 const SAVE_KEY='marque-stage1-save';
 let state=null;
 let ui={tab:'overview',sel:null,sort:'delta',seg:'runabout',design:null,designFactory:null,snapA:null,snapB:null,modal:null,prev:null,flash:null};
 
 function rnd(){state.rng=(state.rng+0x6D2B79F5)|0;let t=state.rng;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296;}
-function addNews(text,kind){state.news.unshift({m:state.m,text,kind:kind||'info'});if(state.news.length>300) state.news.length=300;}
+function addNews(text,kind){text=String(text).replace(/\.\.(?!\.)/g,".");state.news.unshift({m:state.m,text,kind:kind||'info'});if(state.news.length>300) state.news.length=300;}
 
 const STARTER_SPEC={segment:'runabout',chassis:'wood',susp:'leaf',engine:'single',size:'med',gearbox:'plan2',body:'wood',interior:'basic',features:[],quality:50};
 
@@ -656,7 +1134,8 @@ const RD={
  coach:{name:'Coachwork and comfort',per:'+3 comfort, +3 luxury',d:'Better seats, trim and ride.'}
 };
 const RD_IDS=['engine','light','rel','coach'];
-const RD_STEPS=[0,6,16,30,48,72];
+const RD_STEPS=[0,6,16,30,48,72,100,135,175,220,270];
+const RD_MAX=RD_STEPS.length-1;
 const RD_RATE=[0,1,2,3.5];
 function rdTier(k){const p=(state.rd&&state.rd.pts[k])||0;let t=0;for(let i=1;i<RD_STEPS.length;i++) if(p>=RD_STEPS[i]) t=i;return t;}
 function rdTiers(){const o={};RD_IDS.forEach(k=>o[k]=rdTier(k));return o;}
@@ -762,7 +1241,7 @@ function newGame(name,home,loan){
     company:{name,cash:START_CAPITAL+loan,loan,rep:1,home},staff:{books:0,factory:0,sales:0,market:0,eng:0},rd:{staff:{engine:0,light:0,rel:0,coach:0},pts:{engine:0,light:0,rel:0,coach:0}},regRep:{[home]:10},repV2:true,
     factories:[],dealers:{},
     projects:[],models:[],stock:{},rivals:initRivals(),races:{entries:{},results:[]},
-    fin:{hist:[],qtd:0,taxPaid:0},news:[],lastDemand:{},market:null,nextId:1,over:false,insolvent:0,endShown:false};
+    fin:{hist:[],qtd:0,taxPaid:0},flags:{borrowed:loan>0},ach:{},me:{cash:0,hold:{},hist:[]},eq:{pub:false,shares:IPO_SHARES,own:IPO_SHARES,price:0,phist:[],payout:0},mkt:{sent:.9,idx:100,hist:[]},news:[],lastDemand:{},market:null,nextId:1,over:false,insolvent:0,endShown:false};
   updateRivals(0,false);
   // established rivals: back-date their current models so they are already on the road
   let k=0;
@@ -789,8 +1268,11 @@ function estimateUnitCost(mdl,f,m){
   const cap=capPerLine(Y)*meth(f).cap*Math.max(1,f.lines);const ovh=factoryFixed(f.lines,Y,meth(f))/Math.max(1,cap*.8);
   return {mat,lab,ovh,total:mat+lab+ovh};
 }
-function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(state));}catch(e){}}
-function migrate(p){if(p.races&&!p.races.mine){p.races.mine=(p.races.results||[]).filter(r=>r.n).map(r=>Object.assign({},r));}if(!p.yearNames){(p.models||[]).forEach(x=>{if(x.parent&&/ (II|III|IV|V|VI|VII|VIII)$/.test(x.name)){const nn=x.name.replace(/ (II|III|IV|V|VI|VII|VIII)$/,'')+" '"+String(Math.floor(yearOf(x.launchM!=null?x.launchM:p.m))).slice(2);if(!(p.models||[]).some(o=>o.name===nn)) x.name=nn;}});(p.projects||[]).forEach(q=>{if(q.replaces&&/ (II|III|IV|V|VI|VII|VIII)$/.test(q.name)){q.name=q.name.replace(/ (II|III|IV|V|VI|VII|VIII)$/,'')+" '"+String(Math.floor(yearOf(p.m+q.monthsLeft))).slice(2);}});p.yearNames=true;}(p.models||[]).forEach(x=>{if(x.fame==null) x.fame=Math.min(35,(x.life&&x.life.sold||0)/6);});if(p.races&&p.races.entries){Object.keys(p.races.entries).forEach(k=>{if(k.split('-').length<3){const fee=(p.races.fees||{})[k]||0;p.company.cash+=fee;delete p.races.entries[k];}});}if(p.company&&p.company.emLoan==null) p.company.emLoan=0;if(p.rd&&!p.rd.staff){p.rd.staff={engine:0,light:0,rel:0,coach:0};const L=(p.staff&&p.staff.rd)||0;if(L&&p.rd.focus) p.rd.staff[p.rd.focus]=L;}if(p.staff) delete p.staff.rd;if(p.staff&&p.staff.eng==null) p.staff.eng=0;if(!p.rd) p.rd={staff:{engine:0,light:0,rel:0,coach:0},pts:{engine:0,light:0,rel:0,coach:0}};if(!p.races) p.races={entries:{},results:[]};if(p.rivals){const have=p.rivals.map(r=>r.id);const fresh=initRivals();fresh.forEach(r=>{if(!have.includes(r.id)) p.rivals.push(r);});}Object.keys(p.dealers||{}).forEach(r=>{const d=p.dealers[r];if(d.graceUntil==null&&d.n>0){const hadStock=(p.models||[]).some(x=>(x.hist||[]).length&&p.lastSales&&p.lastSales[x.id]&&p.lastSales[x.id][r]&&p.lastSales[x.id][r].sold>0);if(!hadStock){d.graceUntil=p.m+1;if(d.last&&d.last.parts){d.last.parts.stock=0;d.last.parts.volume=0;d.last.note='These dealers are new to your line. They will give you a couple of months for the first cars to arrive before judging stock and sales.';}}}});if(!p.staff) p.staff={books:0,factory:0,sales:0,market:0};if(p.branches&&!p.dealers){p.dealers={};Object.keys(p.branches).forEach(r=>{const n=Math.max(1,Math.round(p.branches[r].cov*dealerSlots(r,yearOf(p.m))));p.dealers[r]={n,target:n,margin:.2,sat:60,office:'none',officeLeft:0,last:null};});delete p.branches;}Object.values(p.factories||{}).forEach(f=>Object.values(f.prod||{}).forEach(pr=>{pr.target=Math.min(pr.target,pr.lines*capPerLine(yearOf(p.m)));}));if(!p.regRep||!p.repV2){p.regRep=p.regRep||{};REGIONS.forEach(r=>{const has=p.dealers&&p.dealers[r.id]&&p.dealers[r.id].n>0;p.regRep[r.id]=has?Math.max(p.regRep[r.id]||0,p.company.rep):2;});p.repV2=true;}(p.models||[]).forEach(x=>{const L=x.life;if(L.design==null){L.dealer=0;L.cogs=0;L.storage=0;(x.hist||[]).forEach(h=>{L.dealer+=h.dealer||0;L.cogs+=h.cogs||0;L.storage+=h.storage||0;});L.design=designCost(x.car,x.dy);L.profit-=L.design;}});return p;}
+function save(){try{checkAch();}catch(e){}try{localStorage.setItem(SAVE_KEY,JSON.stringify(state));}catch(e){}}
+function migrate(p){if(!p.flags) p.flags={borrowed:(p.company&&(p.company.loan>0||p.company.emLoan>0))||(p.fin&&p.fin.hist||[]).some(h=>h.borrowed>0)};if(!p.ach) p.ach={};if(!p.me) p.me={cash:0,hold:{},hist:[]};if(!p.eq) p.eq={pub:false,shares:IPO_SHARES,own:IPO_SHARES,price:0,phist:[],payout:0};if(!p.mkt) p.mkt={sent:interp(SENT,yearOf(p.m)),idx:100,hist:[]};
+  if(p.rivals){const have=p.rivals.map(r=>r.id);initRivals().forEach(r=>{if(!have.includes(r.id)){const d=byId(RIVAL_DEFS,r.id);if(d.start<=p.m) r.silent=true;p.rivals.push(r);}});
+    p.rivals.forEach(rv=>{if(rv.owner===undefined) rv.owner=null;if(!rv.fin) rv.fin=[];if(rv.active&&!rv.shares){const models=rv.models;rivalStart(rv,p.m,false);rv.models=models;const Y=yearOf(p.m);let rev=0,vc=0,u=0;models.forEach(rm=>{const n=rm.sales||0;u+=n;rev+=n*rm.price;vc+=n*rivalVarCost(rm,rv,Y);});for(let i=12;i>=1;i--){const pre=rev*.82-vc-rivalFixed(rv,Y);rv.fin.push({m:p.m-i,rev,net:pre-Math.max(0,pre)*taxRate(Y),units:u});}}});}
+if(p.races&&!p.races.mine){p.races.mine=(p.races.results||[]).filter(r=>r.n).map(r=>Object.assign({},r));}if(!p.yearNames){(p.models||[]).forEach(x=>{if(x.parent&&/ (II|III|IV|V|VI|VII|VIII)$/.test(x.name)){const nn=x.name.replace(/ (II|III|IV|V|VI|VII|VIII)$/,'')+" '"+String(Math.floor(yearOf(x.launchM!=null?x.launchM:p.m))).slice(2);if(!(p.models||[]).some(o=>o.name===nn)) x.name=nn;}});(p.projects||[]).forEach(q=>{if(q.replaces&&/ (II|III|IV|V|VI|VII|VIII)$/.test(q.name)){q.name=q.name.replace(/ (II|III|IV|V|VI|VII|VIII)$/,'')+" '"+String(Math.floor(yearOf(p.m+q.monthsLeft))).slice(2);}});p.yearNames=true;}(p.models||[]).forEach(x=>{if(x.fame==null) x.fame=Math.min(35,(x.life&&x.life.sold||0)/6);});if(p.races&&p.races.entries){Object.keys(p.races.entries).forEach(k=>{if(k.split('-').length<3){const fee=(p.races.fees||{})[k]||0;p.company.cash+=fee;delete p.races.entries[k];}});}if(p.company&&p.company.emLoan==null) p.company.emLoan=0;if(p.rd&&!p.rd.staff){p.rd.staff={engine:0,light:0,rel:0,coach:0};const L=(p.staff&&p.staff.rd)||0;if(L&&p.rd.focus) p.rd.staff[p.rd.focus]=L;}if(p.staff) delete p.staff.rd;if(p.staff&&p.staff.eng==null) p.staff.eng=0;if(!p.rd) p.rd={staff:{engine:0,light:0,rel:0,coach:0},pts:{engine:0,light:0,rel:0,coach:0}};if(!p.races) p.races={entries:{},results:[]};if(p.rivals){const have=p.rivals.map(r=>r.id);const fresh=initRivals();fresh.forEach(r=>{if(!have.includes(r.id)) p.rivals.push(r);});}Object.keys(p.dealers||{}).forEach(r=>{const d=p.dealers[r];if(d.graceUntil==null&&d.n>0){const hadStock=(p.models||[]).some(x=>(x.hist||[]).length&&p.lastSales&&p.lastSales[x.id]&&p.lastSales[x.id][r]&&p.lastSales[x.id][r].sold>0);if(!hadStock){d.graceUntil=p.m+1;if(d.last&&d.last.parts){d.last.parts.stock=0;d.last.parts.volume=0;d.last.note='These dealers are new to your line. They will give you a couple of months for the first cars to arrive before judging stock and sales.';}}}});if(!p.staff) p.staff={books:0,factory:0,sales:0,market:0};if(p.branches&&!p.dealers){p.dealers={};Object.keys(p.branches).forEach(r=>{const n=Math.max(1,Math.round(p.branches[r].cov*dealerSlots(r,yearOf(p.m))));p.dealers[r]={n,target:n,margin:.2,sat:60,office:'none',officeLeft:0,last:null};});delete p.branches;}Object.values(p.factories||{}).forEach(f=>Object.values(f.prod||{}).forEach(pr=>{pr.target=Math.min(pr.target,pr.lines*capPerLine(yearOf(p.m)));}));if(!p.regRep||!p.repV2){p.regRep=p.regRep||{};REGIONS.forEach(r=>{const has=p.dealers&&p.dealers[r.id]&&p.dealers[r.id].n>0;p.regRep[r.id]=has?Math.max(p.regRep[r.id]||0,p.company.rep):2;});p.repV2=true;}(p.models||[]).forEach(x=>{const L=x.life;if(L.design==null){L.dealer=0;L.cogs=0;L.storage=0;(x.hist||[]).forEach(h=>{L.dealer+=h.dealer||0;L.cogs+=h.cogs||0;L.storage+=h.storage||0;});L.design=designCost(x.car,x.dy);L.profit-=L.design;}});return p;}
 function load(){try{const s=localStorage.getItem(SAVE_KEY);if(s){const p=JSON.parse(s);if(p&&p.v===1){state=migrate(p);return true;}}}catch(e){}return false;}
 
 /* ================= simulation ================= */
@@ -859,22 +1341,24 @@ function simMonth(){
   });
   // rivals
   updateRivals(m,true);
+  govMonthStart(m);
 
   // production
   state.factories.forEach(f=>{
     f.last={built:0,fixed:0,ovhUnit:0,byModel:{}};
     if(f.building) return;
     const fixed=factoryFixed(f.lines,Y,meth(f));f.last.fixed=fixed;C.cash-=fixed;
-    let used=0;
+    govFactoryMonth(f,m,Y,P);
+    let used=govLines(f);
     const plan=[];
     Object.keys(f.prod).forEach(mid=>{
       const mdl=byId(state.models,mid);const pr=f.prod[mid];
       if(!mdl||mdl.status!=='active'){delete f.prod[mid];return;}
       const lines=Math.min(pr.lines,Math.max(0,f.lines-used));used+=lines;
-      const cap=prodCap(f,mid,lines,Y);const n=Math.max(0,Math.min(Math.floor(pr.target||0),cap));
+      const cap=prodCap(f,mid,lines,Y);const n=civHalt(m)?0:Math.max(0,Math.min(Math.floor(pr.target||0),cap));
       plan.push({mdl,n});f.last.built+=n;
     });
-    if(f.last.built===0){P.idle+=fixed;return;}
+    if(f.last.built===0){if(govLines(f)===0) P.idle+=fixed;return;}
     const ovh=fixed/f.last.built;f.last.ovhUnit=ovh;
     plan.forEach(({mdl,n})=>{
       if(n<=0) return;
@@ -908,7 +1392,7 @@ function simMonth(){
       if(!ss[s]) return;
       const cands=[];
       ours.forEach(x=>{if(x.seg===s&&dcov>0&&(x.saleFrom==null||m>=x.saleFrom)&&state.stock[x.id]&&state.stock[x.id][r.id]) cands.push({k:'o',x,price:x.price,rep:effRep(r.id,Y),cov:dcov,bonus:dbonus+((x.fame||0)-25)*.012});});
-      rivalModels.forEach(o=>{if(o.rm.seg===s&&o.rv.cov[r.id]>0) cands.push({k:'r',x:o.rm,price:o.rm.price,rep:o.rv.rep,cov:o.rv.cov[r.id]});});
+      rivalModels.forEach(o=>{if(o.rm.seg===s&&o.rv.cov[r.id]>0) cands.push({k:'r',x:o.rm,price:o.rm.price,rep:o.rv.rep,cov:o.rv.cov[r.id],bonus:importBonus(byId(RIVAL_DEFS,o.rv.id),Y)});});
       CLS_IDS.forEach(c=>{
         const N=base*rw[r.id]*ss[s]*cs[c]*noise;
         mk.segs[s].potential+=N;mk.regions[r.id].potential+=N;
@@ -995,10 +1479,11 @@ function simMonth(){
   });
   STAFF_IDS.forEach(k=>{const pay=staffPay(k,lv(k),Y);C.cash-=pay;P.staff+=pay;});
   {const rp=rdPayroll(Y);C.cash-=rp;P.staff+=rp;}
-  if(state.rd) RD_IDS.forEach(f=>{const L=rdLv(f);if(!L) return;const before=rdTier(f);state.rd.pts[f]=Math.min(RD_STEPS[5],state.rd.pts[f]+RD_RATE[L]);const after=rdTier(f);if(after>before) addNews('Research breakthrough: '+RD[f].name+' reaches level '+after+' ('+RD[f].per+' per level). New designs get it from now on.','good');});
+  if(state.rd) RD_IDS.forEach(f=>{const L=rdLv(f);if(!L) return;const before=rdTier(f);state.rd.pts[f]=Math.min(RD_STEPS[RD_MAX],state.rd.pts[f]+RD_RATE[L]);const after=rdTier(f);if(after>before) addNews('Research breakthrough: '+RD[f].name+' reaches level '+after+' ('+RD[f].per+' per level). New designs get it from now on.','good');});
+  rivalsFinance(P,m,Y);rivalsCorporate(m,Y);antitrustMonth(P,m,Y);
   // interest
   if(C.loan>0||C.emLoan>0){P.interest=C.loan*LOAN_RATE/12+(C.emLoan||0)*EMER_RATE/12;C.cash-=P.interest;}
-  P.pretax=P.rev-P.dealer-P.cogs-P.storage-P.scrap-P.idle-P.branch-P.design-P.staff-P.racing-P.interest;state.fin.racePending=0;
+  P.pretax=P.rev-P.dealer-P.cogs-P.storage-P.scrap-P.idle-P.branch-P.design-P.staff-P.racing-P.interest-(P.fines||0)+(P.subs||0)+(P.gov||0);state.fin.racePending=0;
   state.fin.qtd+=P.pretax;
   if(m%3===2){P.tax=Math.max(0,state.fin.qtd)*taxRate(Y);C.cash-=P.tax;if(P.tax>0) addNews('Quarterly tax paid: '+money(P.tax)+'.','info');state.fin.qtd=0;}
   P.net=P.pretax-P.tax;
@@ -1015,7 +1500,7 @@ function simMonth(){
   {const rwN=regWeights(Y);C.rep=REGIONS.reduce((a,r)=>a+rwN[r.id]*regRep(r.id),0);}
   // solvency
   if(C.cash<0){const room=Math.max(0,maxLoan(Y)-debt());const need=-C.cash;const take=Math.min(room,need);
-    if(take>0){C.emLoan=(C.emLoan||0)+take;C.cash+=take;P.borrowed=take;
+    if(take>0){(state.flags||(state.flags={})).borrowed=true;C.emLoan=(C.emLoan||0)+take;C.cash+=take;P.borrowed=take;
       Object.keys(state.dealers).forEach(r=>{const d=state.dealers[r];if(d.n>0){d.sat=Math.max(0,d.sat-6);state.regRep[r]=Math.max(0,regRep(r)-2);}});
       addNews('Emergency loan: the bank covered a '+money(take)+' shortfall at '+(EMER_RATE*100)+'% interest. Word got around; dealers are uneasy and your reputation slipped where you sell.','bad');
       state.emerLast={m,amt:take};}}
@@ -1024,6 +1509,7 @@ function simMonth(){
     addNews(state.insolvent>=3?'The company could not pay its bills for three months and is bankrupt.':'The company cannot pay its bills and the bank will lend no more. Dealers are losing faith and will not sign new contracts. Get cash above zero within '+(3-state.insolvent)+' month'+(3-state.insolvent===1?'':'s')+' or the company goes bankrupt.','bad');
     if(state.insolvent>=3) state.over=true;}
   else state.insolvent=0;
+  stocksMonth(P,m,Y);
   P.cash=C.cash;P.loan=C.loan;
   state.fin.hist.push(P);if(state.fin.hist.length>400) state.fin.hist.shift();
 
@@ -1040,6 +1526,8 @@ function simMonth(){
 /* ================= alerts ================= */
 function computeAlerts(){
   const out=[];const Y=yearOf(state.m);const C=state.company;
+  if(state.gov&&state.gov.offer){const o=state.gov.offer;const c=govContracts().find(x=>x.id===o.cid);const x=byId(state.models,o.mid);if(c&&x) out.push({sev:'good',text:c.buyer+' wants your '+esc(x.name)+' for its '+esc(c.name)+': about '+int(o.units)+' a month for '+c.months+' months. Decide before you end the month.',act:'govopen'});}
+  {const w=warWindow(state.m);if(w&&state.factories.some(f=>!f.building&&(f.war||0)<warMaxLines(f,state.m)&&f.lines-Object.values(f.prod).reduce((a,p)=>a+p.lines,0)-govLines(f)>0)) out.push({sev:'info',text:'The government is buying war materiel for '+w.name+'. You have idle lines that could take war work.',act:'factories'});}
   if(state.over) out.push({sev:'bad',text:'The company is bankrupt. Start a new game from the menu.'});
   else if(state.insolvent>0) out.push({sev:'bad',text:'You are out of cash and credit. '+(3-state.insolvent)+' month'+(3-state.insolvent===1?'':'s')+' left before bankruptcy. Cut costs, sell stock or raise prices.',act:'finance'});
   else{const pc=projectCash();if(pc.end<0) out.push({sev:'bad',text:'At last month\'s pace, you will end this month about '+money(-pc.end)+' short. Borrow now at '+(LOAN_RATE*100)+'% or the bank will step in with an emergency loan at '+(EMER_RATE*100)+'%, which also hurts your standing with dealers.',act:'finance'});}
@@ -1054,7 +1542,7 @@ function computeAlerts(){
   });
   state.factories.forEach(f=>{
     if(f.building) return;
-    const used=Object.values(f.prod).reduce((a,p)=>a+p.lines,0);
+    const used=Object.values(f.prod).reduce((a,p)=>a+p.lines,0)+govLines(f);
     if(used<f.lines) out.push({sev:'info',text:f.name+' has '+(f.lines-used)+' idle line'+(f.lines-used>1?'s':'')+'. Idle lines still cost money each month.',act:'factories'});
     Object.keys(f.prod).forEach(mid=>{const p=f.prod[mid];const x=byId(state.models,mid);if(x&&p.target>prodCap(f,mid,p.lines,Y)) out.push({sev:'info',text:'The '+esc(x.name)+' target at '+f.name+' is above what its lines can build ('+int(prodCap(f,mid,p.lines,Y))+'/mo).',act:'factories'});});
   });
@@ -1094,7 +1582,7 @@ function render(){
   if(!state){renderStart();return;}
   const C=state.company,Y=yearOf(state.m);
   const last=state.fin.hist[state.fin.hist.length-1];
-  const tabs=[['overview','Overview'],['models','Models'],['design','Design'],['factories','Factories'],['regions','Regions'],['market','Market'],['racing','Racing'],['finance','Finance'],['staff','Staff'],['news','News']];
+  const tabs=[['overview','Overview'],['models','Models'],['design','Design'],['factories','Factories'],['regions','Regions'],['market','Market'],['racing','Racing'],['finance','Finance'],['stocks','Stocks'],['staff','Staff'],['news','News']];
   let h='<header class="top"><div class="wrap"><div class="topbar">'+
     '<div class="brand">'+esc(C.name)+'<small>Marque · Stage 1</small></div>'+
     '<div class="date">'+dateLabel(state.m)+'</div><div class="brk"></div>'+
@@ -1109,10 +1597,10 @@ function render(){
       '<button class="btn primary" data-act="end" '+(state.over||state.m>=END_M?'disabled':'')+'>End '+MON3[state.m%12]+' '+Math.floor(Y)+' ›</button>'+
     '</div></div>'+
     '<nav class="tabs" role="tablist">'+tabs.map(t=>'<button role="tab" aria-selected="'+(ui.tab===t[0])+'" data-act="tab" data-tab="'+t[0]+'">'+t[1]+'</button>').join('')+'</nav></div></header>';
-  h+='<main class="wrap">'+(ui.toast?'<div class="toast" role="status"><span class="chip good">Done</span><div><b>'+ui.toast.title+'</b><div class="small">'+ui.toast.text+'</div></div><button class="btn small" data-act="closetoast" aria-label="Dismiss">OK</button></div>':'')+({overview:viewOverview,models:viewModels,design:viewDesign,factories:viewFactories,regions:viewRegions,market:viewMarket,racing:viewRacing,finance:viewFinance,staff:viewStaff,news:viewNews}[ui.tab])()+'</main>';
+  h+='<main class="wrap">'+(ui.achNew&&ui.achNew.length?'<div class="achbar" role="status"><span class="medal"></span><div><b>Achievement unlocked</b><div class="small">'+ui.achNew.map(esc).join(' · ')+'</div></div><button class="btn small" data-act="achclose">OK</button></div>':'')+(ui.toast?'<div class="toast" role="status"><span class="chip good">Done</span><div><b>'+ui.toast.title+'</b><div class="small">'+ui.toast.text+'</div></div><button class="btn small" data-act="closetoast" aria-label="Dismiss">OK</button></div>':'')+({overview:viewOverview,models:viewModels,design:viewDesign,factories:viewFactories,regions:viewRegions,market:viewMarket,racing:viewRacing,finance:viewFinance,stocks:viewStocks,staff:viewStaff,news:viewNews}[ui.tab])()+'</main>';
   h+='<div class="endbar"><button class="btn" data-act="undo" '+(ui.prev?'':'disabled')+'>Undo</button><button class="btn primary" data-act="end" '+(state.over||state.m>=END_M?'disabled':'')+'>End '+MON3[state.m%12]+' '+Math.floor(Y)+' ›</button></div>';
   h+=renderModal();
-  const y=window.scrollY;app.innerHTML=h;{const re=app.querySelector('.regexp-in');if(re){const w=re.closest('.tablewrap');if(w) re.style.setProperty('--regw',w.clientWidth+'px');}}{const hd=app.querySelector("header.top");if(hd&&getComputedStyle(hd).position==="sticky") document.documentElement.style.setProperty("--hdr",hd.offsetHeight+"px");else document.documentElement.style.setProperty("--hdr","0px");}window.scrollTo(0,y);
+  const y=window.scrollY;const _tw=[...app.querySelectorAll('.tablewrap')].map(e=>e.scrollLeft);const _nv=app.querySelector('nav.tabs');const _nx=_nv?_nv.scrollLeft:0;app.innerHTML=h;document.body.classList.toggle('has-dbar',!!app.querySelector('#dbar'));{const tw=app.querySelectorAll('.tablewrap');_tw.forEach((v,k)=>{if(tw[k]&&v) tw[k].scrollLeft=v;});}{const nv=app.querySelector('nav.tabs');if(nv){nv.scrollLeft=_nx;const on=nv.querySelector('[aria-selected="true"]');if(on){const l=on.getBoundingClientRect().left-nv.getBoundingClientRect().left+nv.scrollLeft,r=l+on.offsetWidth;if(l<nv.scrollLeft||r>nv.scrollLeft+nv.clientWidth) nv.scrollLeft=Math.max(0,l-(nv.clientWidth-on.offsetWidth)/2);}}}{const re=app.querySelector('.regexp-in');if(re){const w=re.closest('.tablewrap');if(w) re.style.setProperty('--regw',w.clientWidth+'px');}}{const hd=app.querySelector("header.top");if(hd&&getComputedStyle(hd).position==="sticky") document.documentElement.style.setProperty("--hdr",hd.offsetHeight+"px");else document.documentElement.style.setProperty("--hdr","0px");}window.scrollTo(0,y);
 }
 
 /* ----- overview ----- */
@@ -1127,7 +1615,7 @@ function viewOverview(){
   ];
   if(steps.some(s=>!s[2])) h+='<section class="panel"><div class="panel-head"><h2>Getting started</h2><span class="muted small">Your rivals are already selling. Design and factory work run at the same time, so start both.</span></div><div class="alerts">'+steps.map(s=>'<div class="alert '+(s[2]?'good':'info')+'"><span class="chip '+(s[2]?'good':'info')+'">'+(s[2]?'Done':'To do')+'</span><span>'+s[0]+(s[2]?'':' <button class="btn small" data-act="tab" data-tab="'+s[1]+'">Go</button>')+'</span></div>').join('')+'</div></section>';
   h+='<section class="panel"><div class="panel-head"><h2>Monthly briefing</h2><span class="muted small">'+(last?'Results for '+dateLabel(state.m-1):'No results yet. Set up production, then end the month.')+'</span></div>';
-  h+=al.length?'<div class="alerts">'+al.map(a=>'<div class="alert '+a.sev+'"><span class="chip '+a.sev+'">'+({bad:'Act',warn:'Watch',good:'News',info:'Note'}[a.sev])+'</span><span>'+a.text+(a.sel?' <button class="btn small" data-act="selmodel" data-id="'+a.sel+'">Open</button>':a.act?' <button class="btn small" data-act="tab" data-tab="'+a.act+'">Open</button>':'')+'</span></div>').join('')+'</div>':'<p class="muted">Nothing needs attention.</p>';
+  h+=al.length?'<div class="alerts">'+al.map(a=>'<div class="alert '+a.sev+'"><span class="chip '+a.sev+'">'+({bad:'Act',warn:'Watch',good:'News',info:'Note'}[a.sev])+'</span><span>'+a.text+(a.sel?' <button class="btn small" data-act="selmodel" data-id="'+a.sel+'">Open</button>':a.act==='govopen'?' <button class="btn small primary" data-act="govopen">Decide</button>':a.act?' <button class="btn small" data-act="tab" data-tab="'+a.act+'">Open</button>':'')+'</span></div>').join('')+'</div>':'<p class="muted">Nothing needs attention.</p>';
   h+='</section>';
   const est=estTax();const qm=nextTaxMonth(state.m);
   h+='<div class="kpis">'+
@@ -1264,7 +1752,9 @@ function ratingBar(name,v,mark,markLabel){return '<div class="bar"><span>'+name+
 function defaultDesign(){
   const m=state.m,Y=yearOf(m);
   const seg=SEG_IDS.filter(s=>segOpen(s,Y))[0];
-  const spec={segment:'touring',chassis:latest(CHASSIS,m).id,susp:latest(SUSP,m).id,engine:latest(ENGINES,m,e=>e.type==='gas'&&e.id!=='v8').id,size:'med',gearbox:latest(GEARS,m).id,body:latest(BODIES,m,b=>!b.closed||b.id==='allsteel').id,interior:'std',features:[],quality:55};
+  let spec;
+  if(Y<1930) spec={segment:'touring',chassis:latest(CHASSIS,m).id,susp:latest(SUSP,m).id,engine:latest(ENGINES,m,e=>e.type==='gas'&&e.id!=='v8').id,size:'med',gearbox:latest(GEARS,m).id,body:latest(BODIES,m,b=>!b.closed||b.id==='allsteel').id,interior:'std',features:[],quality:55};
+  else{const sg=segOpen('sedan',Y)?'sedan':seg;spec=rivalSpec2('mid',sg,m);delete spec.rd;spec.quality=55;}
   return {name:'Model '+String.fromCharCode(65+state.models.length+state.projects.length),spec};
 }
 function viewDesign(){
@@ -1289,7 +1779,7 @@ function rdPanel(){
   let h='<div class="panel-head"><h3>Research and development</h3><span class="muted small">R&D wages: <b class="mono">'+money(tot)+'</b> a month</span></div>';
   h+='<p class="small">Staff each research area separately, and work on as many at once as you can pay for. Each level applies to designs you start after reaching it; cars already designed keep what they had.</p>';
   h+='<div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Area</th><th class="tl">Researcher</th><th>Level</th><th class="tl">Progress to next</th><th class="tl">Each level gives</th></tr></thead><tbody>'+RD_IDS.map(k=>{const L=rdLv(k);const t=rdTier(k);const p=state.rd.pts[k];const next=RD_STEPS[t+1];const prev=RD_STEPS[t];const pc=next?Math.round(100*(p-prev)/(next-prev)):100;const eta=next&&L?Math.ceil((next-p)/RD_RATE[L]):null;
-    return '<tr><td class="tl" style="white-space:normal;min-width:180px"><b>'+RD[k].name+'</b><br><span class="small muted">'+RD[k].d+'</span></td><td class="tl"><select class="sel" style="width:auto" data-chg="rdstaff" data-k="'+k+'" aria-label="Researcher for '+RD[k].name+'">'+STAFF_DEF.rd.levels.map((lvl,i)=>'<option value="'+i+'" '+(i===L?'selected':'')+'>'+lvl.t+(lvl.pay?' · '+money(staffPay('rd',i,Y))+'/mo':'')+'</option>').join('')+'</select></td><td class="num"><b>'+t+'</b> / 5</td><td class="tl"><span class="bar" style="grid-template-columns:110px auto;display:inline-grid"><span class="track"><span class="fill" style="width:'+pc+'%"></span></span><span class="small muted">'+(!next?'Maxed':eta?'about '+eta+' mo':'Paused')+'</span></span></td><td class="tl small">'+RD[k].per+'</td></tr>';}).join('')+'</tbody></table></div><p class="hint">An experimental mechanic is slow, a research engineer twice as fast, a laboratory fastest. Rival engineers keep improving too, so standing still means falling behind.</p>';
+    return '<tr><td class="tl" style="white-space:normal;min-width:180px"><b>'+RD[k].name+'</b><br><span class="small muted">'+RD[k].d+'</span></td><td class="tl"><select class="sel" style="width:auto" data-chg="rdstaff" data-k="'+k+'" aria-label="Researcher for '+RD[k].name+'">'+STAFF_DEF.rd.levels.map((lvl,i)=>'<option value="'+i+'" '+(i===L?'selected':'')+'>'+lvl.t+(lvl.pay?' · '+money(staffPay('rd',i,Y))+'/mo':'')+'</option>').join('')+'</select></td><td class="num"><b>'+t+'</b> / '+RD_MAX+'</td><td class="tl"><span class="bar" style="grid-template-columns:110px auto;display:inline-grid"><span class="track"><span class="fill" style="width:'+pc+'%"></span></span><span class="small muted">'+(!next?'Maxed':eta?'about '+eta+' mo':'Paused')+'</span></span></td><td class="tl small">'+RD[k].per+'</td></tr>';}).join('')+'</tbody></table></div><p class="hint">An experimental mechanic is slow, a research engineer twice as fast, a laboratory fastest. Levels past 5 give half as much each. Rival engineers keep improving too, so standing still means falling behind.</p>';
   return h;
 }
 function viewDesigner(){
@@ -1316,6 +1806,7 @@ function viewDesigner(){
    '<div class="row"><button class="btn" data-act="snap" data-slot="A" title="Keep this version to compare against another">Save as A</button><button class="btn" data-act="snap" data-slot="B" title="Keep this version to compare against another">Save as B</button><span class="spacer"></span><button class="btn" data-act="closedesigner">Discard</button><button class="btn primary" data-act="startdesign">Start design project</button></div>'+
    '<p class="hint">'+((ui.snapA||ui.snapB)?(ui.snapA&&ui.snapB?'A and B are side by side below.':'Try a variation and save it to the other slot to see them side by side.'):'Torn between two versions? Save one as A and the other as B.')+' Build quality raises cost per car.</p>'+
    '</section><section class="panel" id="design-preview">'+designPreview()+'</section></div>';
+  h+='<div class="dbar phone-only" id="dbar" data-act="dbarjump">'+designBar()+'</div>';
   h+=compareView();
   return h;
 }
@@ -1344,7 +1835,7 @@ function designPreview(){
   h+='<p class="hint">'+(pv?'Arrows show what your last change did.':'Change a part and arrows show what it did.')+(lv('market')>=1?' The gold mark is the best rival in this segment.':'')+'</p>';
   h+='<p class="muted small">'+esc(SEG[s].desc)+'</p>';
   if(d.replaces){const par=byId(state.models,d.replaces);if(par){const carry=Math.round((par.fame||0)*(par.seg===s?.75:.4));h+='<div class="alert info"><span class="chip info">Successor</span><span>Replaces the <b>'+esc(par.name)+'</b>. Starts with about <b>'+carry+'</b> nameplate reputation ('+fameWord(carry).toLowerCase()+')'+(par.seg!==s?', less than usual since it is a different kind of car':'')+'.</span></div>';}}
-  {const et=engType(d.spec.engine);h+='<p class="small"><b>'+POWER[et].name+':</b> '+POWER[et].note+(et==='gas'&&!d.spec.features.includes('starter')?' Without an electric starter, buyers must crank it by hand, which costs comfort.':'')+'</p>';}
+  {const et=engType(d.spec.engine);h+='<p class="small"><b>'+POWER[et].name+':</b> '+(et==='gas'&&Y>=1912?'The electric starter makes gasoline cars easy to start. Fuel is everywhere.':POWER[et].note)+(et==='gas'&&!d.spec.features.includes('starter')?' Without an electric starter, buyers must crank it by hand, which costs comfort.':'')+'</p>';}
   h+='<dl class="kv"><dt>Power</dt><dd>'+Math.round(car.hp)+' hp</dd><dt>Weight</dt><dd>'+int(car.weight)+' kg</dd><dt>Power to weight</dt><dd>'+car.raw.pw.toFixed(1)+' hp/t (a typical new car: '+eraBaseline(Y).pw.toFixed(0)+')</dd></dl>';
   h+='<h3>What buyers weigh in a '+SEG[s].name.toLowerCase()+'</h3><div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Buyer</th>'+RATING_KEYS.map(k=>'<th>'+RATING_NAMES[k].slice(0,4)+'.</th>').join('')+'<th>Your score</th></tr></thead><tbody>'+CLS_IDS.map(c=>'<tr><td class="tl">'+CLASSES[c].name+'</td>'+RATING_KEYS.map(k=>'<td class="num">'+Math.round(WEIGHTS[s][c][k]*100)+'%</td>').join('')+'<td class="num"><b>'+scoreFor(rt,s,c).toFixed(0)+'</b></td></tr>').join('')+'</tbody></table></div>';
   h+='<h3>Cost per car at '+esc(f.name)+'</h3>'+(lv('factory')>=2?'<dl class="kv"><dt>Materials</dt><dd>'+money(mat)+'</dd><dt>Labor ('+Math.round(car.laborHours*interp(HOURS,Y))+' h at $'+hourlyWage(f.region,Y).toFixed(2)+'/h)</dt><dd>'+money(lab)+'</dd><dt>Overhead (at 80% use)</dt><dd>'+money(ovh)+'</dd><dt><b>Total at factory</b></dt><dd><b>'+money(unit)+'</b></dd></dl>':'<dl class="kv"><dt><b>Total at factory</b></dt><dd><b>'+(lv('factory')>=1?money(unit):rough(unit))+'</b></dd></dl><p>'+hireHint('factory',2).replace('see this','see the materials, labor and overhead split')+'</p>');
@@ -1353,6 +1844,16 @@ function designPreview(){
   h+='<dl class="kv"><dt>Design time</dt><dd>'+dmo+' months'+(dmo<car.months?' <span class="muted">(engineers save '+(car.months-dmo)+')</span>':'')+'</dd><dt>Design cost</dt><dd>'+money(dc)+' ('+money(dc/dmo)+'/mo)</dd><dt>Ready in</dt><dd>'+dateLabel(m+dmo)+'</dd></dl>'+(rdOn.length?'<p class="small"><b>Your research is built in:</b> '+rdOn.map(k=>RD[k].name+' level '+rdt[k]).join(', ')+'.</p>':'');
   h+='<h3>'+(lv('market')>=1?'Top sellers':'Cars')+' in this segment last month</h3>'+(rows.length?'<div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Model</th><th>Price</th>'+(lv('market')>=2?'<th>Score*</th>':'')+'<th>Sold</th></tr></thead><tbody>'+rows.map(r=>'<tr><td class="tl">'+(r.ours?'<b>':'')+esc(r.name)+(r.ours?'</b>':'')+' <span class="muted small">'+esc(r.maker)+'</span></td><td class="num">'+money(r.price)+'</td>'+(lv('market')>=2?'<td class="num">'+r.score.toFixed(0)+'</td>':'')+'<td class="num">'+rivalSold(r)+'</td></tr>').join('')+'</tbody></table></div><p class="hint">*Score for middle-income buyers.</p>':'<p class="muted">No sales data yet for this segment.</p>');
   return h;
+}
+function designBar(){
+  let cur;try{cur=designSnapNow();}catch(e){return '';}
+  const pv=ui.designPrev&&ui.designPrev.seg===cur.seg?ui.designPrev:null;
+  const dl=(v,o,hi,fmt)=>{if(o==null) return '';const x=v-o;if(Math.abs(x)<(fmt?1:.5)) return '';const good=(x>0)===hi;return '<i class="'+(good?'pos':'neg')+'">'+(x>0?'▲':'▼')+(fmt?fmt(Math.abs(x)):Math.round(Math.abs(x)))+'</i>';};
+  const cell=(l,v,d)=>'<div><span>'+l+'</span><b>'+v+'</b>'+d+'</div>';
+  const top=CLS_IDS.map(c=>cell({low:'Working',mid:'Middle',up:'Wealthy'}[c]||CLASSES[c].name,cur.score[c].toFixed(0),dl(cur.score[c],pv&&pv.score[c],true))).join('')+
+    cell('Cost',lv('factory')>=1?money(cur.unit):rough(cur.unit),lv('factory')>=1?dl(cur.unit,pv&&pv.unit,false,v=>'$'+Math.round(v)):'')+cell('Power',Math.round(cur.hp)+'hp',dl(cur.hp,pv&&pv.hp,true));
+  const bot=RATING_KEYS.map(k=>cell(RATING_NAMES[k].slice(0,4),cur.rt[k],dl(cur.rt[k],pv&&pv.rt[k],true))).join('');
+  return '<div class="dbar-row">'+top+'</div><div class="dbar-row sm">'+bot+'</div>';
 }
 function designSnapNow(){
   const d=ui.design,Y=yearOf(state.m),s=d.spec.segment;const car=computeCar(withRd(d.spec),Y);const rt=ratingsAt(car,Y,Y);const f=designFactoryObj();
@@ -1383,36 +1884,48 @@ function viewFactories(){
   state.factories.forEach(f=>{h+=factoryPanel(f);});
   return h;
 }
+function govFactoryBlock(f){
+  const m=state.m,Y=yearOf(m);const w=warWindow(m);let h='';
+  if(!w&&!f.gc) return '';
+  h+='<div class="govbox"><h3>Government work</h3>';
+  if(f.gc) h+='<p class="small"><b>'+esc(f.gc.name)+'</b> contract: '+int(f.gc.units)+' a month on '+f.gc.lines+' line'+(f.gc.lines>1?'s':'')+' at '+money(f.gc.price)+' each, until '+dateLabel(f.gc.until)+'. About '+money((f.gc.price-f.gc.cost)*f.gc.units)+' profit a month.</p>';
+  if(w&&!f.building){const mx=warMaxLines(f,m);const free=f.lines-Object.values(f.prod).reduce((a,p)=>a+p.lines,0)-(f.gc?f.gc.lines:0);const cur=f.war||0;
+    h+='<p class="small">For '+w.name+', the government is buying war materiel: shells, engines, parts. Lines you put on war work are paid cost plus a small fixed fee, about '+money(warLineRev(f,Y)*w.margin)+' profit per line a month.'+(w.ranked&&mx<Math.floor(f.lines*w.share)?' Contracts are going to the best-known companies first, so you are offered less for now.':'')+'</p>'+
+      '<div class="row dstep"><span class="small muted">Lines on war work</span><button class="btn" data-act="warstep" data-f="'+f.id+'" data-d="-1" '+(cur<=0?'disabled':'')+'>−</button><b class="mono">'+cur+'</b><button class="btn" data-act="warstep" data-f="'+f.id+'" data-d="1" '+(cur>=mx||free-cur<=0?'disabled':'')+'>+</button><span class="hint">Up to '+mx+'. '+(free-cur>0?(free-cur)+' free.':'Free up lines by taking cars off them.')+'</span></div>';}
+  return h+'</div>';
+}
 function factoryPanel(f){
   const Y=yearOf(state.m);
   if(f.building) return '<section class="panel"><div class="panel-head"><h2>'+esc(f.name)+'</h2><span class="chip warn">Under construction</span></div><p>'+REG[f.region].name+' · '+f.lines+' lines · ready in '+f.monthsLeft+' month'+(f.monthsLeft>1?'s':'')+' ('+dateLabel(state.m+f.monthsLeft)+'). '+money(f.costLeft)+' still to pay.</p></section>';
   const cap=capPerLine(Y);
   const assigned=Object.keys(f.prod).map(mid=>({mdl:byId(state.models,mid),p:f.prod[mid]})).filter(a=>a.mdl);
-  const used=assigned.reduce((a,x)=>a+x.p.lines,0);
+  const used=assigned.reduce((a,x)=>a+x.p.lines,0)+govLines(f);
   let cells='';assigned.forEach(a=>{for(let i=0;i<a.p.lines;i++) cells+='<span class="line used" style="background:'+mColor(a.mdl)+'" title="'+esc(a.mdl.name)+'"></span>';});
+  for(let i=0;i<govLines(f);i++) cells+='<span class="line used gov" title="Government work"></span>';
   for(let i=used;i<f.lines;i++) cells+='<span class="line" title="Idle line"></span>';
   (f.pending||[]).forEach(p=>{for(let i=0;i<p.lines;i++) cells+='<span class="line pending" title="Being built, ready in '+p.monthsLeft+' months">'+p.monthsLeft+'mo</span>';});
   const pendN=(f.pending||[]).reduce((a,p)=>a+p.lines,0);const pend=pendN?pendN+' more being built':'';
   let h='<section class="panel"><div class="panel-head"><h2>'+esc(f.name)+'</h2><span class="muted small">'+REG[f.region].name+' · '+f.lines+' lines'+(pend?' ('+pend+')':'')+'</span></div>';
   h+='<div class="lines" aria-label="Production lines">'+cells+'</div>';
-  h+='<div class="legend">'+assigned.map(a=>'<span><i style="background:'+mColor(a.mdl)+'"></i>'+esc(a.mdl.name)+' · '+a.p.lines+' line'+(a.p.lines>1?'s':'')+'</span>').join('')+(f.lines-used>0?'<span><i style="background:var(--surface2)"></i>Idle · '+(f.lines-used)+'</span>':'')+(pendN?'<span><i style="border:1.5px dashed var(--brass);background:none"></i>Being built · '+pendN+'</span>':'')+'</div>';
+  h+='<div class="legend">'+assigned.map(a=>'<span><i style="background:'+mColor(a.mdl)+'"></i>'+esc(a.mdl.name)+' · '+a.p.lines+' line'+(a.p.lines>1?'s':'')+'</span>').join('')+(govLines(f)?'<span><i class="govsw"></i>Government work · '+govLines(f)+'</span>':'')+(f.lines-used>0?'<span><i style="background:var(--surface2)"></i>Idle · '+(f.lines-used)+'</span>':'')+(pendN?'<span><i style="border:1.5px dashed var(--brass);background:none"></i>Being built · '+pendN+'</span>':'')+'</div>';
   {const M=meth(f);const nexts=avail(METHODS,state.m).filter(x=>x.cap>M.cap);
    h+='<div class="field"><label>Production method</label><div class="row"><b>'+M.name+'</b><span class="hint">'+M.desc+' Output ×'+M.cap.toFixed(2)+', labor ×'+M.lab.toFixed(2)+'.</span></div>'+
    (f.upgrade?'<p class="small"><span class="chip warn">Upgrading</span> Switching to <b>'+byId(METHODS,f.upgrade.to).name+'</b>, ready in '+f.upgrade.monthsLeft+' mo. '+money(f.upgrade.costLeft)+' still to pay. The factory keeps running meanwhile.</p>':
     nexts.length?'<div class="row">'+nexts.map(x=>'<button class="btn" data-act="upgradeask" data-f="'+f.id+'" data-to="'+x.id+'">Upgrade to '+x.name.toLowerCase()+' · '+money(upgradeCost(f,x,Y))+'</button>').join('')+'</div>':'<p class="hint">This is the most advanced method available in '+Math.floor(Y)+'.</p>')+
    '<p class="hint">Crews also get faster the longer they build the same model: up to 25% more output and 15% less labor after about two years. Moving a model to a new line starts a new crew.</p></div>';}
+  h+=govFactoryBlock(f);
   h+='<dl class="kv"><dt>Fixed cost</dt><dd>'+money(factoryFixed(f.lines,Y,meth(f)))+' / month</dd><dt>Built last month</dt><dd>'+int(f.last?f.last.built:0)+' cars</dd>'+(lv('factory')>=1?'<dt>Overhead per car last month</dt><dd>'+(f.last&&f.last.built?money(f.last.ovhUnit):'—')+'</dd>':'')+'</dl>';
   // production table
   const avail2=activeModels().filter(x=>x.status==='active'&&!f.prod[x.id]);
   h+='<h3>Production</h3>';
-  h+=assigned.length?'<div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Model</th><th>Lines</th><th>Capacity</th><th>Target / mo</th><th title="Built here last month">Built</th><th title="Buyers turned away last month for this model, all regions">Missed</th>'+(lv('factory')>=2?'<th>Materials</th><th>Labor</th><th>Overhead</th>':'')+'<th>Cost / car</th><th></th></tr></thead><tbody>'+assigned.map(a=>{
+  h+=assigned.length?'<div class="tablewrap"><table class="grid prodtbl"><thead><tr><th class="tl">Model</th><th>Lines</th><th>Capacity</th><th>Target / mo</th><th title="Built here last month">Built</th><th title="Buyers turned away last month for this model, all regions">Missed</th>'+(lv('factory')>=2?'<th>Materials</th><th>Labor</th><th>Overhead</th>':'')+'<th>Cost / car</th><th></th></tr></thead><tbody>'+assigned.map(a=>{
       const lb=f.last&&f.last.byModel&&f.last.byModel[a.mdl.id];const e=lb||estimateUnitCost(a.mdl,f,state.m);
-      return '<tr><td class="tl"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:'+mColor(a.mdl)+';margin-right:6px"></i>'+esc(a.mdl.name)+'</td>'+
-      '<td><span class="row" style="justify-content:flex-end;flex-wrap:nowrap"><button class="btn small" data-act="lines" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="-1" aria-label="Remove a line">−</button><span class="mono">'+a.p.lines+'</span><button class="btn small" data-act="lines" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="1" aria-label="Add a line" '+(used>=f.lines?'disabled':'')+'>+</button></span></td>'+
-      '<td class="num">'+int(prodCap(f,a.mdl.id,a.p.lines,Y))+'<br><span class="small muted" title="Crew experience with this model">'+(a.p.exp?Math.round(a.p.exp)+' mo crew':'new crew')+'</span></td>'+
-      '<td><span class="row" style="justify-content:flex-end;flex-wrap:nowrap;gap:4px"><button class="btn small" data-act="tstep" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="-1" aria-label="Build one fewer" '+(a.p.target<=0?'disabled':'')+'>−</button><input class="num sm nospin" type="number" min="0" max="'+(prodCap(f,a.mdl.id,a.p.lines,Y))+'" step="1" value="'+Math.min(a.p.target,prodCap(f,a.mdl.id,a.p.lines,Y))+'" data-chg="target" data-f="'+f.id+'" data-id="'+a.mdl.id+'" aria-label="Target for '+esc(a.mdl.name)+'"><button class="btn small" data-act="tstep" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="1" aria-label="Build one more" '+(a.p.target>=prodCap(f,a.mdl.id,a.p.lines,Y)?'disabled':'')+'>+</button><button class="btn small" data-act="maxtarget" data-f="'+f.id+'" data-id="'+a.mdl.id+'" '+(a.p.target>=prodCap(f,a.mdl.id,a.p.lines,Y)?'disabled':'')+'>Max</button></span></td>'+
-      '<td class="num">'+(lb?int(lb.n):'—')+'</td>'+(()=>{const hh=a.mdl.hist[a.mdl.hist.length-1];if(!hh||hh.m!==state.m-1) return '<td class="num muted">—</td>';const ms=hh.missed||0;return '<td class="num '+(ms>0?(inLaunch(a.mdl,hh.m)?'warn-t':'neg'):'')+'" title="'+(ms>0&&inLaunch(a.mdl,hh.m)?'New model: no penalty yet':'')+'">'+(ms>0?'<b>'+int(ms)+'</b>':'0')+'</td>';})()+(lv('factory')>=2?'<td class="num">'+money(e.mat)+'</td><td class="num">'+money(e.lab)+'</td><td class="num">'+money(e.ovh)+'</td>':'')+'<td class="num"><b>'+(lv('factory')>=1?money(e.mat+e.lab+e.ovh):rough(e.mat+e.lab+e.ovh))+'</b>'+(lb?'':'<br><span class="muted small">estimate</span>')+'</td>'+
-      '<td><button class="btn small danger" data-act="unassign" data-f="'+f.id+'" data-id="'+a.mdl.id+'" title="Take this model off the line" aria-label="Remove '+esc(a.mdl.name)+' from this factory">✕</button></td></tr>';}).join('')+'</tbody></table></div>':'<p class="muted">Nothing assigned. Add a model below.</p>';
+      return '<tr><td class="tl pt-name"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:'+mColor(a.mdl)+';margin-right:6px"></i>'+esc(a.mdl.name)+'</td>'+
+      '<td data-l="Lines"><span class="row" style="justify-content:flex-end;flex-wrap:nowrap"><button class="btn small" data-act="lines" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="-1" aria-label="Remove a line">−</button><span class="mono">'+a.p.lines+'</span><button class="btn small" data-act="lines" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="1" aria-label="Add a line" '+(used>=f.lines?'disabled':'')+'>+</button></span></td>'+
+      '<td class="num" data-l="Capacity">'+int(prodCap(f,a.mdl.id,a.p.lines,Y))+'<br><span class="small muted" title="Crew experience with this model">'+(a.p.exp?Math.round(a.p.exp)+' mo crew':'new crew')+'</span></td>'+
+      '<td class="pt-target" data-l="Target / mo"><span class="row" style="justify-content:flex-end;flex-wrap:nowrap;gap:4px"><button class="btn small" data-act="tstep" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="-1" aria-label="Build one fewer" '+(a.p.target<=0?'disabled':'')+'>−</button><input class="num sm nospin" type="number" min="0" max="'+(prodCap(f,a.mdl.id,a.p.lines,Y))+'" step="1" value="'+Math.min(a.p.target,prodCap(f,a.mdl.id,a.p.lines,Y))+'" data-chg="target" data-f="'+f.id+'" data-id="'+a.mdl.id+'" aria-label="Target for '+esc(a.mdl.name)+'"><button class="btn small" data-act="tstep" data-f="'+f.id+'" data-id="'+a.mdl.id+'" data-d="1" aria-label="Build one more" '+(a.p.target>=prodCap(f,a.mdl.id,a.p.lines,Y)?'disabled':'')+'>+</button><button class="btn small" data-act="maxtarget" data-f="'+f.id+'" data-id="'+a.mdl.id+'" '+(a.p.target>=prodCap(f,a.mdl.id,a.p.lines,Y)?'disabled':'')+'>Max</button></span></td>'+
+      '<td class="num" data-l="Built">'+(lb?int(lb.n):'—')+'</td>'+(()=>{const hh=a.mdl.hist[a.mdl.hist.length-1];if(!hh||hh.m!==state.m-1) return '<td class="num muted" data-l="Missed">—</td>';const ms=hh.missed||0;return '<td data-l="Missed" class="num '+(ms>0?(inLaunch(a.mdl,hh.m)?'warn-t':'neg'):'')+'" title="'+(ms>0&&inLaunch(a.mdl,hh.m)?'New model: no penalty yet':'')+'">'+(ms>0?'<b>'+int(ms)+'</b>':'0')+'</td>';})()+(lv('factory')>=2?'<td class="num" data-l="Materials">'+money(e.mat)+'</td><td class="num" data-l="Labor">'+money(e.lab)+'</td><td class="num" data-l="Overhead">'+money(e.ovh)+'</td>':'')+'<td class="num" data-l="Cost / car"><b>'+(lv('factory')>=1?money(e.mat+e.lab+e.ovh):rough(e.mat+e.lab+e.ovh))+'</b>'+(lb?'':'<br><span class="muted small">estimate</span>')+'</td>'+
+      '<td class="pt-x"><button class="btn small danger" data-act="unassign" data-f="'+f.id+'" data-id="'+a.mdl.id+'" title="Take this model off the line" aria-label="Remove '+esc(a.mdl.name)+' from this factory">✕</button></td></tr>';}).join('')+'</tbody></table></div>':'<p class="muted">Nothing assigned. Add a model below.</p>';
   h+='<div class="row">'+(avail2.length?'<select class="sel" id="assign-'+f.id+'" style="width:auto">'+avail2.map(x=>'<option value="'+x.id+'">'+esc(x.name)+'</option>').join('')+'</select><button class="btn" data-act="assign" data-f="'+f.id+'" '+(used>=f.lines?'disabled':'')+'>Put on a line</button>':'')+
     '<span class="spacer"></span><input class="num sm" type="number" min="1" max="20" value="1" id="addlines-'+f.id+'" aria-label="Lines to add"><button class="btn" data-act="addlines" data-f="'+f.id+'">Add lines ('+money(lineCost(f.region,Y)*(1+meth(f).cost))+' each, 3 mo)</button></div>';
   {const ids=new Set(assigned.map(a=>a.mdl.id));(f.log||[]).forEach(e=>{if(e.m>=state.m-12) Object.keys(e.by).forEach(k=>ids.add(k));});const list=[...ids].map(id=>byId(state.models,id)).filter(Boolean);
@@ -1475,13 +1988,13 @@ function regionPanel(rid){
   const covNow=dealerCov(rid,Y),covAim=Math.min(1,d.target/slots);
   const est=lv('sales')>=2&&d.n>0&&dNow>0&&d.target>d.n?' At '+d.target+' dealers, expect about '+int(dNow*covAim/covNow)+' buyers a month for your cars here, up from '+int(dNow)+'.':'';
   const oddsLine=d.target>d.n&&lv('sales')>=1?'<p class="small" style="margin-top:2px"><b>Signing odds each month: '+odds[0]+'</b></p>':'';
-  h+='<div class="field"><label for="r-target">Dealer network size</label><div class="row"><input id="r-target" class="num sm" type="number" min="0" max="'+slots+'" value="'+d.target+'" data-chg="dtarget" data-r="'+rid+'"><span class="hint">How many dealers you want carrying your cars here. You have <b>'+d.n+'</b> of a possible '+slots+'. '+(d.target>d.n?(firstDealerOpen()?'Your first dealer is eager to take on a new maker: one signs next month with no fee. '+(d.target-d.n>1?'The other '+(d.target-d.n-1)+' cost '+money(signFee(Y))+' each. ':''):'Recruiting '+(d.target-d.n)+' more, '+money(signFee(Y))+' fee each. ')+'Signing is easier with a good local reputation, happy dealers here, a higher margin, or a branch office.':'Raise the number to recruit more; lowering it does not drop dealers you already have.')+est+'</span></div>'+oddsLine+'</div>';
+  h+='<div class="field"><label for="r-target">Dealer network size</label><div class="row dstep"><button class="btn" data-act="dstep" data-r="'+rid+'" data-d="-1" aria-label="One fewer dealer" '+(d.target<=0?'disabled':'')+'>−</button><select id="r-target" class="sel" style="width:auto" data-chg="dtarget" data-r="'+rid+'">'+Array.from({length:slots+1},(_,k)=>'<option value="'+k+'" '+(k===d.target?'selected':'')+'>'+k+(k===d.n?' (now)':'')+'</option>').join('')+'</select><button class="btn" data-act="dstep" data-r="'+rid+'" data-d="1" aria-label="One more dealer" '+(d.target>=slots?'disabled':'')+'>+</button></div><div class="row"><span class="hint">How many dealers you want carrying your cars here. You have <b>'+d.n+'</b> of a possible '+slots+'. '+(d.target>d.n?(firstDealerOpen()?'Your first dealer is eager to take on a new maker: one signs next month with no fee. '+(d.target-d.n>1?'The other '+(d.target-d.n-1)+' cost '+money(signFee(Y))+' each. ':''):'Recruiting '+(d.target-d.n)+' more, '+money(signFee(Y))+' fee each. ')+'Signing is easier with a good local reputation, happy dealers here, a higher margin, or a branch office.':'Raise the number to recruit more; lowering it does not drop dealers you already have.')+est+'</span></div>'+oddsLine+'</div>';
   h+='<div class="field"><label for="r-margin">Dealer margin</label><div class="row"><select id="r-margin" class="sel" style="width:auto" data-chg="dmargin" data-r="'+rid+'">'+[10,12,14,16,18,20,22,24,26,28,30,35].map(v=>'<option value="'+v+'" '+(Math.round(d.margin*100)===v?'selected':'')+'>'+v+'%</option>').join('')+'</select><span class="hint">'+(sample?'On the '+esc(sample.name)+' at '+money(sample.price)+', the dealer keeps '+money(sample.price*d.margin)+' and you get '+money(sample.price*(1-d.margin))+'.':'The share of the sticker price the dealer keeps.')+' Higher margins sign dealers faster, keep them happy, and make them push your cars a little harder.</span></div></div>';
   let off;
   if(d.office==='open') off='<span class="chip good">Open</span> <span class="hint">Costs '+money(officeUpkeep(Y))+' a month.</span> <button class="btn small danger" data-act="closeoffice" data-r="'+rid+'">Close office</button>';
   else if(d.office==='building') off='<span class="chip warn">Opening in '+d.officeLeft+' mo</span>';
   else off='<button class="btn" data-act="buildoffice" data-r="'+rid+'" '+(d.n>0||d.target>0?'':'disabled')+'>Open a branch office · '+money(officeCost(Y))+'</button> <span class="hint">Then '+money(officeUpkeep(Y))+' a month. Takes '+OFFICE_MONTHS+' months to open.</span>';
-  h+='<div class="field"><label>Factory branch office</label><div class="row">'+off+'</div><ul class="hint" style="margin:4px 0 0;padding-left:18px"><li>Room for 50% more dealers ('+baseSlots(rid,Y)+' → '+Math.round(baseSlots(rid,Y)*OFFICE.slots)+')</li><li>Local advertising: more buyers notice your cars here</li><li>Regional warehouse: storage costs half as much here</li><li>+'+OFFICE.sat+' dealer satisfaction and faster signing</li></ul></div>';
+  const offH='<div class="field officebox"><label>Factory branch office</label><div class="row">'+off+'</div><ul class="hint" style="margin:4px 0 0;padding-left:18px"><li>Room for 50% more dealers ('+baseSlots(rid,Y)+' → '+Math.round(baseSlots(rid,Y)*OFFICE.slots)+')</li><li>Local advertising: more buyers notice your cars here</li><li>Regional warehouse: storage costs half as much here</li><li>+'+OFFICE.sat+' dealer satisfaction and faster signing</li></ul></div>';
   h+='</div>';
   // satisfaction
   const L=d.last;
@@ -1497,7 +2010,7 @@ function regionPanel(rid){
     h+='<p class="hint">'+(L.note?L.note+' ':'')+'Satisfaction moves a quarter of the way toward that number each month. Below 35, dealers start dropping your line. Too many dealers for the sales available lowers sales per dealer.</p>';
     h+='<p class="small">Last month: '+L.signed+' signed, '+L.lost+' lost, '+money(L.fees)+' in fees and office costs.</p>';
   } else h+='<p class="muted">Results appear after the month ends.</p>';
-  h+='</div></div></section>';
+  h+='</div></div>'+offH+'</section>';
   return h;
 }
 function mapSvg(rw){
@@ -1566,7 +2079,7 @@ function viewMarket(){
     h+='<p class="muted small">'+esc(SEG[ui.seg].desc)+(lv('market')>=1?' Shoppers last month: about '+int(mk.segs[ui.seg].potential)+'. Bought: about '+int(mk.segs[ui.seg].sold)+'. The rest found nothing worth the price.':'')+'</p>';
     h+=rows.length?'<div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Model</th><th class="tl">Maker</th><th>Designed</th><th>Price</th>'+(lv('market')>=2?'<th>Score*</th>':'')+'<th>Sold</th>'+(lv('market')>=1?'<th>Share</th>':'')+'</tr></thead><tbody>'+rows.map(r=>'<tr'+(r.ours?' class="sel"':'')+'><td class="tl">'+(r.ours?'<b>':'')+esc(r.name)+(r.ours?'</b>':'')+'</td><td class="tl">'+esc(r.maker)+'</td><td class="num">'+Math.floor(r.dy)+'</td><td class="num">'+money(r.price)+'</td>'+(lv('market')>=2?'<td class="num">'+r.score.toFixed(0)+'</td>':'')+'<td class="num">'+rivalSold(r)+'</td>'+(lv('market')>=1?'<td class="num">'+(r.ours?pct(tot?r.sold/tot:0):'~'+pct(tot?rivalEst(r)/tot:0))+'</td>':'')+'</tr>').join('')+'</tbody></table></div><p class="hint">'+(lv('market')>=2?'*Rating score for middle-income buyers this year. ':'')+(lv('market')>=1?'Rival sales are estimates.':hireHint('market',1).replace('<span class="hint">','').replace('</span>','').replace('see this','learn how rival cars are selling'))+'</p>':'<p class="muted">Nobody sells a '+SEG[ui.seg].name.toLowerCase()+' yet.</p>';
   }
-  h+='</section><section class="panel"><h3>Rivals</h3><div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Company</th><th class="tl">Style</th><th class="tl">Home</th><th>Reputation</th><th>Models</th><th>Sales last mo</th></tr></thead><tbody>'+state.rivals.map(rv=>'<tr><td class="tl"><b>'+esc(rv.name)+'</b>'+(rv.active?'':' <span class="chip">Not yet founded</span>')+'</td><td class="tl">'+({volume:'Volume maker',lux:'Luxury house',mid:'Mid-market',electric:'Electric cars',steam:'Steam cars'}[rv.style])+'</td><td class="tl">'+REG[rv.home].city+'</td><td class="num">'+Math.round(rv.rep)+'</td><td class="num">'+rv.models.length+'</td><td class="num">'+rivalSold({ours:false,id:rv.id,sold:rv.models.reduce((a,m)=>a+(m.sales||0),0)})+'</td></tr>').join('')+'<tr class="sel"><td class="tl"><b>'+esc(state.company.name)+'</b></td><td class="tl">You</td><td class="tl">'+REG[state.company.home].city+'</td><td class="num">'+Math.round(state.company.rep)+'</td><td class="num">'+activeModels().length+'</td><td class="num">'+int(activeSold())+'</td></tr></tbody></table></div></section>';
+  h+='</section><section class="panel"><h3>Rivals</h3><div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Company</th><th class="tl">Style</th><th class="tl">Home</th><th>Reputation</th><th>Models</th><th>Sales last mo</th></tr></thead><tbody>'+state.rivals.filter(rv=>rv.active).map(rv=>'<tr><td class="tl"><b>'+esc(rv.name)+'</b>'+((byId(RIVAL_DEFS,rv.id)||{}).country?' <span class="chip info">'+byId(RIVAL_DEFS,rv.id).country+'</span>':'')+(rv.owner==='player'?' <span class="chip good">Yours</span>':rv.owner?' <span class="chip">Owned by '+esc((rvById(rootOwner(rv))||{}).name||'')+'</span>':'')+'</td><td class="tl">'+({volume:'Volume maker',lux:'Luxury house',mid:'Mid-market',electric:'Electric cars',steam:'Steam cars',import:'Importer'}[rv.style])+'</td><td class="tl">'+REG[rv.home].city+'</td><td class="num">'+Math.round(rv.rep)+'</td><td class="num">'+rv.models.length+'</td><td class="num">'+rivalSold({ours:false,id:rv.id,sold:rv.models.reduce((a,m)=>a+(m.sales||0),0)})+'</td></tr>').join('')+'<tr class="sel"><td class="tl"><b>'+esc(state.company.name)+'</b></td><td class="tl">You</td><td class="tl">'+REG[state.company.home].city+'</td><td class="num">'+Math.round(state.company.rep)+'</td><td class="num">'+activeModels().length+'</td><td class="num">'+int(activeSold())+'</td></tr></tbody></table></div></section>';
   return h;
 }
 
@@ -1585,8 +2098,55 @@ function viewFinance(){
     const rl=[['Revenue',p=>p.rev-p.dealer],['Costs',p=>(p.rev-p.dealer-p.net)],['Profit',p=>p.net],['Cash change',p=>p.cashStart!=null?p.cash-p.cashStart:NaN],['Cash at month end',p=>p.cash]];
     return h+'<section class="panel"><div class="panel-head"><h2>Rough books</h2><span class="muted small">Last '+H.length+' months, newest on the left</span></div><div class="tablewrap"><table class="grid"><thead><tr><th class="tl"></th>'+H.slice().reverse().map(p=>'<th>'+dateShort(p.m)+'</th>').join('')+'</tr></thead><tbody>'+rl.map(l=>'<tr><td class="tl"><b>'+l[0]+'</b></td>'+H.slice().reverse().map(p=>'<td class="num">'+(l[0]==='Cash at month end'?money(l[1](p)):rough(l[1](p)))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p>'+hireHint('books',1).replace('see this','get exact figures and a full breakdown of where the money goes')+'</p>'+CASHNOTE+'</section>';
   }
-  const lines=[['Revenue at sticker price','rev',1],['Dealer margins','dealer',-1],['Cost of cars sold','cogs',-1],['Storage','storage',-1],['Scrapped stock (loss)','scrap',-1],['Idle factories','idle',-1],['Dealer signing and offices','branch',-1],['Design projects','design',-1],['Staff wages','staff',-1],['Racing entry fees','racing',-1],['Interest','interest',-1],['Pre-tax profit','pretax',0],['Tax','tax',-1],['Net profit','net',0],['Factories: land, building, starting parts (cash)','capex',-1],['Cash change','cchg',0],['Cash at month end','cash',0]];H.forEach(p=>{p.cchg=p.cashStart!=null?p.cash-p.cashStart:0;});
-  h+='<section class="panel"><div class="panel-head"><h2>Income statement</h2><span class="muted small">Last '+H.length+' months, newest on the left</span></div><div class="tablewrap"><table class="grid"><thead><tr><th class="tl"></th>'+H.slice().reverse().map(p=>'<th>'+dateShort(p.m)+'</th>').join('')+'</tr></thead><tbody>'+lines.map(l=>'<tr><td class="tl">'+(l[2]===0?'<b>'+l[0]+'</b>':l[0])+'</td>'+H.slice().reverse().map(p=>{const v=p[l[1]]*(l[2]===-1?-1:1);return '<td class="num '+(l[2]===0&&v<0?'neg':'')+'">'+(l[2]===0?'<b>':'')+(Math.abs(v)<.5?'—':money(v))+(l[2]===0?'</b>':'')+'</td>';}).join('')+'</tr>').join('')+'</tbody></table></div><p class="hint">Cars are costed when they sell, so building ahead shows up as stock, not as a loss. Factory construction is an investment and does not reduce profit.</p>'+CASHNOTE+'</section>';
+  const lines=[['Revenue at sticker price','rev',1],['Dealer margins','dealer',-1],['Cost of cars sold','cogs',-1],['Storage','storage',-1],['Scrapped stock (loss)','scrap',-1],['Idle factories','idle',-1],['Dealer signing and offices','branch',-1],['Design projects','design',-1],['Staff wages','staff',-1],['Racing entry fees','racing',-1],['Interest','interest',-1],['Government work (profit)','gov',1],['Subsidiaries (profit or loss)','subs',1],['Antitrust fines','fines',-1],['Pre-tax profit','pretax',0],['Tax','tax',-1],['Net profit','net',0],['Factories: land, building, starting parts (cash)','capex',-1],['Dividends paid (cash)','div',-1],['Cash change','cchg',0],['Cash at month end','cash',0]];H.forEach(p=>{p.cchg=p.cashStart!=null?p.cash-p.cashStart:0;});
+  h+='<section class="panel"><div class="panel-head"><h2>Income statement</h2><span class="muted small">Last '+H.length+' months, newest on the left</span></div><div class="tablewrap"><table class="grid"><thead><tr><th class="tl"></th>'+H.slice().reverse().map(p=>'<th>'+dateShort(p.m)+'</th>').join('')+'</tr></thead><tbody>'+lines.map(l=>'<tr><td class="tl">'+(l[2]===0?'<b>'+l[0]+'</b>':l[0])+'</td>'+H.slice().reverse().map(p=>{const v=(p[l[1]]||0)*(l[2]===-1?-1:1);return '<td class="num '+(l[2]===0&&v<0?'neg':'')+'">'+(l[2]===0?'<b>':'')+(Math.abs(v)<.5?'—':money(v))+(l[2]===0?'</b>':'')+'</td>';}).join('')+'</tr>').join('')+'</tbody></table></div><p class="hint">Cars are costed when they sell, so building ahead shows up as stock, not as a loss. Factory construction is an investment and does not reduce profit.</p>'+CASHNOTE+'</section>';
+  return h;
+}
+
+
+/* ----- stocks ----- */
+function bigSpark(vals,w,h){return spark(vals,w||260,h||46);}
+function pctCh(a,b){if(!b) return '';const x=(a/b-1)*100;return '<span class="'+(x>=0?'pos':'neg')+'">'+(x>=0?'▲':'▼')+Math.abs(x).toFixed(1)+'%</span>';}
+function viewStocks(){
+  const Y=yearOf(state.m);const q=state.eq,me=state.me,C=state.company;const nw=netWorth();const px=sharePrice();
+  let h='<div class="grid2">';
+  // net worth
+  h+='<section class="panel"><div class="panel-head"><h2>Your fortune</h2><span class="muted small">Your score</span></div>'+
+    '<div class="kpis" style="grid-template-columns:repeat(2,1fr)"><div class="kpi"><label>Net worth</label><b>'+money(nw.total)+'</b><span>'+(me.hist.length>12?pctCh(nw.total,me.hist[me.hist.length-13])+' in a year':'')+'</span></div><div class="kpi"><label>Personal cash</label><b>'+money(me.cash)+'</b><span>Yours, not the company\'s</span></div></div>'+
+    '<dl class="kv"><dt>Your stake in '+esc(C.name)+'</dt><dd>'+pct(q.own/q.shares)+' · '+money(nw.own)+'</dd><dt>Shares in other companies</dt><dd>'+money(nw.hold)+'</dd></dl>'+
+    (me.hist.length>1?bigSpark(me.hist.slice(-60),300,50):'')+
+    '<p class="hint">Money reaches you personally through dividends from your company, dividends from shares you own, or selling shares. Company cash is not yours to spend.</p></section>';
+  // own company
+  h+='<section class="panel"><div class="panel-head"><h2>'+esc(C.name)+'</h2><span class="chip '+(q.pub?'good':'')+'">'+(q.pub?'Listed on the exchange':'Private')+'</span></div>';
+  const e12=playerE12();
+  h+='<dl class="kv"><dt>'+(q.pub?'Share price':'Estimated value per share')+'</dt><dd><b>'+money(px)+'</b> '+(q.phist.length>1?pctCh(px,q.phist[q.phist.length-2]):'')+'</dd><dt>'+(q.pub?'Market value':'Estimated company value')+'</dt><dd>'+money(px*q.shares)+'</dd><dt>Shares</dt><dd>'+int(q.shares)+' ('+int(q.own)+' yours)</dd><dt>Profit, last 12 months</dt><dd>'+money(e12)+'</dd>'+(q.pub&&e12>0?'<dt>Price to earnings</dt><dd>'+(px*q.shares/e12).toFixed(1)+'</dd>':'')+'</dl>';
+  if(q.phist.length>1) h+=bigSpark(q.phist.slice(-36));
+  h+='<div class="field" style="margin-top:10px"><label for="eq-pay">Dividend: share of each quarter\'s profit paid to shareholders</label><select id="eq-pay" class="sel" style="width:auto" data-chg="eqpayout">'+[0,.1,.25,.4,.6].map(v=>'<option value="'+v+'" '+(Math.abs((q.payout||0)-v)<.001?'selected':'')+'>'+(v?Math.round(v*100)+'%':'None')+'</option>').join('')+'</select><span class="hint">'+(q.pub?'You get '+pct(q.own/q.shares)+' of it. Investors like a steady dividend.':'You own all of it, so it all comes to you.')+(q.lastDps?' Last dividend: $'+q.lastDps.toFixed(2)+' a share.':'')+'</span></div>';
+  if(!q.pub){const req=ipoReady();const ok=req.every(r=>r.ok);
+    h+='<h3>Go public</h3><p class="small">Sell part of the company on the stock exchange. New shares raise money for the company; selling your own shares puts money in your pocket.</p><ul class="checklist">'+req.map(r=>'<li class="'+(r.ok?'pos':'muted')+'">'+(r.ok?'✓':'○')+' '+r.t+'</li>').join('')+'</ul><div class="row"><button class="btn primary" data-act="ipoask" '+(ok?'':'disabled')+'>Plan an IPO</button></div>';}
+  else{
+    h+='<h3>Company actions</h3><div class="row"><button class="btn" data-act="eqask" data-k="issue">Issue new shares</button><button class="btn" data-act="eqask" data-k="buyback">Buy back shares</button><button class="btn" data-act="eqask" data-k="split">Split the stock</button></div>'+
+      '<h3>Your shares</h3><div class="row"><button class="btn" data-act="eqask" data-k="sellme" '+(q.own>0?'':'disabled')+'>Sell some of yours</button><button class="btn" data-act="eqask" data-k="buyme" '+(me.cash>px&&q.own<q.shares?'':'disabled')+'>Buy more</button></div>'+
+      (q.own/q.shares<.5?'<p class="small neg">You own less than half the company. Investors now outvote you on paper.</p>':'');}
+  h+='</section></div>';
+  {const Y=yearOf(state.m);const a=state.anti||{stage:0};const sh=unitsShare12();
+   h+='<section class="panel"><div class="panel-head"><h3>Washington</h3><span class="chip '+(a.stage?'bad':'')+'">'+(a.stage===2?'Lawsuit':a.stage===1?'Under investigation':'No case open')+'</span></div><dl class="kv"><dt>Your share of all new cars sold, last 12 months (with companies you own)</dt><dd>'+pct(sh)+'</dd><dt>Government attitude to big business</dt><dd>'+antiMood(Y)+'</dd></dl><p class="hint">Grow too big and the government steps in: first an investigation, then a court can force you to sell companies you own or pay fines. How big is too big depends on the times: trust-busting peaked in the 1910s and eased in the 1920s.</p></section>';}
+  // exchange
+  const isF=rv=>(byId(RIVAL_DEFS,rv.id)||{}).foreign;
+  const pubs=state.rivals.filter(rv=>rv.active&&!rv.owner&&rv.pub&&!isF(rv));
+  const privs=state.rivals.filter(rv=>rv.active&&!rv.owner&&!rv.pub&&!isF(rv));
+  const subs=state.rivals.filter(rv=>rv.active&&rv.owner==='player');
+  const mk=state.mkt;
+  h+='<section class="panel"><div class="panel-head"><h2>The exchange</h2><span class="muted small">Motor stocks '+(mk.hist.length>1?pctCh(mk.hist[mk.hist.length-1],mk.hist[mk.hist.length-2])+' this month':'')+(mk.hist.length>12?' · '+pctCh(mk.hist[mk.hist.length-1],mk.hist[mk.hist.length-13])+' this year':'')+'</span></div>';
+  const row=rv=>{const h1=rv.phist||[];const hold=me.hold[rv.id];const f=rv.fin.slice(-12);const e=f.reduce((a,x)=>a+x.net,0)*12/Math.max(1,f.length);
+    return '<tr><td class="tl x-name"><b>'+esc(rv.name)+'</b></td><td class="num" data-l="Price">'+money(rv.price)+'</td><td class="num" data-l="Month">'+(h1.length>1?pctCh(rv.price,h1[h1.length-2]):'—')+'</td><td class="num" data-l="Value">'+money(rv.price*rv.shares)+'</td><td class="num" data-l="P/E">'+(e>0?(rv.price*rv.shares/e).toFixed(1):'<span class="neg">loss</span>')+'</td><td class="num" data-l="You own">'+(hold?int(hold.n)+' <span class="muted small">'+money(hold.n*rv.price)+'</span>':'—')+'</td><td class="tl x-act"><span class="row" style="flex-wrap:nowrap;gap:4px"><button class="btn small" data-act="trade" data-id="'+rv.id+'" data-side="buy">Buy</button>'+(hold?'<button class="btn small" data-act="trade" data-id="'+rv.id+'" data-side="sell">Sell</button>':'')+'<button class="btn small" data-act="toask" data-id="'+rv.id+'">Take over</button></span></td></tr>';};
+  h+=pubs.length?'<div class="tablewrap"><table class="grid xtbl"><thead><tr><th class="tl">Company</th><th>Price</th><th>Month</th><th>Market value</th><th>P/E</th><th>You own</th><th class="tl"></th></tr></thead><tbody>'+pubs.sort((a,b)=>b.price*b.shares-a.price*a.shares).map(row).join('')+'</tbody></table></div>':'<p class="muted">No carmakers are listed yet.</p>';
+  h+='<p class="hint">Buying and selling uses your personal cash. A takeover uses company cash and pays a premium over the market price. Companies bought this way keep building cars under their own name, and their profits flow to you.</p>';
+  if(privs.length) h+='<h3>Private carmakers</h3><p class="small">Not listed, but your company can buy them outright.</p><div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Company</th><th>Estimated value</th><th>Sales last 12 mo</th><th class="tl"></th></tr></thead><tbody>'+privs.map(rv=>'<tr><td class="tl"><b>'+esc(rv.name)+'</b></td><td class="num">'+money(rv.fv||0)+'</td><td class="num">'+int(rv.fin.slice(-12).reduce((a,x)=>a+x.units,0))+' cars</td><td class="tl"><button class="btn small" data-act="toask" data-id="'+rv.id+'">Buy the company</button></td></tr>').join('')+'</tbody></table></div>';
+  h+='</section>';
+  if(subs.length) h+='<section class="panel"><h2>Your subsidiaries</h2><p class="small">Run by their own managers. Their profit or loss goes into your company\'s books each month.</p><div class="tablewrap"><table class="grid"><thead><tr><th class="tl">Company</th><th>Cars sold last mo</th><th>Profit last mo</th><th>Last 12 mo</th><th>Value</th><th></th></tr></thead><tbody>'+subs.map(rv=>{const f=rv.fin[rv.fin.length-1]||{units:0,net:0};const y=rv.fin.slice(-12).reduce((a,x)=>a+x.net,0);return '<tr><td class="tl"><b>'+esc(rv.name)+'</b></td><td class="num">'+int(f.units)+'</td><td class="num '+(f.net<0?'neg':'')+'">'+money(f.net)+'</td><td class="num '+(y<0?'neg':'')+'">'+money(y)+'</td><td class="num">'+money(rv.fv||0)+'</td><td><button class="btn small" data-act="mergesub" data-id="'+rv.id+'" title="Fold it into your company: its cars leave the market, you take its dealers and factory">Absorb</button></td></tr>';}).join('')+'</tbody></table></div></section>';
+  const gone=state.rivals.filter(rv=>rv.absorbed||rv.bankrupt||rv.closed||(rv.owner&&rv.owner!=='player'&&rv.active));
+  if(gone.length) h+='<section class="panel"><h3>Mergers and failures</h3><div class="tablewrap"><table class="grid"><tbody>'+gone.map(rv=>'<tr><td class="tl">'+esc(rv.name)+'</td><td class="tl muted">'+(rv.absorbed?'Merged into your company '+dateShort(rv.goneM):rv.bankrupt?'Bankrupt '+dateShort(rv.goneM):rv.closed?'Shut down '+dateShort(rv.goneM):'Part of '+esc((rvById(rootOwner(rv))||{}).name||''))+'</td></tr>').join('')+'</tbody></table></div></section>';
   return h;
 }
 
@@ -1597,7 +2157,7 @@ function viewNews(){
 
 /* ----- start + modals ----- */
 function renderStart(){
-  app.innerHTML='<main class="wrap" style="max-width:620px;padding-top:48px"><section class="panel" style="gap:16px"><div class="eyebrow">January 1900 · Stage 1 prototype</div><div class="titlecard">Marque</div><p>Start with '+money(START_CAPITAL)+' and an idea. Design your first car, build a factory, and take on carmakers that are already selling. The game runs from 1900 to 1930.</p>'+
+  app.innerHTML='<main class="wrap" style="max-width:620px;padding-top:48px"><section class="panel" style="gap:16px"><div class="eyebrow">January 1900 · Stage 1 prototype</div><div class="titlecard">Marque</div><p>Start with '+money(START_CAPITAL)+' and an idea. Design your first car, build a factory, and take on carmakers that are already selling. The game runs from 1900 to 1970.</p>'+
    '<div class="field"><label for="ng-name">Company name</label><input id="ng-name" class="txt" value="Keystone Motor Car Co." maxlength="40"></div>'+
    '<div class="field"><label for="ng-home">Headquarters</label><select id="ng-home" class="sel">'+REGIONS.map(r=>'<option value="'+r.id+'" '+(r.id==='gl'?'selected':'')+'>'+r.name+' ('+r.city+') · wages '+r.wage.toFixed(2)+'×, income '+r.inc.toFixed(2)+'×</option>').join('')+'</select></div>'+
    '<p class="hint">Where your office is. You can build factories and sign dealers anywhere. Rich, dense regions buy more cars; low-wage regions build them for less.</p>'+
@@ -1608,14 +2168,14 @@ function renderStart(){
 function renderModal(){
   const md=ui.modal;if(!md) return '';
   let body='';
-  if(md.type==='menu'){body='<h2>Game</h2><p class="muted">Your game saves in this browser after every month. To move it to another device, export it and import it there.</p><div class="row"><button class="btn" data-act="exportopen">Export save</button><button class="btn" data-act="importopen">Import save</button><button class="btn danger" data-act="newconfirm">New game</button></div>';}
+  if(md.type==='menu'){body='<h2>Game</h2><p class="muted">Your game saves in this browser after every month. To move it to another device, export it and import it there.</p><div class="row"><button class="btn" data-act="exportopen">Export save</button><button class="btn" data-act="importopen">Import save</button><button class="btn danger" data-act="newconfirm">New game</button></div><div class="row" style="margin-top:8px"><button class="btn primary" data-act="achopen">Achievements · '+Object.keys(state.ach||{}).length+' of '+ACH.length+'</button></div>';}
   else if(md.type==='export'){body='<h2>Export save</h2><p class="muted">Copy this text and keep it somewhere safe.</p><textarea id="exp-text" readonly>'+esc(JSON.stringify(state))+'</textarea><div class="row">'+(window.claude?'':'<button class="btn primary" data-act="saveexport">Save as a file</button>')+'<button class="btn'+(window.claude?' primary':'')+'" data-act="copyexport">Copy text</button><span class="muted small" id="copy-msg"></span></div>'+(window.claude?'<p class="hint">To move this game to the phone app, copy the text, send it to yourself (email or a note), then paste it into Import save in the app.</p>':'<p class="hint">On a phone, "Save as a file" lets you send it to yourself or save it to Files or Drive, then load it on the other device.</p>')+'';}
   else if(md.type==='import'){body='<h2>Import save</h2><p class="muted">Paste an exported save. This replaces the current game.</p><div class="row"><label class="btn primary" style="cursor:pointer">Load a save file<input type="file" accept=".json,application/json,text/plain" data-chg="impfile" style="display:none"></label></div><p class="muted small" style="margin-top:10px">Or paste the save text:</p><textarea id="imp-text"></textarea><p class="small neg" id="imp-err"></p><div class="row"><button class="btn" data-act="doimport">Import pasted text</button></div>';}
   else if(md.type==='newconfirm'){body='<h2>Start a new game?</h2><p>This deletes the current company. Export it first if you want to keep it.</p><div class="row"><button class="btn danger" data-act="donew">Delete and start over</button></div>';}
   else if(md.type==='build'){const Y=yearOf(state.m);const r=md.region||state.company.home;const n=md.lines||4;const av=avail(METHODS,state.m);const mt=byId(METHODS,md.method)||av[av.length-1];const cost=(8000*costIdx(Y)*gF(Y)*.3+n*lineCost(r,Y)*(1+mt.cost));const months=6+Math.ceil(n/2);const first=!state.factories.length;const land=first?0:landCost(r,n,Y),stk=first?0:startupStock(n,mt,Y);
     body='<h2>Build a new factory</h2><div class="fields"><div class="field"><label for="bf-r">Region</label><select id="bf-r" class="sel" data-inp="bfr">'+REGIONS.map(x=>'<option value="'+x.id+'" '+(x.id===r?'selected':'')+'>'+x.name+' ('+x.city+')</option>').join('')+'</select></div><div class="field"><label for="bf-n">Lines</label><input id="bf-n" class="num" type="number" min="1" max="40" value="'+n+'" data-inp="bfn"></div><div class="field" style="grid-column:1/-1"><label for="bf-m">Production method</label><select id="bf-m" class="sel" data-inp="bfm">'+av.map(x=>'<option value="'+x.id+'" '+(x.id===mt.id?'selected':'')+'>'+x.name+'</option>').join('')+'</select><span class="hint">'+mt.desc+' Output per line ×'+mt.cap.toFixed(2)+', labor per car ×'+mt.lab.toFixed(2)+'.</span></div></div>'+
     '<dl class="kv">'+(first?'<dt>Land</dt><dd>Included <span class="muted small">(your founding site)</span></dd>':'<dt>Land</dt><dd>'+money(land)+' <span class="muted small">paid now</span></dd>')+'<dt>Buildings and machinery</dt><dd>'+money(cost)+' <span class="muted small">over '+months+' months ('+money(cost/months)+'/mo)</span></dd>'+(first?'':'<dt>Starting parts and materials</dt><dd>'+money(stk)+' <span class="muted small">paid when it opens</span></dd>')+'<dt><b>Total</b></dt><dd><b>'+money(land+cost+stk)+'</b></dd><dt>Ready</dt><dd>'+dateLabel(state.m+months)+'</dd><dt>Labor rate there</dt><dd>$'+hourlyWage(r,Y).toFixed(2)+'/h</dd><dt>Output per line</dt><dd>'+int(capPerLine(Y)*mt.cap)+' cars/mo to start</dd><dt>Fixed cost when running</dt><dd>'+money(factoryFixed(n,Y,mt))+'/mo</dd></dl><p class="hint">Land costs more in big cities and grows with the market. Starting parts are not a loss: the factory uses them up in its first weeks, so its first cars need less cash. Building near buyers cuts transport. Building where wages are low cuts labor. Remember to sign dealers if the region has none.</p>'+(()=>{const tot=land+cost+stk,cash=state.company.cash;if(cash>=tot) return '<div class="row"><button class="btn primary" data-act="dobuild">Start construction</button></div>';const room=Math.max(0,maxLoan(Y)-debt());return '<div class="alert warn"><span class="chip warn">Short</span><span>You have <b>'+money(cash)+'</b> and this factory costs <b>'+money(tot)+'</b>, <b>'+money(tot-cash)+'</b> more than you have. Choose fewer lines, a cheaper region or method'+(room>=tot-cash?', or borrow on the Finance tab ('+money(room)+' of credit left)':'')+'.</span></div><div class="row"><button class="btn primary" disabled title="Not enough cash to cover the full cost">Start construction</button></div>';})();}
-  else if(md.type==='end'){body='<div class="eyebrow">December 1930</div><h2>Stage 1 complete</h2><p>'+esc(state.company.name)+' finished with '+money(state.company.cash-debt())+' in net cash and '+int(state.models.reduce((a,x)=>a+x.life.sold,0))+' cars sold in total.</p><p class="muted">Later stages add pricing research, the full design studio, more regions and eras, and stocks and mergers.</p>';}
+  else if(md.type==='end'){body='<div class="eyebrow">December 1970</div><h2>The end of an era</h2><p>'+esc(state.company.name)+' finished with '+money(state.company.cash-debt())+' in net cash, a personal fortune of '+money(netWorth().total)+', and '+int(state.models.reduce((a,x)=>a+x.life.sold,0))+' cars sold in total.</p><p class="muted">Imports from Europe and Japan are about to change everything. That chapter comes in a later update.</p>';}
   else if(md.type==='scrap'){const x=byId(state.models,md.id);const sc=scrapCalc(md.id,md.r);body='<h2>Scrap '+int(sc.u)+' car'+(sc.u===1?'':'s')+'?</h2><p class="muted">'+esc(x.name)+'</p><p>'+(md.r==='all'?'Every unsold '+esc(x.name)+' in every region':'All unsold cars in '+REG[md.r].name)+' will be sold for parts.</p><dl class="kv"><dt>What these cars cost you</dt><dd>'+money(sc.cost)+'</dd><dt>Parts value you get back</dt><dd>'+money(sc.salvage)+'</dd><dt><b>Loss on the '+esc(x.name)+'</b></dt><dd><b class="neg">−'+money(sc.loss)+'</b></dd></dl><p class="hint">The loss comes off the model\'s lifetime profit now and shows on this month\'s income statement.</p><div class="row"><button class="btn danger" data-act="scrapdo">Scrap them</button></div>';}
   else if(md.type==='cashwarn'){const C=state.company,Y=yearOf(state.m);const pc=md.pc;const room=Math.max(0,maxLoan(Y)-debt());const need=Math.ceil((-pc.end+Math.max(0,-pc.op)*2+300*costIdx(Y))/500)*500;const can=Math.min(room,need);
     body='<div class="eyebrow">Before you end '+MONTHS[state.m%12]+'</div><h2>You are likely to run out of cash</h2><p>At last month\'s pace, the company ends this month about <b class="neg">'+money(-pc.end)+' short</b>.</p><dl class="kv"><dt>Cash now</dt><dd>'+money(C.cash)+'</dd><dt>Normal month (last month\'s pace)</dt><dd>'+(pc.op<0?'−':'')+money(Math.abs(pc.op))+'</dd>'+(pc.o.capex?'<dt>Construction payments</dt><dd>−'+money(pc.o.capex)+'</dd>':'')+(pc.o.design?'<dt>Design projects</dt><dd>−'+money(pc.o.design)+'</dd>':'')+(pc.o.tax?'<dt>Quarterly tax (estimate)</dt><dd>−'+money(pc.o.tax)+'</dd>':'')+'<dt><b>Expected at month end</b></dt><dd><b class="neg">'+money(pc.end)+'</b></dd></dl>'+
@@ -1625,6 +2185,57 @@ function renderModal(){
   else if(md.type==='bankrupt'){body='<div class="eyebrow">'+dateLabel(state.m-1)+'</div><h2>'+esc(state.company.name)+' is bankrupt</h2><p>The company ran out of cash and credit for three months. The factories and remaining stock go to the creditors.</p><dl class="kv"><dt>Years in business</dt><dd>'+(state.m/12).toFixed(1)+'</dd><dt>Cars sold</dt><dd>'+int(state.models.reduce((a,x)=>a+x.life.sold,0))+'</dd><dt>Models designed</dt><dd>'+state.models.length+'</dd><dt>Debt left unpaid</dt><dd>'+money(debt())+'</dd></dl><div class="row"><button class="btn" data-act="undo" '+(ui.prev?'':'disabled')+'>Undo last month</button><button class="btn danger" data-act="donew">Start a new company</button></div>';}
   else if(md.type==='upgrade'){const f=byId(state.factories,md.f);const to=byId(METHODS,md.to);const Y=yearOf(state.m);const M=meth(f);const c=upgradeCost(f,to,Y);
     body='<h2>Upgrade '+esc(f.name)+'</h2><p>'+to.desc+'</p><dl class="kv"><dt>Cost</dt><dd>'+money(c)+' over '+UPGRADE_MONTHS+' months ('+money(c/UPGRADE_MONTHS)+'/mo)</dd><dt>Output per line</dt><dd>×'+M.cap.toFixed(2)+' → ×'+to.cap.toFixed(2)+'</dd><dt>Labor per car</dt><dd>×'+M.lab.toFixed(2)+' → ×'+to.lab.toFixed(2)+'</dd><dt>Fixed cost</dt><dd>'+money(factoryFixed(f.lines,Y,M))+' → '+money(factoryFixed(f.lines,Y,to))+'/mo</dd></dl><p class="hint">The factory keeps building during the work. When it finishes, crews lose half their experience while they learn the new method.</p><div class="row"><button class="btn primary" data-act="upgradedo">Start upgrade</button></div>';}
+  else if(md.type==='ipo'){const q=state.eq;const p0=playerFV()/q.shares*.9;const pc=md.pct||.25,mix=md.mix||'new';const S=q.shares;
+    let n=0,k=0;if(mix==='new') n=Math.round(S*pc/(1-pc));else if(mix==='mine') k=Math.round(S*pc);else{n=Math.round(pc*S/(2-pc));k=n;}
+    const toCo=n*p0*.94,toMe=k*p0*.94;const ownAfter=(q.own-k)/(S+n);
+    body='<h2>Plan your IPO</h2><p>Bankers will list '+esc(state.company.name)+' on the exchange at about <b>'+money(p0)+'</b> a share, a little under its estimated value so the first buyers get a bargain. They keep 6%.</p>'+
+      '<div class="fields"><div class="field"><label>How much of the company to sell</label><select class="sel" data-chg="mdset" data-k="pct">'+[.1,.15,.2,.25,.3,.4,.49].map(v=>'<option value="'+v+'" '+(Math.abs(v-pc)<.001?'selected':'')+'>'+Math.round(v*100)+'%</option>').join('')+'</select></div>'+
+      '<div class="field"><label>Where the money goes</label><select class="sel" data-chg="mdset" data-k="mix"><option value="new" '+(mix==='new'?'selected':'')+'>All to the company (new shares)</option><option value="half" '+(mix==='half'?'selected':'')+'>Split between the company and you</option><option value="mine" '+(mix==='mine'?'selected':'')+'>All to you (sell your shares)</option></select></div></div>'+
+      '<dl class="kv"><dt>Company receives</dt><dd>'+money(toCo)+'</dd><dt>You receive</dt><dd>'+money(toMe)+'</dd><dt>You will own</dt><dd>'+pct(ownAfter)+'</dd></dl><p class="hint">Once listed, the share price moves every month with your profits and the mood of the market. You can issue more shares, buy some back, pay dividends and split the stock later.</p><div class="row"><button class="btn primary" data-act="ipodo">Go public</button></div>';}
+  else if(md.type==='eq'){const q=state.eq;const px=q.price;const k=md.k;const f=md.f;
+    const opts={issue:[.05,.1,.15,.2],buyback:[.01,.02,.05,.1],sellme:[.01,.02,.05,.1,.2],buyme:[.01,.02,.05,.1]}[k];
+    let info='',can=true,title='';
+    if(k==='split'){title='Split the stock';const kk=md.f||2;info='<p>Each share becomes '+kk+'. The price drops to about <b>'+money(px/kk)+'</b>, but the company is worth the same. A lower price makes the stock easier for ordinary investors to buy, which markets usually like a little.</p><div class="field"><label>Split</label><select class="sel" data-chg="mdset" data-k="f">'+[2,3,4,5,10].map(v=>'<option value="'+v+'" '+(v===kk?'selected':'')+'>'+v+'-for-1</option>').join('')+'</select></div>';}
+    else{const fr=f||opts[0];const n=Math.round(q.shares*fr);
+      if(k==='issue'){title='Issue new shares';const got=n*px*.95*.97;info='<p>Sell '+int(n)+' new shares at about '+money(px*.95)+'. The company receives about <b>'+money(got)+'</b>. Your stake shrinks from '+pct(q.own/q.shares)+' to '+pct(q.own/(q.shares+n))+'.</p>';}
+      if(k==='buyback'){title='Buy back shares';const cost=n*px*1.02;can=state.company.cash>=cost&&q.shares-n>q.own;info='<p>The company buys '+int(n)+' shares at about '+money(px*1.02)+', costing <b>'+money(cost)+'</b> of company cash. Your stake grows to '+pct(q.own/(q.shares-n))+'.</p>'+(can?'':'<p class="neg small">Not enough company cash'+(q.shares-n<=q.own?', or you already own nearly all of it':'')+'.</p>');}
+      if(k==='sellme'){title='Sell your shares';const nn=Math.min(n,q.own);can=nn>0;info='<p>Sell '+int(nn)+' of your shares at about '+money(px*.98)+'. You receive <b>'+money(nn*px*.98)+'</b>. Your stake drops to '+pct((q.own-nn)/q.shares)+'. Selling a big block pushes the price down.</p>';}
+      if(k==='buyme'){title='Buy more shares';const nn=Math.min(n,q.shares-q.own);const cost=nn*px*1.02;can=state.me.cash>=cost&&nn>0;info='<p>Buy '+int(nn)+' shares with your own money at about '+money(px*1.02)+', costing <b>'+money(cost)+'</b>. Your stake grows to '+pct((q.own+nn)/q.shares)+'.</p>'+(can?'':'<p class="neg small">Not enough personal cash.</p>');}
+      info='<div class="field"><label>How much</label><select class="sel" data-chg="mdset" data-k="f">'+opts.map(v=>'<option value="'+v+'" '+(Math.abs(v-fr)<.0001?'selected':'')+'>'+Math.round(v*100)+'% of the company</option>').join('')+'</select></div>'+info;}
+    body='<h2>'+title+'</h2><p class="muted small">Share price '+money(px)+' · '+int(q.shares)+' shares</p>'+info+'<div class="row"><button class="btn primary" data-act="eqdo" '+(can?'':'disabled')+'>Confirm</button></div>';}
+  else if(md.type==='trade'){const rv=rvById(md.id);const me=state.me;const hold=me.hold[rv.id]||{n:0};const buy=md.side==='buy';const fr=md.f||(buy?.25:.5);
+    let n,cost,can=true,note='';
+    if(buy){const cap=Math.floor(rv.shares*.49)-hold.n;n=Math.max(0,Math.min(Math.floor(me.cash*fr/(rv.price*1.01)),cap));cost=n*rv.price*1.01;can=n>0;if(cap<=0) note='You already own 49% of '+esc(rv.name)+'. To own more, take it over with your company.';}
+    else{n=Math.floor(hold.n*fr);cost=n*rv.price*.99;can=n>0;}
+    body='<h2>'+(buy?'Buy':'Sell')+' '+esc(rv.name)+' shares</h2><p class="muted small">'+money(rv.price)+' a share · you own '+int(hold.n)+' · your cash '+money(me.cash)+'</p>'+
+      '<div class="field"><label>'+(buy?'How much of your cash to use':'How much of your holding to sell')+'</label><select class="sel" data-chg="mdset" data-k="f">'+(buy?[.1,.25,.5,1]:[.25,.5,1]).map(v=>'<option value="'+v+'" '+(Math.abs(v-fr)<.001?'selected':'')+'>'+Math.round(v*100)+'%</option>').join('')+'</select></div>'+
+      '<p>'+(buy?'Buy':'Sell')+' <b>'+int(n)+'</b> shares for about <b>'+money(cost)+'</b> (1% broker fee included).</p>'+(note?'<p class="small neg">'+note+'</p>':'')+
+      '<div class="row"><button class="btn primary" data-act="tradedo" '+(can?'':'disabled')+'>'+(buy?'Buy':'Sell')+'</button></div>';}
+  else if(md.type==='to'){const rv=rvById(md.id);const cost=takeoverPrice(rv);const hold=state.me.hold[rv.id];const C=state.company;const can=C.cash>=cost;const f=rv.fin.slice(-12);const e=f.reduce((a,x)=>a+x.net,0);const u=f.reduce((a,x)=>a+x.units,0);
+    body='<h2>Buy '+esc(rv.name)+'</h2><p>Your company offers its owners about 35% over what the company is worth today.</p><dl class="kv"><dt>Price</dt><dd><b>'+money(cost)+'</b></dd><dt>Cars sold, last 12 months</dt><dd>'+int(u)+'</dd><dt>Profit, last 12 months</dt><dd class="'+(e<0?'neg':'')+'">'+money(e)+'</dd><dt>Its cash (comes with it)</dt><dd class="'+(rv.cash<0?'neg':'')+'">'+money(rv.cash)+'</dd>'+(hold?'<dt>Paid to you for your '+int(hold.n)+' shares</dt><dd>'+money(hold.n*cost/rv.shares)+'</dd>':'')+'</dl>'+
+      (()=>{const Y=yearOf(state.m);const after=unitsShare12(rv);const lim=antiLimit(Y);const block=after>lim&&Y>=1914;md.block=block;
+        const f6=rv.fin.slice(-6);const u=f6.reduce((a,x)=>a+x.units,0)/Math.max(1,f6.length);const mt=avail(METHODS,state.m).slice(-1)[0];const lines=clamp(Math.ceil(u/Math.max(1,capPerLine(Y)*mt.cap)),1,30);
+        const dl=REGIONS.reduce((a,r)=>a+Math.round((rv.cov[r.id]||0)*dealerSlots(r.id,Y)*.8),0);
+        return '<h3>What to do with it</h3><div class="tochoice"><div><b>Keep it as its own brand</b><p class="small">It keeps its name, models, dealers and managers and keeps competing for buyers. Its profit or loss is added to your books every month.</p></div>'+
+        '<div><b>Absorb it into '+esc(state.company.name)+'</b><p class="small">Its cars disappear from the market, so its buyers look at yours and everyone else\'s. You take over up to '+int(dl)+' of its dealers and its factory in '+REG[rv.home].city+' ('+lines+' idle line'+(lines>1?'s':'')+' for your own models). Merging the two costs about '+money(cost*.05)+' more.</p></div></div>'+
+        '<p class="small">After this deal you would sell about <b>'+pct(after)+'</b> of all new cars in America. '+(block?'<span class="neg">The government will not approve it. Since the Clayton Act of 1914, a deal this big is blocked.</span>':after>lim?'<span class="neg">That is large enough to draw a federal antitrust investigation.</span>':'')+'</p>';})()+
+      (can?'':'<p class="neg small">Your company has '+money(C.cash)+'. Borrow on the Finance tab or raise money by issuing shares.</p>')+
+      '<div class="row"><button class="btn primary" data-act="todo" data-how="keep" '+(can&&!md.block?'':'disabled')+'>Buy and keep the brand</button><button class="btn" data-act="todo" data-how="absorb" '+(can&&!md.block&&C.cash>=cost*1.05?'':'disabled')+'>Buy and absorb</button></div>';}
+  else if(md.type==='gov'){const o=state.gov&&state.gov.offer;const c=o&&govContracts().find(x=>x.id===o.cid);const x=o&&byId(state.models,o.mid);
+    if(!c||!x){body='<h2>No offer</h2><p>This offer has passed.</p>';}
+    else{const Y=yearOf(state.m);const facs=state.factories.filter(f=>!f.building);if(!md.f||!byId(facs,md.f)) md.f=(facs[0]||{}).id;const f=byId(state.factories,md.f);
+      const free=f?f.lines-Object.values(f.prod).reduce((a,p)=>a+p.lines,0)-govLines(f):0;const perLine=f?Math.max(1,Math.round(capPerLine(Y)*meth(f).cap)):1;const need=Math.ceil(o.units/perLine);
+      if(md.l==null||md.l>Math.min(need,free)) md.l=Math.min(need,free);const units=Math.min(o.units,md.l*perLine);
+      const est=f?estimateUnitCost(x,f,state.m):{total:0};const unit=est.mat+est.lab;const price=est.total*1.08;
+      body='<h2>'+esc(c.buyer)+' wants the '+esc(x.name)+'</h2><p>Judged the best '+SEG[c.seg].name.toLowerCase()+' on offer for its '+esc(c.name)+'. The contract runs '+c.months+' months at about '+int(o.units)+' a month. It pays your cost plus 8%, about <b>'+money(price)+'</b> a vehicle.</p>'+
+        '<div class="fields"><div class="field"><label>Build them at</label><select class="sel" data-chg="mdset" data-k="f">'+facs.map(ff=>'<option value="'+ff.id+'" '+(ff.id===md.f?'selected':'')+'>'+esc(ff.name)+'</option>').join('')+'</select></div>'+
+        '<div class="field"><label>Lines to give it</label><select class="sel" data-chg="mdset" data-k="l">'+Array.from({length:Math.max(0,Math.min(need,free))+1},(_,i)=>'<option value="'+i+'" '+(i===md.l?'selected':'')+'>'+i+'</option>').join('')+'</select></div></div>'+
+        '<dl class="kv"><dt>Lines needed for the full order</dt><dd>'+need+' (each builds about '+int(perLine)+' a month)</dd><dt>Free lines at '+esc(f.name)+'</dt><dd>'+free+'</dd><dt>You would build</dt><dd>'+int(units)+' a month</dd><dt>Profit</dt><dd>about '+money((price-unit)*units)+' a month</dd></dl>'+
+        (units<o.units?'<p class="small">'+(units?'The rest of the order':'The order')+' goes to the next-best maker.</p>':'')+
+        '<p class="hint">Contract lines stop building your own cars until the contract ends. Free up lines by taking a model off them, or build new lines.</p>'+
+        '<div class="row"><button class="btn primary" data-act="govdo" '+(md.l>0?'':'disabled')+'>Accept</button><button class="btn" data-act="govno">Decline</button></div>';}}
+  else if(md.type==='ach'){const got=state.ach||{};const life=achLife();const n=Object.keys(got).length;const pts=ACH.filter(a=>got[a.id]!=null).reduce((t,a)=>t+a.pts,0);const tot=ACH.reduce((t,a)=>t+a.pts,0);
+    body='<h2>Achievements</h2><p class="muted small">This game: '+n+' of '+ACH.length+' · '+pts+' of '+tot+' points. Earned in any game on this device: '+Object.keys(life).length+'.</p><div class="achlist">'+ACH.map(a=>{const g=got[a.id]!=null;const l=!!life[a.id];return '<div class="ach '+(g?'got':l?'life':'')+'"><span class="medal"></span><div><b>'+esc(a.name)+'</b> <span class="muted small">'+a.pts+' pts</span><div class="small">'+esc(a.d)+'</div><div class="small muted">'+(g?'Earned '+dateLabel(got[a.id]):l?'Earned in another game':'Not yet')+'</div></div></div>';}).join('')+'</div>';}
   else if(md.type==='msg'){body='<h2>'+esc(md.title)+'</h2><p>'+esc(md.text)+'</p>';}
   return '<div class="modal-back" data-act="closemodal-bg"><div class="modal" role="dialog" aria-modal="true">'+body+'<div class="row" style="justify-content:flex-end"><button class="btn" data-act="closemodal">Close</button></div></div></div>';
 }
@@ -1643,11 +2254,51 @@ function endMonth(force){
   render();
 }
 const A={
+  achopen:()=>{ui.modal={type:'ach'};render();},
+  achclose:()=>{ui.achNew=[];render();},
+  govopen:()=>{ui.modal={type:'gov'};render();},
+  govdo:()=>{const md=ui.modal;const o=state.gov.offer;const c=govContracts().find(x=>x.id===o.cid);const x=byId(state.models,o.mid);const f=byId(state.factories,md.f);const Y=yearOf(state.m);
+    const perLine=Math.max(1,Math.round(capPerLine(Y)*meth(f).cap));const units=Math.min(o.units,md.l*perLine);const est=estimateUnitCost(x,f,state.m);
+    (state.flags||(state.flags={})).gov=true;f.gc={cid:c.id,name:c.name,lines:md.l,units,price:est.total*1.08,cost:est.mat+est.lab,until:state.m+c.months,mid:x.id};x.fame=Math.min(100,(x.fame||0)+3);
+    state.gov.offer=null;const left=o.units-units;addNews('You accept '+c.buyer.toLowerCase()+'\'s '+c.name+' contract: '+int(units)+' '+x.name+'s a month at '+f.name+' for '+c.months+' months.','good');
+    if(left>0){const cc=Object.assign({},c);cc.queue=state.gov.q[c.id]||[];govOfferNext(cc,state.m,left);state.gov.q[c.id]=cc.queue;if(state.gov.offer&&state.gov.offer.cid===c.id) state.gov.offer=null;}
+    ui.toast={title:'Contract accepted',text:int(units)+' a month on '+md.l+' line'+(md.l>1?'s':'')+' at '+f.name+', about '+money((est.total*1.08-est.mat-est.lab)*units)+' profit a month.'};ui.modal=null;save();render();},
+  govno:()=>{const o=state.gov.offer;const c=govContracts().find(x=>x.id===o.cid);state.gov.offer=null;const cc=Object.assign({},c);cc.queue=state.gov.q[c.id]||[];govOfferNext(cc,state.m,o.units);state.gov.q[c.id]=cc.queue;if(state.gov.offer&&state.gov.offer.cid===c.id&&state.gov.offer.mid===o.mid) state.gov.offer=null;ui.toast={title:'Contract declined',text:'It goes to the next-best maker.'};ui.modal=null;save();render();},
+  warstep:el=>{const f=byId(state.factories,el.dataset.f);const d=+el.dataset.d;const mx=warMaxLines(f,state.m);const free=f.lines-Object.values(f.prod).reduce((a,p)=>a+p.lines,0)-(f.gc?f.gc.lines:0);f.war=clamp((f.war||0)+d,0,Math.min(mx,free));save();render();},
+
+  ipoask:()=>{ui.modal={type:'ipo',pct:.25,mix:'new'};render();},
+  ipodo:()=>{const md=ui.modal,q=state.eq;const p0=playerFV()/q.shares*.9;const pc=md.pct||.25,mix=md.mix||'new';const S=q.shares;let n=0,k=0;if(mix==='new') n=Math.round(S*pc/(1-pc));else if(mix==='mine') k=Math.round(S*pc);else{n=Math.round(pc*S/(2-pc));k=n;}
+    state.company.cash+=n*p0*.94;state.me.cash+=k*p0*.94;q.shares+=n;q.own-=k;q.pub=true;q.price=+p0.toFixed(2);q.ipoM=state.m;
+    addNews(state.company.name+' goes public at '+money(p0)+' a share. The company raised '+money(n*p0*.94)+(k?' and you received '+money(k*p0*.94):'')+'.','good');
+    ui.toast={title:'You are listed on the exchange',text:'Shares sold at '+money(p0)+'. Company raised '+money(n*p0*.94)+'; you received '+money(k*p0*.94)+'. You own '+pct(q.own/q.shares)+'.'};ui.modal=null;save();render();},
+  eqask:el=>{ui.modal={type:'eq',k:el.dataset.k,f:el.dataset.k==='split'?2:null};render();},
+  eqdo:()=>{const md=ui.modal,q=state.eq;const px=q.price;const k=md.k;let t='';
+    if(k==='split'){const kk=md.f||2;(state.flags||(state.flags={})).split=true;q.shares*=kk;q.own*=kk;q.price=+(px/kk).toFixed(2);q.phist=q.phist.map(v=>+(v/kk).toFixed(2));state.mkt&&(q.price=+(q.price*1.02).toFixed(2));t='Stock split '+kk+'-for-1. New price '+money(q.price)+'; you hold '+int(q.own)+' shares.';}
+    else{const opts={issue:.05,buyback:.01,sellme:.01,buyme:.01};const fr=md.f||opts[k];const n=Math.round(q.shares*fr);
+      if(k==='issue'){const got=n*px*.95*.97;state.company.cash+=got;q.shares+=n;q.price=+(px*.97).toFixed(2);t='Issued '+int(n)+' new shares. The company raised '+money(got)+'.';}
+      if(k==='buyback'){const cost=n*px*1.02;if(state.company.cash<cost) return;state.company.cash-=cost;q.shares-=n;q.price=+(px*1.01).toFixed(2);t='Bought back '+int(n)+' shares for '+money(cost)+'. You now own '+pct(q.own/q.shares)+'.';}
+      if(k==='sellme'){const nn=Math.min(n,q.own);state.me.cash+=nn*px*.98;q.own-=nn;q.price=+(px*(1-fr*.5)).toFixed(2);t='Sold '+int(nn)+' of your shares for '+money(nn*px*.98)+'. You own '+pct(q.own/q.shares)+'.';}
+      if(k==='buyme'){const nn=Math.min(n,q.shares-q.own);const cost=nn*px*1.02;if(state.me.cash<cost) return;state.me.cash-=cost;q.own+=nn;q.price=+(px*(1+fr*.5)).toFixed(2);t='Bought '+int(nn)+' shares for '+money(cost)+'. You own '+pct(q.own/q.shares)+'.';}}
+    addNews(t,'info');ui.toast={title:'Done',text:t};ui.modal=null;save();render();},
+  trade:el=>{ui.modal={type:'trade',id:el.dataset.id,side:el.dataset.side};render();},
+  tradedo:()=>{const md=ui.modal;const rv=rvById(md.id);const me=state.me;const hold=me.hold[rv.id]||{n:0};const buy=md.side==='buy';const fr=md.f||(buy?.25:.5);let t;
+    if(buy){const cap=Math.floor(rv.shares*.49)-hold.n;const n=Math.max(0,Math.min(Math.floor(me.cash*fr/(rv.price*1.01)),cap));if(!n) return;const cost=n*rv.price*1.01;me.cash-=cost;me.hold[rv.id]={n:hold.n+n,cost:(hold.cost||0)+cost,div:hold.div||0};rv.price=+(rv.price*(1+.3*n/rv.shares)).toFixed(2);t='Bought '+int(n)+' shares of '+rv.name+' for '+money(cost)+'.';}
+    else{const n=Math.floor(hold.n*fr);if(!n) return;const got=n*rv.price*.99;me.cash+=got;const left=hold.n-n;if(left>0){hold.cost=(hold.cost||0)*left/hold.n;hold.n=left;}else delete me.hold[rv.id];rv.price=+(rv.price*(1-.3*n/rv.shares)).toFixed(2);t='Sold '+int(n)+' shares of '+rv.name+' for '+money(got)+'.';}
+    ui.toast={title:buy?'Shares bought':'Shares sold',text:t};ui.modal=null;save();render();},
+  toask:el=>{ui.modal={type:'to',id:el.dataset.id};render();},
+  todo:el=>{const rv=rvById(ui.modal.id);const cost=takeoverPrice(rv);const how=el.dataset.how||'keep';const tot=how==='absorb'?cost*1.05:cost;if(state.company.cash<tot) return;state.company.cash-=tot;acquireRival(rv,'player',state.m,'your takeover');
+    if(how==='absorb'){const r=absorbRival(rv,state.m);addNews(state.company.name+' buys '+rv.name+' for '+money(cost)+' and folds it in: '+r.dealersAdded+' dealers join your network and its '+r.city+' factory ('+r.lines+' lines) is now yours.','good');ui.toast={title:rv.name+' is now part of '+state.company.name,text:'Paid '+money(tot)+'. Its cars are off the market. You gained '+r.dealersAdded+' dealers and a '+r.lines+'-line factory in '+r.city+' with idle lines ready for your models.'};}
+    else{addNews(state.company.name+' buys '+rv.name+' for '+money(cost)+'. It keeps its own name and managers.','good');ui.toast={title:'You now own '+rv.name,text:'Paid '+money(cost)+'. Its profits and losses now flow into your books each month. See it under Stocks → Your subsidiaries.'};}
+    ui.modal=null;save();render();},
+  mergesub:el=>{const rv=rvById(el.dataset.id);const c=(rv.fv||0)*.05;if(state.company.cash<c){msg('Not enough cash','Merging costs about '+money(c)+'.');return;}state.company.cash-=c;const r=absorbRival(rv,state.m);addNews(rv.name+' is folded into '+state.company.name+': '+r.dealersAdded+' dealers and a '+r.lines+'-line factory in '+r.city+' join you.','good');ui.toast={title:rv.name+' merged in',text:'Cost '+money(c)+'. Gained '+r.dealersAdded+' dealers and a '+r.lines+'-line factory in '+r.city+'.'};save();render();},
+
+  dbarjump:()=>{const p=document.getElementById('design-preview');if(p) p.scrollIntoView({behavior:'smooth',block:'start'});},
+  dstep:el=>{const r=el.dataset.r;const d=dealerRec(r);d.target=clamp((d.target||0)+(+el.dataset.d),0,dealerSlots(r,yearOf(state.m)));save();render();},
   closetoast:()=>{ui.toast=null;render();},
   tab:el=>{ui.tab=el.dataset.tab;ui.flash=null;ui.toast=null;render();window.scrollTo(0,0);},
   end:()=>endMonth(),
   endforce:()=>{ui.modal=null;endMonth(true);},
-  cashborrow:el=>{const Y=yearOf(state.m);const t=Math.min(+el.dataset.amt||0,Math.max(0,maxLoan(Y)-debt()));state.company.loan+=t;state.company.cash+=t;ui.modal=null;endMonth(true);if(!ui.modal) ui.toast={title:'Borrowed '+money(t)+' at '+(LOAN_RATE*100)+'% and ended the month',text:'Avoided an emergency loan. Watch cash on the Finance tab.'};render();},
+  cashborrow:el=>{(state.flags||(state.flags={})).borrowed=true;const Y=yearOf(state.m);const t=Math.min(+el.dataset.amt||0,Math.max(0,maxLoan(Y)-debt()));state.company.loan+=t;state.company.cash+=t;ui.modal=null;endMonth(true);if(!ui.modal) ui.toast={title:'Borrowed '+money(t)+' at '+(LOAN_RATE*100)+'% and ended the month',text:'Avoided an emergency loan. Watch cash on the Finance tab.'};render();},
   undo:()=>{if(!ui.prev) return;state=JSON.parse(ui.prev);ui.prev=null;save();render();},
   sort:el=>{const k=el.dataset.sort;if(ui.sort===k){const cur=ui.sortDir||(k==='name'?'asc':'desc');ui.sortDir=cur==='asc'?'desc':'asc';}else{ui.sort=k;ui.sortDir=null;}render();},
   selmodel:(el,e)=>{if(e&&e.target.closest('input')) return;ui.sel=el.dataset.id;ui.tab='models';render();window.scrollTo(0,0);},
@@ -1674,11 +2325,11 @@ const A={
   snap:el=>{const k=el.dataset.slot;ui['snap'+k]=JSON.parse(JSON.stringify(ui.design));const o=k==='A'?'B':'A';ui.toast={title:'Saved as '+k,text:ui['snap'+o]?'Compare A and B below.':'Now try a variation and save it as '+o+'.'};render();},
   loadsnap:el=>{const s=ui['snap'+el.dataset.slot];if(s){ui.design=JSON.parse(JSON.stringify(s));render();}},
   clearsnap:()=>{ui.snapA=ui.snapB=null;render();},
-  lines:el=>{const f=byId(state.factories,el.dataset.f);const p=f.prod[el.dataset.id];const used=Object.values(f.prod).reduce((a,x)=>a+x.lines,0);const d=+el.dataset.d;if(d>0&&used>=f.lines) return;p.lines=Math.max(0,p.lines+d);p.target=Math.min(p.target,prodCap(f,el.dataset.id,p.lines,yearOf(state.m)));if(p.lines===0) delete f.prod[el.dataset.id];save();render();},
+  lines:el=>{const f=byId(state.factories,el.dataset.f);const p=f.prod[el.dataset.id];const used=Object.values(f.prod).reduce((a,x)=>a+x.lines,0)+govLines(f);const d=+el.dataset.d;if(d>0&&used>=f.lines) return;p.lines=Math.max(0,p.lines+d);p.target=Math.min(p.target,prodCap(f,el.dataset.id,p.lines,yearOf(state.m)));if(p.lines===0) delete f.prod[el.dataset.id];save();render();},
   tstep:el=>{const f=byId(state.factories,el.dataset.f);const p=f.prod[el.dataset.id];const cap=prodCap(f,el.dataset.id,p.lines,yearOf(state.m));p.target=clamp(p.target+(+el.dataset.d),0,cap);save();render();},
   maxtarget:el=>{const f=byId(state.factories,el.dataset.f);const p=f.prod[el.dataset.id];p.target=prodCap(f,el.dataset.id,p.lines,yearOf(state.m));save();render();},
   unassign:el=>{const f=byId(state.factories,el.dataset.f);delete f.prod[el.dataset.id];save();render();},
-  assign:el=>{const f=byId(state.factories,el.dataset.f);const sel=document.getElementById('assign-'+f.id);if(!sel) return;const used=Object.values(f.prod).reduce((a,x)=>a+x.lines,0);if(used>=f.lines) return;f.prod[sel.value]={lines:1,target:0,exp:0};f.prod[sel.value].target=prodCap(f,sel.value,1,yearOf(state.m));save();render();},
+  assign:el=>{const f=byId(state.factories,el.dataset.f);const sel=document.getElementById('assign-'+f.id);if(!sel) return;const used=Object.values(f.prod).reduce((a,x)=>a+x.lines,0)+govLines(f);if(used>=f.lines) return;f.prod[sel.value]={lines:1,target:0,exp:0};f.prod[sel.value].target=prodCap(f,sel.value,1,yearOf(state.m));save();render();},
   addlines:el=>{const f=byId(state.factories,el.dataset.f);const n=clamp(parseInt(document.getElementById('addlines-'+f.id).value)||1,1,20);const cost=n*lineCost(f.region,yearOf(state.m))*(1+meth(f).cost);f.pending=f.pending||[];f.pending.push({lines:n,monthsLeft:3,costLeft:cost});addNews('Construction started on '+n+' new line'+(n>1?'s':'')+' at '+f.name+' ('+money(cost)+' over 3 months).','info');ui.toast={title:n+' new line'+(n>1?'s':'')+' ordered for '+esc(f.name),text:'Ready in '+dateLabel(state.m+3)+'. Cost '+money(cost)+', paid '+money(cost/3)+' a month over 3 months. You can see '+(n>1?'them':'it')+' as dashed boxes on the line strip until '+(n>1?'they are':'it is')+' built.'};save();render();window.scrollTo(0,0);},
   shipmode:el=>{const f=byId(state.factories,el.dataset.f);const Y=yearOf(state.m);if(el.dataset.mode==='exact'&&f.ship.mode!=='exact'){const ex={};Object.keys(f.prod).forEach(mid=>{const p=f.prod[mid];const n=Math.min(p.target,prodCap(f,mid,p.lines,Y));ex[mid]=shipPlan(f,mid,n,Y)||{};});f.ship.exact=ex;}f.ship.mode=el.dataset.mode;save();render();},
   scrapask:el=>{ui.modal={type:'scrap',id:el.dataset.id,r:el.dataset.r};render();},
@@ -1690,7 +2341,7 @@ const A={
   selregion:el=>{const r=el.dataset.r;ui.region=ui.region===r?null:r;render();if(ui.region){const row=document.querySelector('tr[data-act=selregion][data-r="'+r+'"]');if(row&&el.tagName!=='TR') row.scrollIntoView({block:'start',behavior:'smooth'});}},
   buildoffice:el=>{const Y=yearOf(state.m);const c=officeCost(Y);if(state.company.cash<c){msg('Not enough cash','A branch office here costs '+money(c)+'. Borrow from the Finance tab or wait for more sales.');return;}const d=dealerRec(el.dataset.r);state.company.cash-=c;d.office='building';d.officeLeft=OFFICE_MONTHS;addNews('Work started on a branch office in '+REG[el.dataset.r].city+' ('+money(c)+').','info');ui.toast={title:'Branch office ordered in '+REG[el.dataset.r].city,text:'Paid '+money(c)+'. Opens in '+dateLabel(state.m+OFFICE_MONTHS)+', then costs '+money(officeUpkeep(Y))+' a month.'};save();render();window.scrollTo(0,0);},
   closeoffice:el=>{const d=dealerRec(el.dataset.r);d.office='none';addNews('Branch office in '+REG[el.dataset.r].city+' closed.','warn');save();render();},
-  borrow:()=>{const Y=yearOf(state.m);const v=Math.max(0,Math.round(+document.getElementById('loan-amt').value||0));if(!v){msg('Enter an amount','Type how much you want to borrow, then click Borrow.');return;}const room=maxLoan(Y)-debt();if(room<=0){msg('Credit limit reached','The bank will lend up to '+money(maxLoan(Y))+' this year.');return;}const t=Math.min(v,room);state.company.loan+=t;state.company.cash+=t;ui.toast={title:'Borrowed '+money(t)+' at '+(LOAN_RATE*100)+'%',text:(t<v?'That is all the bank will lend right now. ':'')+'Cash is now '+money(state.company.cash)+'.'};save();render();},
+  borrow:()=>{(state.flags||(state.flags={})).borrowed=true;const Y=yearOf(state.m);const v=Math.max(0,Math.round(+document.getElementById('loan-amt').value||0));if(!v){msg('Enter an amount','Type how much you want to borrow, then click Borrow.');return;}const room=maxLoan(Y)-debt();if(room<=0){msg('Credit limit reached','The bank will lend up to '+money(maxLoan(Y))+' this year.');return;}const t=Math.min(v,room);state.company.loan+=t;state.company.cash+=t;ui.toast={title:'Borrowed '+money(t)+' at '+(LOAN_RATE*100)+'%',text:(t<v?'That is all the bank will lend right now. ':'')+'Cash is now '+money(state.company.cash)+'.'};save();render();},
   repay:()=>{const C=state.company;const v=Math.max(0,Math.round(+document.getElementById('loan-amt').value||0));if(!v){msg('Enter an amount','Type how much you want to repay, then click Repay.');return;}let t=Math.min(v,debt(),Math.max(0,C.cash));if(t<=0){msg('Nothing to repay',debt()>0?'You have no cash to repay with.':'You have no loans.');return;}C.cash-=t;const e=Math.min(t,C.emLoan||0);C.emLoan=(C.emLoan||0)-e;C.loan-=t-e;ui.toast={title:'Repaid '+money(t),text:(e>0?money(e)+' went to the emergency loan first. ':'')+'You now owe '+money(debt())+'.'};save();render();},
   buildfactory:()=>{ui.modal={type:'build',region:state.company.home,lines:4};render();},
   dobuild:()=>{const Y=yearOf(state.m);const md=ui.modal;const r=md.region,n=clamp(md.lines||4,1,40);const mt=byId(METHODS,md.method)||avail(METHODS,state.m).slice(-1)[0];const cost=8000*costIdx(Y)*gF(Y)*.3+n*lineCost(r,Y)*(1+mt.cost);const months=6+Math.ceil(n/2);const cnt=state.factories.filter(f=>f.region===r).length;const first=!state.factories.length;const land=first?0:landCost(r,n,Y),stk=first?0:startupStock(n,mt,Y);
@@ -1702,7 +2353,10 @@ const A={
   menu:()=>{ui.modal={type:'menu'};render();},
   exportopen:()=>{ui.modal={type:'export'};render();},
   saveexport:()=>{try{const txt=JSON.stringify(state);const nm=(state.company.name||'marque').replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'-'+dateShort(state.m).replace(/\s+/g,'-').toLowerCase()+'.json';const file=new File([txt],nm,{type:'application/json'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'Marque save'}).catch(()=>{});return;}
+    const dl=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(file);a.download=nm;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);const c=document.getElementById('copy-msg');if(c) c.textContent='Saved '+nm+' to your downloads.';};
+    const touch=matchMedia('(pointer:coarse)').matches;
+    if(touch&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'Marque save'}).catch(e=>{if(!e||e.name!=='AbortError') dl();});return;}
+    dl();return;
     const a=document.createElement('a');a.href=URL.createObjectURL(file);a.download=nm;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);const c=document.getElementById('copy-msg');if(c) c.textContent='Saved '+nm;}catch(e){const c=document.getElementById('copy-msg');if(c) c.textContent='Could not save a file here. Use Copy text instead.';}},
   importopen:()=>{ui.modal={type:'import'};render();},
   newconfirm:()=>{ui.modal={type:'newconfirm'};render();},
@@ -1714,6 +2368,8 @@ const A={
   'closemodal-bg':(el,e)=>{if(e.target===el){ui.modal=null;render();}}
 };
 const CHG={
+  mdset:el=>{const v=el.value;ui.modal[el.dataset.k]=isNaN(+v)?v:+v;render();},
+  eqpayout:el=>{state.eq.payout=+el.value;save();render();},
   impfile:el=>{const f=el.files&&el.files[0];if(!f) return;const rd=new FileReader();rd.onload=()=>{const t=document.getElementById('imp-text');if(t) t.value=rd.result;A.doimport();};rd.readAsText(f);},
   price:el=>{const x=byId(state.models,el.dataset.id);const v=Math.max(0,Math.round(+el.value||0));if(v===x.price) return;x.price=v;x.priceHist=x.priceHist||[];x.priceHist.push({m:state.m,price:v});save();render();},
   target:el=>{const f=byId(state.factories,el.dataset.f);const p=f.prod[el.dataset.id];const cap=prodCap(f,el.dataset.id,p.lines,yearOf(state.m));const v=Math.max(0,Math.round(+el.value||0));p.target=Math.min(v,cap);save();render();if(v>cap){ui.flashTarget=null;msg('Target set to line capacity','Those lines can build '+int(cap)+' cars a month, so the target is capped at '+int(cap)+'. Add a line to build more.');}},
@@ -1737,7 +2393,7 @@ const INP={
   bfm:el=>{ui.modal.method=el.value;render();},
   bfn:el=>{ui.modal.lines=clamp(parseInt(el.value)||1,1,40);const y=window.scrollY;render();const n=document.getElementById('bf-n');if(n){n.focus();try{n.setSelectionRange(n.value.length,n.value.length);}catch(e){}}window.scrollTo(0,y);}
 };
-function refreshPreview(){const d=ui.design;if(d&&d.autoName&&d.replaces){const par=byId(state.models,d.replaces);if(par){d.name=autoSucName(par,d.spec);const ni=document.getElementById('d-name');if(ni) ni.value=d.name;}}const p=document.getElementById('design-preview');if(p) p.innerHTML=designPreview();}
+function refreshPreview(){const db=document.getElementById('dbar');if(db){db.innerHTML=designBar();db.classList.remove('flash');void db.offsetWidth;db.classList.add('flash');}const d=ui.design;if(d&&d.autoName&&d.replaces){const par=byId(state.models,d.replaces);if(par){d.name=autoSucName(par,d.spec);const ni=document.getElementById('d-name');if(ni) ni.value=d.name;}}const p=document.getElementById('design-preview');if(p) p.innerHTML=designPreview();}
 document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el) return;const fn=A[el.dataset.act];if(fn){if(el.tagName==='TR'&&e.target.closest('input,button:not([data-act="selmodel"])')) return;fn(el,e);}});
 document.addEventListener('change',e=>{const el=e.target.closest('[data-chg]');if(el&&CHG[el.dataset.chg]) CHG[el.dataset.chg](el);});
 document.addEventListener('input',e=>{const el=e.target.closest('[data-inp]');if(el&&INP[el.dataset.inp]) INP[el.dataset.inp](el);});
@@ -1758,7 +2414,7 @@ else start((window.claude&&window.claude.hot&&window.claude.hot.data)||{});
 
 <script>
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
-  navigator.serviceWorker.register('sw.js?v=20260926193706');
+  navigator.serviceWorker.register('sw.js?v=20260927084821');
 }
 </script>
 </body>
